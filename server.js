@@ -1,6 +1,6 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var router = require('./controllers/via_controllers');
+var express = require("express");
+var bodyParser = require("body-parser");
+var router = require("./controllers/via_controllers");
 var db = require("./models");
 
 var app = express();
@@ -22,4 +22,4 @@ db.sequelize.sync({}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-  });
+});

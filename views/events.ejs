@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<div class="container">
+    <div class="container">
         <div class="jumbotron mt-5">
             <h1>Volunteer Opportunities Around You</h1>
             <p class="lead">Check out available Events around you!</p>
@@ -10,37 +10,36 @@
             <div class="col-lg-12">
                 <div class="list-group">
                     <%events.forEach(function(event){%>
-                        <div>
-                            <h3>
-                                <%= event.name %>
-                            </h3>
-                            <h3>
-                                <%= event.location %>
-                            </h3>
-                            <h3>
-                                <%= event.date %>
-                            </h3>
-                            <h3>
-                                <%= event.time %>
-                            </h3>
-                            <h3>
-                                <%= event.organizer %>
-                            </h3>
-                            <h3>
-                                <%= event.volunteers %>
-                            </h3>
-                            <h3>
-                                <%= event.description %>
-                            </h3>
-
-                            <a href="/events/<%=event.id %>">See Details</a>
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= event.name %>
+                                </h5>
+                                <p class="location">
+                                    Location: <%= event.location %>
+                                </p>
+                                <p class="date">
+                                    Date: <%= event.date %>
+                                </p>
+                                <p class="time">
+                                    Time: <%= event.time %>
+                                </p>
+                                <p class="organizer">
+                                    Orazanizer: <%= event.organizer %>
+                                </p>
+                                <p class="volunteers">
+                                    Volunteers Needed: <%= event.volunteers %>
+                                </p>
+                                <p class="details">
+                                    Info: <%= event.description %>
+                                </p>
+                                <a href="/events/<%=event.id %>">See Details</a>
+                            </div>
                         </div>
                         <%})%>
                 </div>
             </div>
         </div>
 
-
-
-        <a href="/index">Home</a>
         <% include ./partials/footer %>

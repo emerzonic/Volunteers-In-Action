@@ -1,17 +1,42 @@
 <% include ./partials/header %>
 
-<h1>This will be the create new event page that will have the form</h1>
+    <h1>This will be the create new event page that will have the form</h1>
+
+    <section class="site-section bg-light">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <form>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputFirstName">Event Name</label>
+                        <input type="FirstName" class="form-control" id="inputFirstName" placeholder="John">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputLastName">Last Name</label>
+                        <input type="LastName" class="form-control" id="inputLastName" placeholder="Smith">
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail">Email</label>
+                      <input type="Email" class="form-control" id="inputEmail" placeholder="example@gmail.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputOrganizer">Organizer</label>
+                      <input type="Company" class="form-control" id="inputCompany" placeholder="Hooli">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputMessage">Description</label>
+                      <textarea type="Message" class="form-control" id="inputCompany" placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
 
 
-<form>
-<input type='text'><br>
-<input type='text'><br>
-<input type='text'><br>
-<input type='text'><br>
-<input type='text'><br>
-<button type="submit" href="/events">Submit</button>
-</form>
+    <a href="/index">Back</a>
 
-<a href="/index">Back</a>
-
-<% include ./partials/footer %>
+    <% include ./partials/footer %>
