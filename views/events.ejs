@@ -1,0 +1,33 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Volunteer Opportunities Around You</h1>
+        <p class="lead">Check out available Events around you!</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="list-group">
+            <%events.forEach(function(event){%>
+            <div>
+            <h3><%= event.name %></h3>
+            <h3><%= event.location %></h3>
+            <h3><%= event.date %></h3>
+            <h3><%= event.time %></h3>
+            <h3><%= event.organizer %></h3>
+            <h3><%= event.volunteers %></h3>
+            <h3><%= event.description %></h3>
+            
+            <a href="/events/<%=event.id %>">See Details</a>
+            </div>
+            <%})%>
+            </div>
+        </div>
+    </div>
+
+
+
+    <a href="/index">Home</a>
+<% include ./partials/footer %>
+
