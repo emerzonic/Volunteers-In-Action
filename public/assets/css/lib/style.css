@@ -4,7 +4,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.8;
-  color: #6c757d;
+  color: #b4b4b4;
 }
 
 a {
@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5 {
 }
 
 header {
+  background-color: rgb(23, 180, 18);
   position: absolute;
   top: 0;
   left: 0;
@@ -35,7 +36,7 @@ header .navbar-brand {
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 400;
-  color: #fff !important;
+  color: rgb(221, 221, 221) !important;
 }
 
 header .navbar-collapse {
