@@ -1,40 +1,25 @@
-//Set up dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
-
-var PORT = process.env.PORT || 8080;
+var router = require('./controllers/via_controllers');
+var db = require("./models");
 
 var app = express();
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+// App PORT setting
+// process.env.PORT lets the port be set by Heroku
+var PORT = process.env.PORT || 8088;
 
-
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static(process.cwd() + '/public'));
-
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(router);
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// index page
-// use res.render to load up an ejs view file
-app.get('/', function(req, res) {
-    res.render('views/index');
-});
+app.use(express.static("public"));
 
-// events page
-app.get('/events', function(req, res) {
-    res.render('views/events');
-});
+app.set("view engine", "ejs");
 
-// create new events page
-app.get('/new', function(req, res) {
-    res.render('views/new');
-})
-
-var routes = require('./controllers/via_controllers.js');
-app.use('/', routes);
-
-app.listen(PORT, function() {
-	console.log("Server listening on: http://localhost:" + PORT);
+// Application server.
+db.sequelize.sync({}).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
