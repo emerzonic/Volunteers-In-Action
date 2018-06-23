@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
   event_name: DataTypes.STRING,
   location: DataTypes.STRING,
   date: DataTypes.STRING,
-  time: DataTypes.STRING,
+  start_time: DataTypes.STRING,
+  end_time: DataTypes.STRING,
   description: DataTypes.STRING,
   organizer: DataTypes.STRING,
   contact: DataTypes.STRING
