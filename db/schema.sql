@@ -5,14 +5,15 @@ CREATE DATABASE via_db;
 USE via_db;
 
 CREATE TABLE events (
-	id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
 	event_name VARCHAR(200) NOT NULL,
 	location VARCHAR(100) NOT NULL,
-   date DATE NOT NULL,
-   time TIME NOT NULL,
-   description varchar(500) NOT NULL,
-   organizer VARCHAR(100) NOT NULL,
-   contact VARCHAR(250) NOT NULL,
+    date DATE NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    description varchar(500) NOT NULL,
+    organizer VARCHAR(100) NOT NULL,
+    contact VARCHAR(250) NOT NULL,
 	PRIMARY KEY(id)
 );
 
