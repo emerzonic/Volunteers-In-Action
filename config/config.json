@@ -2,13 +2,19 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "database_development",
+    "database": "via_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "dialectOptions":{
       "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
     }
-  
+  },
+  "docker": {
+    "username": "root",
+    "password": "root",
+    "database": "via_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",

@@ -4,7 +4,7 @@ CREATE DATABASE via_db;
 
 USE via_db;
 
-CREATE TABLE events (
+CREATE TABLE Events (
     id INT NOT NULL AUTO_INCREMENT,
 	event_name VARCHAR(200) NOT NULL,
 	location VARCHAR(100) NOT NULL,
