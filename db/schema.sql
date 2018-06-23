@@ -14,6 +14,8 @@ CREATE TABLE events (
     description varchar(500) NOT NULL,
     organizer VARCHAR(100) NOT NULL,
     contact VARCHAR(250) NOT NULL,
+    createdAt TIMESTAMP NOT NULL default NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE now(),
 	PRIMARY KEY(id)
 );
 
