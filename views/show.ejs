@@ -1,0 +1,21 @@
+
+<% include ./partials/header %>
+<h1>This will be the event details page</h1>
+
+<div style="background:lightgray;">
+<h3><%= events.name %></h3>
+<h3><%= events.location %></h3>
+<h3><%= events.date %></h3>
+<h3><%= events.time %></h3>
+<h3><%= events.organizer %></h3>
+<h3><%= events.volunteers %></h3>
+<h3><%= events.description %></h3>
+
+<a href='/events/edit/:id'>Edit Event</a><br>
+<a href='/events/edit/:id'>participate</a>
+</div>
+
+<% include ./partials/footer %>
+
+
+<a href="/index">Home</a>
