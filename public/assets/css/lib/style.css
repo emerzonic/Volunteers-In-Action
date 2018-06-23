@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5 {
 }
 
 header {
+  background-color: rgb(23, 180, 18);
   position: absolute;
   top: 0;
   left: 0;
