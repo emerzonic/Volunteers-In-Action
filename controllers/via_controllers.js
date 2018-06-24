@@ -9,7 +9,9 @@ router.use(bodyParser.urlencoded({
 }));
 router.use(bodyParser.json());
 
+//==============================================
 //Catch all routes and redirect to home page
+//==============================================
 router.get('/', function (req, res) {
     res.redirect('/index');
 });
@@ -42,14 +44,12 @@ router.get('/events', function (req, res) {
     });
 });
 
-
+//==============================================
+//Create new event routes
+//==============================================
+// create form route
 router.get('/events/new', function (req, res) {
     res.render("new");
-});
-
-
-router.get('/events/edit', function (req, res) {
-    res.render("edit");
 });
 
 
@@ -71,8 +71,10 @@ router.post('/events', function (req, res) {
 });
 
 
-
-//get route to event datails
+//==============================================
+//Show event details routes
+//==============================================
+//Show an event detail
 router.get("/events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
@@ -83,6 +85,16 @@ router.get("/events/:id", function (req, res) {
     });
 });
 
+//Show edit form route
+router.get('/events/:id/edit', function (req, res) {
+    var eventId = req.params.id;
+    db.Event.findById(eventId).then(function (event) {
+        console.log(event);
+        res.render("edit", {
+            event: event
+        });
+    });
+});
 
 
 //put route to update events
