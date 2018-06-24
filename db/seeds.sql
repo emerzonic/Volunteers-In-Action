@@ -12,3 +12,7 @@ VALUES ("Johnson", "Tom", "15", "cindy@msn.com");
 
 INSERT INTO Persons (LastName, FirstName , Age, contact)
 VALUES ("Grass", "Ranaldo", "18", "ranoldo@msn.com");
+
+INSERT INTO users (LastName, FirstName , username, password)
+VALUES ("Phone", "Kammy", "kamphone, "abcd");
+

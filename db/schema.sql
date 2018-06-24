@@ -25,5 +25,17 @@ CREATE TABLE Persons (
     FirstName varchar(255),
     Age int,
     contact VARCHAR(250) NOT NULL,
-    CHECK (Age<19)
+    CHECK (Age<19),
+    PRIMARY KEY(id)
 );
+
+CREATE TABLE users (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    username varchar(255) NOT NULL,
+    password VARCHAR(250) NOT NULL,
+    PRIMARY KEY(id)
+   
+);
+
