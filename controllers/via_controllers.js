@@ -1,9 +1,10 @@
+var methodOverride = require('method-override');
 var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var sequelize = require('sequelize');
-
+router.use(methodOverride("_method"));
 router.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -78,7 +79,6 @@ router.post('/events', function (req, res) {
 router.get("/events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
-        console.log(event);
         res.render("show", {
             event: event
         });
@@ -89,7 +89,6 @@ router.get("/events/:id", function (req, res) {
 router.get('/events/:id/edit', function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
-        console.log(event);
         res.render("edit", {
             event: event
         });
@@ -99,6 +98,7 @@ router.get('/events/:id/edit', function (req, res) {
 
 //put route to update events
 router.put('/events/:id', function (req, res) {
+    console.log(req.body);
     res.send('update route');
     
     // res.render("edit", {
