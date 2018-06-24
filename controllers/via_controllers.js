@@ -111,7 +111,7 @@ router.put('/events/:id', function (req, res) {
         where: {
             id: req.params.id
         }
-    }).then(function (event) {
+    }).then(function (updateEevent) {
         res.redirect("/events/" + req.params.id);
     });
 });
