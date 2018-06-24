@@ -2,55 +2,12 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var sequelize = require('sequelize');
 
 router.use(bodyParser.urlencoded({
     extended: true
 }));
 router.use(bodyParser.json());
-
-
-var events = [{
-    id:0,
-    name: 'cleaning big lake',
-    location:'Minneapolis',
-    date: '6/28/2018',
-    time: '9am',
-    organizer: 'Joe Evans',
-    volunteers: 9,
-    description: 'This is a test event'
-},
-{
-    id:1,
-    name: 'Street clean up',
-    location:'Minneapolis',
-    date: '6/28/2018',
-    time: '9am',
-    organizer: 'Joe Evans',
-    volunteers: 9,
-    description: 'This is a test event'
-},
-{
-    id:2,
-    name: 'Feed the hungry children',
-    location:'Minneapolis',
-    date: '6/28/2018',
-    time: '9am',
-    organizer: 'Joe Evans',
-    volunteers: 9,
-    description: 'This is a test event'
-},
-{
-    id:3,
-    name: 'Trash pickup',
-    location:'Minneapolis',
-    date: '6/28/2018',
-    time: '9am',
-    organizer: 'Joe Evans',
-    volunteers: 9,
-    description: 'This is a test event'
-},];
-
-
 
 //Catch all routes and redirect to home page
 router.get('/', function (req, res) {
@@ -63,10 +20,25 @@ router.get('/index', function (req, res) {
 });
 
 
+//login route
+router.get('/login', function (req, res) {
+    res.render("login");
+});
+
+//signup route
+router.get('/signup', function (req, res) {
+    res.render("signup");
+});
+
+
 //events page route
 router.get('/events', function (req, res) {
-    res.render("events", {
-        events: events
+    db.Event.findAll({
+        order: sequelize.col('date') //ordering events by the closest date
+    }).then(function (events) {
+        res.render("events", {
+            events: events
+        });
     });
 });
 
@@ -77,20 +49,37 @@ router.get('/events/new', function (req, res) {
 
 
 router.get('/events/edit', function (req, res) {
-    res.render("new");
+    res.render("edit");
 });
 
 
 //post route to create new event
-router.post('/create', function (req, res) {
-
+router.post('/events', function (req, res) {
+    db.Event.create({
+        event_name: req.body.eventName,
+        location: req.body.location,
+        date: req.body.date,
+        star_time: req.body.start_time,
+        end_time: req.body.ens_time,
+        description: req.body.description,
+        organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
+        contact: req.body.email,
+        volunteers_needed: req.body.volunteers
+    }).then(function () {
+        res.redirect('/events');
+    });
 });
+
+
 
 //get route to event datails
 router.get("/events/:id", function (req, res) {
-    var id = req.params.id;
-    res.render("show", {
-        events: events[id]
+    var eventId = req.params.id;
+    db.Event.findById(eventId).then(function (event) {
+        console.log(event);
+        res.render("show", {
+            event: event
+        });
     });
 });
 
