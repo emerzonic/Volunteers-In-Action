@@ -147,21 +147,6 @@ header .navbar .dropdown-menu:before {
   }
 }
 
-header .navbar .dropdown-menu .dropdown-item:hover {
-  background: #007bff;
-  color: #fff;
-}
-
-header .navbar .dropdown-menu .dropdown-item.active {
-  background: #007bff;
-  color: #fff;
-}
-
-header .navbar .dropdown-menu a {
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
 header .navbar.navbar-light .nav-link {
   color: #fff;
 }
@@ -377,10 +362,26 @@ header .navbar.navbar-light .nav-link.active {
   color: #fff;
 }
 
+/* .card {
+  columns: 3;
+}
+
+@media only screen and (max-width: 1024px) {
+  .card {
+      columns: 2;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+      columns: 1;
+  }
+}
+
 .card {
   padding: 2px;
   width: 269px;
-}
+} */
 
 .card-img-top {
   width: 100%;
