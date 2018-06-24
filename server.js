@@ -1,3 +1,4 @@
+var methodOverride = require('method-override');
 var express = require("express");
 var bodyParser = require("body-parser");
 var router = require("./controllers/via_controllers");
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
 
