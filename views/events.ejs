@@ -15,7 +15,7 @@
                                 <img class="card-img-top" src="..." alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <%= event.name %>
+                                        <%= event.event_name %>
                                     </h5>
                                     <p class="location">
                                         Location: <%= event.location %>
@@ -24,13 +24,19 @@
                                         Date: <%= event.date %>
                                     </p>
                                     <p class="time">
-                                        Time: <%= event.time %>
+                                        Time: <%= event.start_time %>
+                                    </p>
+                                    <p class="time">
+                                        Time: <%= event.end_time %>
                                     </p>
                                     <p class="organizer">
                                         Orazanizer: <%= event.organizer %>
                                     </p>
+                                    <p class="organizer">
+                                           Contact: <%= event.contact%>
+                                        </p>
                                     <p class="volunteers">
-                                        Volunteers Needed: <%= event.volunteers %>
+                                        Volunteers Needed: <%= event.volunteers_needed %>
                                     </p>
                                     <p class="details">
                                         Info: <%= event.description %>
