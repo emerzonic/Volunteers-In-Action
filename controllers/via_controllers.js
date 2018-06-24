@@ -2,57 +2,16 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var sequelize = require('sequelize');
 
 router.use(bodyParser.urlencoded({
     extended: true
 }));
 router.use(bodyParser.json());
 
-
-var events = [{
-    id:0,
-    name: 'cleaning big lake',
-    location:'Minneapolis',
-    date: '6/28/2018',
-    time: '9am',
-    organizer: 'Joe Evans',
-    volunteers: 9,
-    description: 'This is a test event'
-},
-{
-    id:1,
-    name: 'Street clean up',
-    location:'Minneapolis',
-    date: '6/28/2018',
-    time: '9am',
-    organizer: 'Joe Evans',
-    volunteers: 9,
-    description: 'This is a test event'
-},
-{
-    id:2,
-    name: 'Feed the hungry children',
-    location:'Minneapolis',
-    date: '6/28/2018',
-    time: '9am',
-    organizer: 'Joe Evans',
-    volunteers: 9,
-    description: 'This is a test event'
-},
-{
-    id:3,
-    name: 'Trash pickup',
-    location:'Minneapolis',
-    date: '6/28/2018',
-    time: '9am',
-    organizer: 'Joe Evans',
-    volunteers: 9,
-    description: 'This is a test event'
-},];
-
-
-
+//==============================================
 //Catch all routes and redirect to home page
+//==============================================
 router.get('/', function (req, res) {
     res.redirect('/index');
 });
@@ -63,44 +22,88 @@ router.get('/index', function (req, res) {
 });
 
 
-//events page route
-router.get('/events', function (req, res) {
-    res.render("events", {
-        events: events
-    });
+//login route
+router.get('/login', function (req, res) {
+    res.render("login");
+});
+
+//signup route
+router.get('/signup', function (req, res) {
+    res.render("signup");
 });
 
 
+//events page route
+router.get('/events', function (req, res) {
+    db.Event.findAll({
+        order: sequelize.col('date') //ordering events by the closest date
+    }).then(function (events) {
+        res.render("events", {
+            events: events
+        });
+    });
+});
+
+//==============================================
+//Create new event routes
+//==============================================
+// create form route
 router.get('/events/new', function (req, res) {
     res.render("new");
 });
 
 
-router.get('/events/edit', function (req, res) {
-    res.render("new");
-});
-
-
 //post route to create new event
-router.post('/create', function (req, res) {
-
-});
-
-//get route to event datails
-router.get("/events/:id", function (req, res) {
-    var id = req.params.id;
-    res.render("show", {
-        events: events[id]
+router.post('/events', function (req, res) {
+    db.Event.create({
+        event_name: req.body.eventName,
+        location: req.body.location,
+        date: req.body.date,
+        star_time: req.body.start_time,
+        end_time: req.body.ens_time,
+        description: req.body.description,
+        organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
+        contact: req.body.email,
+        volunteers_needed: req.body.volunteers
+    }).then(function () {
+        res.redirect('/events');
     });
 });
 
+
+//==============================================
+//Show event details routes
+//==============================================
+//Show an event detail
+router.get("/events/:id", function (req, res) {
+    var eventId = req.params.id;
+    db.Event.findById(eventId).then(function (event) {
+        console.log(event);
+        res.render("show", {
+            event: event
+        });
+    });
+});
+
+//Show edit form route
+router.get('/events/:id/edit', function (req, res) {
+    var eventId = req.params.id;
+    db.Event.findById(eventId).then(function (event) {
+        console.log(event);
+        res.render("edit", {
+            event: event
+        });
+    });
+});
 
 
 //put route to update events
-router.put('/index/events/:id', function (req, res) {
-    res.render("edit", {
-        events: events[0]
-    });
+router.put('/events/:id', function (req, res) {
+    res.send('update route');
+    
+    // res.render("edit", {
+    //     events: events[0]
+    // });
 });
 
 

@@ -1,19 +1,23 @@
-
 <% include ./partials/header %>
-<h1>This will have the edit event form</h1>
+   <div class="container">
+       <br><br><br>
+       <h1>Edit page</h1>
+       <br>
+    <form action="/events/<%= event.id%>" method="PUT">
+            <input type="text" name="eventName" value="<%= event.event_name %>"><br><br>
+            <input type="text" name="location" value="<%= event.location %>"><br><br>
+            <input type="Date" name="date"class="form-control" value="<%= event.date %>">
+            <input type="Time" name="start_time"class="form-control"  value="<%= event.start_time %>">
+            <input type="Time" name="end_time"class="form-control"  value="<%= event.end_time %>">
+            <input type="number" name="volunteers" value="<%= event.volunteers_needed %>"><br><br>
 
-<div style="background:lightgray;">
-<h3><%= event.name %></h3>
-<h3><%= event.location %></h3>
-<h3><%= event.date %></h3>
-<h3><%= event.time %></h3>
-<h3><%= event.organizer %></h3>
-<h3><%= event.volunteers %></h3>
-<h3><%= event.description %></h3>
+            <textarea type="Description" name="description"class="form-control"><%= event.description %></textarea>
 
-<a href='/events/edit/:id'>Edit Event</a>
+            <input type="text" name="fname" value="<%= event.organizer %>" disabled><br><br>
+            <!-- <input type="text" name="lname" placeholder="Last Name" ><br><br> -->
+            <!-- <input type="text" name="phone" value="<%= event.description %>"><br><br> --> 
+            <input type="email" name="email" value="<%= event.contact %>"><br><br>
+            <button type="submit">Submit</button>
+    </form>
 </div>
-
-<% include ./partials/footer %>
-
-<a href="/index">Home</a>
+    <% include ./partials/footer %>

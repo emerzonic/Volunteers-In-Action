@@ -7,8 +7,8 @@ module.exports = function(sequelize, DataTypes) {
   end_time: DataTypes.STRING,
   description: DataTypes.STRING,
   organizer: DataTypes.STRING,
-  contact: DataTypes.STRING
- 
+  contact: DataTypes.STRING,
+  volunteers_needed: DataTypes.INTEGER
     });
     return Events;
   };
