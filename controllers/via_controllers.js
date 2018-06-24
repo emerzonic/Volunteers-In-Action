@@ -98,10 +98,12 @@ router.get('/events/:id/edit', function (req, res) {
 
 
 //put route to update events
-router.put('/index/events/:id', function (req, res) {
-    res.render("edit", {
-        events: events[0]
-    });
+router.put('/events/:id', function (req, res) {
+    res.send('update route');
+    
+    // res.render("edit", {
+    //     events: events[0]
+    // });
 });
 
 

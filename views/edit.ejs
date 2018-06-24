@@ -3,7 +3,7 @@
        <br><br><br>
        <h1>Edit page</h1>
        <br>
-    <form action="/events/<%= event.id%>" method="POST">
+    <form action="/events/<%= event.id%>" method="PUT">
             <input type="text" name="eventName" value="<%= event.event_name %>"><br><br>
             <input type="text" name="location" value="<%= event.location %>"><br><br>
             <input type="Date" name="date"class="form-control" value="<%= event.date %>">
