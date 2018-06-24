@@ -98,12 +98,22 @@ router.get('/events/:id/edit', function (req, res) {
 
 //put route to update events
 router.put('/events/:id', function (req, res) {
-    console.log(req.body);
-    res.send('update route');
-    
-    // res.render("edit", {
-    //     events: events[0]
-    // });
+    db.Event.update({
+        event_name: req.body.eventName,
+        location: req.body.location,
+        date: req.body.date,
+        star_time: req.body.start_time,
+        end_time: req.body.ens_time,
+        description: req.body.description,
+        contact: req.body.email,
+        volunteers_needed: req.body.volunteers
+    }, {
+        where: {
+            id: req.params.id
+        }
+    }).then(function (event) {
+        res.redirect("/events/" + req.params.id);
+    });
 });
 
 
