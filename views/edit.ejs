@@ -1,20 +1,40 @@
-
 <% include ./partials/header %>
-<h1>This will have the edit event form</h1>
-
-<div style="background:lightgray;">
-<h3><%= event.name %></h3>
-<h3><%= event.location %></h3>
-<h3><%= event.date %></h3>
-<h3><%= event.time %></h3>
-<h3><%= event.organizer %></h3>
-<h3><%= event.volunteers %></h3>
-<h3><%= event.description %></h3>
-
-<a href='/events/edit/:id'>Edit Event</a>
-</div>
-
-
-
-<a href="/index">Home</a>
-<% include ./partials/footer %>
+    <!-- multistep form -->
+    <form id="msform" action="/events" method="POST">
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li class="active">Event Setup</li>
+            <li>Event Info</li>
+            <li>Contact Details</li>
+        </ul>
+        <!-- fieldsets -->
+        <fieldset>
+            <h2 class="fs-title">Edit Event</h2>
+            <h3 class="fs-subtitle">Let's start!</h3>
+            <input type="text" name="eventName" value="<%= event.event_name %>"placeholder="Event Name" />
+            <input type="text" name="location" value="<%= event.location %>"placeholder="Location" />
+            <input type="Date" name="date"class="form-control" id="inputDate" value="<%= event.date %>"placeholder="01/01/2018">
+            <input type="Time" name="start_time"class="form-control" id="inputTime" value="<%= event.start_time %>"placeholder="03:30">
+            <input type="Time" name="end_time"class="form-control" id="inputTime" value="<%= event.end_time %>"placeholder="03:30">
+            <input type="number" name="volunteers" value="<%= event.volunteers_needed %>"placeholder="# of Volunteers Needed" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">Event Description</h2>
+            <h3 class="fs-subtitle">Add a description of the event</h3>
+            <textarea type="Description" name="description"class="form-control" id="inputDescription" placeholder="Type your event description here..."></textarea>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">Contact Details</h2>
+            <h3 class="fs-subtitle">We will never give it away</h3>
+            <input type="text" name="fname" placeholder="First Name" />
+            <input type="text" name="lname" placeholder="Last Name" />
+            <input type="text" name="phone" placeholder="Phone" />
+            <input type="email" name="email" placeholder="Email"></input>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="submit" name="submit" class="submit action-button" value="Submit" />
+        </fieldset>
+    </form>
+    <% include ./partials/footer %>
