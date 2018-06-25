@@ -4,6 +4,8 @@ var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var sequelize = require('sequelize');
+
+//config
 router.use(methodOverride("_method"));
 router.use(bodyParser.urlencoded({
     extended: true
@@ -24,7 +26,7 @@ router.get('/index', function (req, res) {
 
 //login route
 router.get('/login', function (req, res) {
-    res.render("login");
+    res.render("users/login");
 });
 
 
@@ -35,7 +37,7 @@ router.post('/login', function (req, res) {
 
 //signup route
 router.get('/signup', function (req, res) {
-    res.render("signup");
+    res.render("users/signup");
 });
 
 //Post route to create users
@@ -49,7 +51,7 @@ router.get('/events', function (req, res) {
     db.Event.findAll({
         order: sequelize.col('date') //ordering events by the closest date
     }).then(function (events) {
-        res.render("events", {
+        res.render("events/events", {
             events: events
         });
     });
@@ -60,7 +62,7 @@ router.get('/events', function (req, res) {
 //==============================================
 // create form route
 router.get('/events/new', function (req, res) {
-    res.render("new");
+    res.render("events/new");
 });
 
 
@@ -88,7 +90,7 @@ router.post('/events', function (req, res) {
 router.get("/events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
-        res.render("show", {
+        res.render("events/show", {
             event: event
         });
     });
@@ -98,7 +100,7 @@ router.get("/events/:id", function (req, res) {
 router.get('/events/:id/edit', function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
-        res.render("edit", {
+        res.render("events/edit", {
             event: event
         });
     });
@@ -126,8 +128,9 @@ router.put('/events/:id', function (req, res) {
 });
 
 
-//put route to delete events
-router.delete('/index/events/:id', function (req, res) {
+//get route to passed events
+router.get('/passed-events', function (req, res) {
+    res.send('passed events will be displayed here');
 
 });
 
