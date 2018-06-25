@@ -1,7 +1,10 @@
 var methodOverride = require('method-override');
 var express = require("express");
 var bodyParser = require("body-parser");
-var router = require("./controllers/index_controllers");
+var index = require("./controllers/index_controllers");
+var users = require("./controllers/users_controllers");
+var events = require("./controllers/events_controllers");
+var volunteers = require("./controllers/volunteers_controllers");
 var db = require("./models");
 
 var app = express();
@@ -10,7 +13,10 @@ var app = express();
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8088;
 
-app.use(router);
+app.use(index);
+app.use(users);
+app.use(events);
+app.use(volunteers);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
