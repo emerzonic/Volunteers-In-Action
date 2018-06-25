@@ -22,15 +22,25 @@ router.get('/index', function (req, res) {
     res.render('index');
 });
 
-
 //login route
 router.get('/login', function (req, res) {
     res.render("login");
 });
 
+
+//Post route to login
+router.post('/login', function (req, res) {
+    res.redirect("/events");
+});
+
 //signup route
 router.get('/signup', function (req, res) {
     res.render("signup");
+});
+
+//Post route to create users
+router.post('/signup', function (req, res) {
+    res.redirect("/login");
 });
 
 
@@ -70,7 +80,6 @@ router.post('/events', function (req, res) {
         res.redirect('/events');
     });
 });
-
 
 //==============================================
 //Show event details routes
