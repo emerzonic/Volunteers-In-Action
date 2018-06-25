@@ -1,14 +1,14 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, Sequelize) {
   var Events = sequelize.define("Event", {
-  event_name: DataTypes.STRING,
-  location: DataTypes.STRING,
-  date: DataTypes.STRING,
-  start_time: DataTypes.STRING,
-  end_time: DataTypes.STRING,
-  description: DataTypes.STRING,
-  organizer: DataTypes.STRING,
-  contact: DataTypes.STRING,
-  volunteers_needed: DataTypes.INTEGER
+  event_name: Sequelize.STRING,
+  location: Sequelize.STRING,
+  date: Sequelize.DATE,
+  start_time: Sequelize.STRING,
+  end_time: Sequelize.STRING,
+  description: Sequelize.STRING,
+  organizer: Sequelize.STRING,
+  contact: Sequelize.STRING,
+  volunteers_needed: Sequelize.INTEGER
     });
     return Events;
   };
