@@ -1,7 +1,7 @@
 var methodOverride = require('method-override');
 var express = require("express");
 var bodyParser = require("body-parser");
-var router = require("./controllers/via_controllers");
+var router = require("./controllers/index_controllers");
 var db = require("./models");
 
 var app = express();

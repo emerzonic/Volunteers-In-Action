@@ -96,7 +96,7 @@ router.get("/events/:id", function (req, res) {
     });
 });
 
-//Show edit form route
+//event edit form route
 router.get('/events/:id/edit', function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
@@ -128,10 +128,48 @@ router.put('/events/:id', function (req, res) {
 });
 
 
+
+//==============================================
+//Passed events routes
+//==============================================
 //get route to passed events
 router.get('/passed-events', function (req, res) {
     res.send('passed events will be displayed here');
+});
 
+
+//show detail for one passed event
+router.get("/passed-events/:id", function (req, res) {
+    var eventId = req.params.id;
+    db.Event.findById(eventId).then(function (event) {
+        res.render("passed-events/show", {
+            event: event
+        });
+    });
+});
+
+//show edit form route for one passed event
+router.get('/passed-events/:id/edit', function (req, res) {
+    var eventId = req.params.id;
+    db.Event.findById(eventId).then(function (event) {
+        res.render("passed-events/edit", {
+            event: event
+        });
+    });
+});
+
+
+//put route to add images to passed event
+router.put('/events/:id', function (req, res) {
+    db.Event.update({
+        images
+    }, {
+        where: {
+            id: req.params.id
+        }
+    }).then(function (updateEevent) {
+        res.redirect("/passed-events/" + req.params.id);
+    });
 });
 
 
