@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+<br><br><br>
+    <div class=container>
+        <h1>Volunteer Sign up page</h1>
+        <h3>Sign up to volunteer at <strong><%= event.event_name%></strong></h3>
+        <form action="/events/<%=event.id%>/volunteers" method="POST">
+            <div>
+                <input type="text" name="first_name" placeholder="First Name">
+            </div>
+            <div>
+                <input type="text" name="last_name" placeholder="Last Name">
+            </div>
+            <div>
+                <input type="number" name="age" placeholder="Age">
+            </div>
+            <div>
+                <input type="email" name="contact" placeholder="Contact">
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+<% include ../partials/footer %>
+

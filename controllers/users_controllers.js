@@ -20,7 +20,9 @@ router.get('/signup', function (req, res) {
 
 //Post route to create users
 router.post('/signup', function (req, res) {
-    res.redirect("/login");
+    db.User.create(req.body).then(function (user) {
+        res.redirect('/login');
+    });
 });
 
 
