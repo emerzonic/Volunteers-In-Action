@@ -14,5 +14,5 @@ INSERT INTO Persons (LastName, FirstName , Age, contact)
 VALUES ("Grass", "Ranaldo", "18", "ranoldo@msn.com");
 
 INSERT INTO users (LastName, FirstName , username, password)
-VALUES ("Phone", "Kammy", "kamphone, "abcd");
+VALUES ("Phone", "Kammy", "kamphone", "abcd");
 
