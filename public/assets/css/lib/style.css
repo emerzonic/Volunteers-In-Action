@@ -7,8 +7,9 @@ body {
   color: #b4b4b4;
 }
 
-.homeImage {
+.homeImg {
   width: 100%;
+  min-height: 0 auto;
 }
 
 a {
