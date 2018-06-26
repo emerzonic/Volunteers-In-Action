@@ -7,6 +7,10 @@ body {
   color: #b4b4b4;
 }
 
+.homeImage {
+  width: 100%;
+}
+
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
@@ -468,4 +472,8 @@ textarea.form-control {
 
 .no-nav .owl-nav {
   display: none;
+}
+
+#msform {
+  margin-top: 85px !important;
 }
