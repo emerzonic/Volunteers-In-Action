@@ -40,7 +40,7 @@ router.post('/events', function (req, res) {
         event_name: req.body.eventName,
         location: req.body.location,
         date: req.body.date,
-        star_time: req.body.start_time,
+        start_time: req.body.start_time,
         end_time: req.body.ens_time,
         description: req.body.description,
         organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
@@ -57,7 +57,13 @@ router.post('/events', function (req, res) {
 //Show an event detail
 router.get("/events/:id", function (req, res) {
     var eventId = req.params.id;
-    db.Event.findById(eventId).then(function (event) {
+    db.Event.findOne({
+        where: {
+            id: eventId
+        },
+        include: [db.Volunteer],
+    }).then(function (event) {
+        console.log(event.Volunteers);
         res.render("events/show", {
             event: event
         });
@@ -81,7 +87,7 @@ router.put('/events/:id', function (req, res) {
         event_name: req.body.eventName,
         location: req.body.location,
         date: req.body.date,
-        star_time: req.body.start_time,
+        start_time: req.body.start_time,
         end_time: req.body.ens_time,
         description: req.body.description,
         contact: req.body.email,
@@ -139,18 +145,6 @@ router.put('/events/:id', function (req, res) {
         res.redirect("/passed-events/" + req.params.id);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

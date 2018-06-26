@@ -1,10 +1,14 @@
-module.exports = function(sequelize, Sequelize) {
-    var Volunteers = sequelize.define("Volunteer", {
-    first_name: Sequelize.STRING,
-    last_name: Sequelize.STRING,
-    age:Sequelize.INTEGER,
-    contact: Sequelize.STRING,
-    event_id:Sequelize.INTEGER,
-      });
-      return Volunteers;
-    };
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var Volunteer = sequelize.define('Volunteer', {
+    first_name: DataTypes.STRING,
+    last_name: DataTypes.STRING,
+    age: DataTypes.INTEGER,
+    contact: DataTypes.STRING
+  }, {});
+  Volunteer.associate = function(models) {
+    // associations can be defined here
+    Volunteer.belongsTo(models.Event,{ foreignKey: { allowNull: false }});
+  };
+  return Volunteer;
+};
