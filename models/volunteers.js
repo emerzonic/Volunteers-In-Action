@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
     contact: DataTypes.STRING
   }, {});
   Volunteer.associate = function(models) {
-    // associations can be defined here
     Volunteer.belongsTo(models.Event,{ foreignKey: { allowNull: false }});
   };
   return Volunteer;
