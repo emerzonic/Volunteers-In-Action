@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     start_time: DataTypes.STRING,
     end_time: DataTypes.STRING,
     description: DataTypes.STRING,
-    contact: DataTypes.STRING,
+    email: DataTypes.STRING,
     volunteers_needed: DataTypes.INTEGER,
     status_passed: DataTypes.BOOLEAN
   }, {});
