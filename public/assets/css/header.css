@@ -22,7 +22,7 @@ header {
   z-index: 5;
 }
 
-header .navbar-brand, footer .footer-about {
+header .navbar-brand {
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 400;

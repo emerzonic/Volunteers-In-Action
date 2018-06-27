@@ -2,8 +2,6 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  padding: 5em 0;
-
 }
 
 .site-footer a {
@@ -15,8 +13,17 @@
 }
 
 .site-footer h3 {
-  color: #fff;
-  font-size: 16px;
+  color: #fff !important;
+  font-size: 25px;
   text-transform: uppercase;
   letter-spacing: .2em;
+}
+
+.row-footer {
+  margin: 4em;
+}
+
+footer .list-unstyled {
+  text-align: right;
+  width: 100%;
 }
