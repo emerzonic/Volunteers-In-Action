@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5 {
   font-family: "Source Sans Pro", arial, sans-serif;
 }
 
-header, footer {
+header {
   position: absolute;
   width: 100%;
   z-index: 5;
