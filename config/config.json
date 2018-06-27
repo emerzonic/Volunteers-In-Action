@@ -9,6 +9,13 @@
       "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
     }
   },
+  "reetu": {
+    "username": "root",
+    "password": "root",
+    "database": "via_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
   "docker": {
     "username": "root",
     "password": "root",
