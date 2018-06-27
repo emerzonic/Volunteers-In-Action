@@ -41,7 +41,12 @@
 
     <a href='/events/<%= event.id %>/edit'>Edit Event</a>
     <br>
-    <a href='/events/<%= event.id %>/volunteers/new'>Sign up for Event</a>
+    <% if (event.Volunteers.length >= event.volunteers_needed){%>
+        <p>Event is Full</p>
+    <%}else {%>
+        <a href='/events/<%= event.id %>/volunteers/new'>Sign up for Event</a>
+   <% }%>
+    
 </div>
 
 

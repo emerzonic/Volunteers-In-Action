@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     age: DataTypes.INTEGER,
-    contact: DataTypes.STRING
+    email: DataTypes.STRING
   }, {});
   Volunteer.associate = function(models) {
     Volunteer.belongsTo(models.Event,{ foreignKey: { allowNull: false }});
