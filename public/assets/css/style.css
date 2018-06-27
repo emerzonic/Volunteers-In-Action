@@ -252,10 +252,6 @@ textarea.form-control {
   box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.2) !important;
 }
 
-.no-nav .owl-nav {
-  display: none;
-}
-
 #msform {
   margin-top: 85px !important;
 }
