@@ -5,6 +5,8 @@ var index = require("./controllers/index_controllers");
 var users = require("./controllers/users_controllers");
 var events = require("./controllers/events_controllers");
 var volunteers = require("./controllers/volunteers_controllers");
+var LocalStrategy    = require("passport-local");
+var passport         = require("passport");
 var db = require("./models");
 
 var app = express();
@@ -12,6 +14,21 @@ var app = express();
 // App PORT setting
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8088;
+
+
+
+
+//PASSPORT CONFIGURATION
+app.use(require("express-session")({
+  secret: "codingistherealdeal",
+  resave: false,
+  saveUninitialized: false
+}));
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(express.cookieParser());
+
 
 app.use(index);
 app.use(users);
