@@ -29,73 +29,49 @@ body {
     font-family: "Source Sans Pro", arial, sans-serif;
   }
   
-  header {
+  footer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 5;
   }
-  
-  header .navbar-brand {
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 400;
-    color: #fff !important;
-  }
-  
-  header .navbar-collapse {
-    position: relative;
-  }
-  
-  header .navbar {
-    padding-top: 0;
-    padding-bottom: 0;
-    background: transparent !important;
-  }
+
   
   @media (max-width: 991.98px) {
-    header .navbar {
+    footer {
       background: rgba(0, 0, 0, 0.4) !important;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
     }
   }
   
-  header .navbar .container {
+  footer {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  header .navbar .navbar-nav.absolute-right {
+  footer {
     position: absolute;
     right: 0;
   }
   
   @media (max-width: 991.98px) {
-    header .navbar .navbar-nav.absolute-right {
+    footer {
       position: relative;
       right: inherit;
     }
   }
   
-  header .navbar .nav-link {
+  footer {
     padding: 1.7rem 1rem;
     font-size: 15px;
     outline: none !important;
   }
   
   @media (max-width: 991.98px) {
-    header .navbar .nav-link {
+    footer {
       padding: 0.5rem 0.5rem;
     }
-  }
-  
-  header .navbar .nav-link:hover {
-    color: #fff !important;
-  }
-  
-  header .navbar .nav-link.active {
-    color: #fff !important;
   }
   
   header .navbar > a {
