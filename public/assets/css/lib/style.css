@@ -37,16 +37,13 @@ h1, h2, h3, h4, h5 {
   font-family: "Source Sans Pro", arial, sans-serif;
 }
 
-header {
-  background-color: rgb(23, 180, 18);
+header, footer {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   z-index: 5;
 }
 
-header .navbar-brand {
+header .navbar-brand, footer .footer-about {
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 400;
@@ -60,7 +57,6 @@ header .navbar-collapse {
 header .navbar {
   padding-top: 0;
   padding-bottom: 0;
-  background: transparent !important;
 }
 
 @media (min-width: 768px) {
@@ -128,33 +124,6 @@ header .navbar .nav-link.active {
   color: #fff !important;
 }
 
-header .navbar .dropdown.show > a {
-  color: #fff !important;
-}
-
-header .navbar .dropdown-menu {
-  font-size: 14px;
-  border-radius: 0px;
-  border: none;
-  -webkit-box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.2);
-  min-width: 13em;
-  margin-top: -10px;
-}
-
-header .navbar .dropdown-menu:before {
-  bottom: 100%;
-  left: 10%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-bottom-color: #fff;
-  border-width: 10px;
-}
-
 @media (max-width: 1199.98px) {
   header .navbar {
     display: none;
@@ -183,152 +152,6 @@ header .navbar.navbar-light .nav-link.active {
   padding: 4em 0;
 }
 
-.exp-features {
-  background-size: cover;
-  background-position: center center;
-  position: relative;
-  overflow: hidden;
-}
-
-@media (min-width: 576px) {
-  .exp-features {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-@media (min-width: 576px) {
-  .exp-features .inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-}
-
-.exp-features .feature {
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
-}
-
-@media (min-width: 576px) {
-  .exp-features .feature {
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-@media (min-width: 768px) {
-  .exp-features .feature {
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-@media (min-width: 992px) {
-  .exp-features .feature {
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 25%;
-    padding: 30px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-  }
-}
-
-.exp-features .feature h3 {
-  font-size: 18px;
-  color: #fff;
-}
-
-.exp-features .feature p {
-  color: #fff;
-  opacity: .5;
-}
-
-.exp-features .feature img {
-  width: 100px;
-  border-radius: 50%;
-  margin: 0 auto;
-}
-
-.exp-features .feature .icon > span:before {
-  font-size: 50px;
-  margin-left: 0;
-  color: #fff;
-}
-
-.exp-features.text-dark.last {
-  border-bottom: none;
-}
-
-.exp-features.text-dark.last .feature {
-  border-bottom: none;
-}
-
-@media (min-width: 992px) {
-  .exp-features.text-dark .feature {
-    border-right: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
-  }
-}
-
-.exp-features.text-dark .feature:last-child {
-  border-right: none;
-}
-
-.exp-features.text-dark .feature h3 {
-  font-size: 18px;
-  color: #000;
-}
-
-.exp-features.text-dark .feature p {
-  color: #000;
-  opacity: .5;
-}
-
-.exp-features.text-dark .feature p:last-child {
-  margin-bottom: 0;
-}
-
-.exp-features.text-dark .feature .icon > span:before {
-  font-size: 50px;
-  margin-left: 0;
-  color: #007bff;
-}
-
 .icon {
   text-align: center;
   color: rgb(67, 149, 255);
@@ -338,24 +161,6 @@ header .navbar.navbar-light .nav-link.active {
   .img-md-fluid {
     max-width: 100%;
   }
-}
-
-.section-cover {
-  background-size: cover;
-  position: relative;
-  background-position: top left;
-}
-
-.section-cover, .section-cover .intro {
-  height: 500px;
-}
-
-.section-cover p {
-  color: #fff;
-}
-
-.section-cover h2 {
-  color: #fff;
 }
 
 .card {
