@@ -1,10 +1,16 @@
 body {
   background: #fff;
+  height: 100%;
   font-family: "Source Sans Pro", arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.8;
   color: #b4b4b4;
+}
+
+#main {
+  min-height: 500px;
+  padding: 50px 0;
 }
 
 .homeImg {
@@ -14,7 +20,7 @@ body {
 }
 
 .container-hero {
-  margin-bottom: -100px;
+  margin-bottom: -50px;
 }
 
 .jumbotron-home {
@@ -31,7 +37,7 @@ a {
   -o-transition: .3s all ease;
   transition: .3s all ease;
   text-decoration: none;
-  color: #b4b4b4;
+  color: rgb(168, 168, 168) !important;
 }
 
 a:hover {
@@ -40,8 +46,12 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5 {
-  color: #000;
+  color: rgb(211, 211, 211) !important;
   font-family: "Source Sans Pro", arial, sans-serif;
+}
+
+p {
+  color: rgb(168, 168, 168) !important;
 }
 
 header, footer {
@@ -67,10 +77,11 @@ header .navbar {
 }
 
 @media (min-width: 768px) {
-  header .navbar .active:after {
+  /* header .navbar .active:after {
     content: "";
     border: none;
   }
+
   .navbar.navbar-default .navbar-nav > li:after {
     content: "";
     border-right: 2px solid #000;
@@ -81,7 +92,7 @@ header .navbar {
   }
   .navbar.navbar-default .navbar-nav > li:last-child:after {
     border: none;
-  }
+  } */
 }
 .navbar.navbar-default .navbar-brand {
   padding-top: 0;
