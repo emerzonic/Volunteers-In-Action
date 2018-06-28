@@ -1,12 +1,10 @@
-var methodOverride = require('method-override');
 var express = require('express');
-var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var sequelize = require('sequelize');
+var middleware = require("../middleware");
+var passport = require("../config/passportConfig");
 
 //config
-router.use(methodOverride("_method"));
 router.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -31,9 +29,15 @@ router.get('/login', function (req, res) {
 
 
 //Post route to login
-router.post('/login', function (req, res) {
-    res.redirect("/events");
-});
+router.post('/login',
+    passport.authenticate('local', {
+        failureRedirect: '/login'
+    }),
+    function (req, res) {
+        console.log(res);
+        console.log(req.user);
+        res.redirect('/events');
+    });
 
 
 module.exports = router;
