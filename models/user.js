@@ -1,13 +1,28 @@
 var bcrypt = require('bcrypt-nodejs');
-var Sequelize = require('sequelize');
 
 
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
-      first_name: DataTypes.STRING,
-      last_name: DataTypes.STRING,
-      email: DataTypes.STRING,
+      first_name: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: true
+        }
+      },
+      last_name: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: true
+        }
+      },
+      email: {
+        type: DataTypes.STRING,
+        unique: true,
+        validate: {
+          notEmpty: true
+        }
+      },
       username: {
         type: DataTypes.STRING,
         unique: true,
@@ -31,38 +46,23 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
 
-    // {
-    //   classMethods: {
-    //     validPassword: function (password, passwd, done, user) {
-    //       bcrypt.compare(password, passwd, function (err, isMatch) {
-    //         if (err) console.log(err);
-    //         if (isMatch) {
-    //           return done(null, user);
-    //         } else {
-    //           return done(null, false);
-    //         }
-    //       });
-    //     }
-    //   }
-
-    // }, 
     {
       dialect: 'mysql'
     }
   );
-  
+
   User.validPassword = function (password, passwd, done, user) {
-  bcrypt.compare(password, passwd, function (err, isMatch) {
-    if (err) console.log(err);
-    if (isMatch) {
-     console.log(user);
-      return done(null, user);
-    } else {
-      // return console.log('not matched');
-      return done(null, false);
-    }
-  });
-};
+    bcrypt.compare(password, passwd, function (err, isMatch) {
+      if (err) console.log(err);
+      if (isMatch) {
+        console.log(user);
+        return done(null, user);
+      } else {
+        // return console.log('not matched');
+        return done(null, false);
+      }
+    });
+  };
 
   User.associate = function (models) {
     User.hasMany(models.Event);

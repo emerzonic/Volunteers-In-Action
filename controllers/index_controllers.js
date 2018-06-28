@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var middleware = require("../middleware");
-var passport = require("../config/passportConfig");
+var passport = require("passport");
 
 //config
 router.use(bodyParser.urlencoded({
@@ -29,15 +29,17 @@ router.get('/login', function (req, res) {
 
 
 //Post route to login
-router.post('/login',
-    passport.authenticate('local', {
-        failureRedirect: '/login'
-    }),
-    function (req, res) {
-        console.log(res);
-        console.log(req.user);
-        res.redirect('/events');
-    });
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/events",
+    failureRedirect: "/login"
+}), function(req, res) {});
 
+
+//Log out route
+router.get("/logout", function(req, res) {
+    res.send('you are logout');
+    // req.logout();
+    // res.redirect("/index");
+});
 
 module.exports = router;

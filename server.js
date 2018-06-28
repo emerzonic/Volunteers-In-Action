@@ -8,7 +8,8 @@ var volunteers = require("./controllers/volunteers_controllers");
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var LocalStrategy = require("passport-local").Strategy;
+var passportConfig = require('./config/passportConfig');
+var middleware = require('./middleware/index');
 var db = require("./models");
 // var user = require('./models/user');
 
@@ -33,7 +34,8 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
-
+// app.use(middleware);
+// app.use(passportConfig);
 app.use(passport.initialize());
 app.use(passport.session());
 
