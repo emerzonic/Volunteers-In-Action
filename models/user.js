@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
     dialect: 'mysql'
   });
   User.validPassword = function (password, passwd, done, user) {
-    bcrypt.compare(password, passwd, function (err, isMatch) {
+    bcrypt.compare(password, passwd,(err, isMatch) => {
       if (err) console.log(err);
       if (isMatch) {
         console.log(user);

@@ -11,7 +11,7 @@ done(null, user);
 
 //deserialize Sessions
 passport.deserializeUser(function(user, done){
-    db.User.find({where:{id:user.id}}).success(function(user){
+    db.User.findOne({where:{id:user.id}}).then(user =>{
         done(null, user);
     }).error(function(err){
         done(err, null);
@@ -22,23 +22,13 @@ passport.deserializeUser(function(user, done){
 //For authentication purposes
 passport.use(new LocalStrategy(
     function(username, password, done){
-        db.User.findOne({where:{username:username}}, function(user){
+        db.User.findOne({where:{username:username}}).then(user =>{
             var passwd = user ? user.password: ''
             console.log(passwd);
             isMatch = db.User.validPassword(password, passwd, done, user);
         });
     }));
 
-    // passport.use(new LocalStrategy(
-    //     function(username, password, done) {
-    //       User.findOne({ username: username }, function (err, user) {
-    //         if (err) { return done(err); }
-    //         if (!user) { return done(null, false); }
-    //         if (!user.verifyPassword(password)) { return done(null, false); }
-    //         return done(null, user);
-    //       });
-    //     }
-    //   ));
 
 module.exports = passport;
 
