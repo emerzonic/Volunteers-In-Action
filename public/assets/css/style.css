@@ -5,7 +5,6 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.8;
-  color: #b4b4b4;
 }
 
 #main {
@@ -21,15 +20,17 @@ body {
 
 .container-hero {
   margin-bottom: -50px;
+  display: flex;
+  align-items: center;
 }
 
 .jumbotron-home {
+  background-color: rgb(22, 22, 22) !important;
   opacity: 0.9;
   position: relative;
   z-index: 20 !important;
-  margin-left: 140px;
-  margin-right: 140px;
   text-align: center;
+  margin: 0 auto;
 }
 
 a {
@@ -65,95 +66,6 @@ header .navbar-brand, footer .footer-about {
   letter-spacing: .2em;
   font-weight: 400;
   color: rgb(221, 221, 221) !important;
-}
-
-header .navbar-collapse {
-  position: relative;
-}
-
-header .navbar {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-@media (min-width: 768px) {
-  /* header .navbar .active:after {
-    content: "";
-    border: none;
-  }
-
-  .navbar.navbar-default .navbar-nav > li:after {
-    content: "";
-    border-right: 2px solid #000;
-    position: absolute;
-    height: 50%;
-    right: 0;
-    top: 25%;
-  }
-  .navbar.navbar-default .navbar-nav > li:last-child:after {
-    border: none;
-  } */
-}
-.navbar.navbar-default .navbar-brand {
-  padding-top: 0;
-}
-
-@media (max-width: 991.98px) {
-  header .navbar {
-    background: rgba(0, 0, 0, 0.4) !important;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-  }
-}
-
-header .navbar {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-header .navbar .navbar-nav.absolute-right {
-  position: absolute;
-  right: 0;
-}
-
-@media (max-width: 991.98px) {
-  header .navbar .navbar-nav.absolute-right {
-    position: relative;
-    right: inherit;
-  }
-}
-
-header .navbar .nav-link {
-  padding: 1.7rem 1rem;
-  font-size: 15px;
-  outline: none !important;
-}
-
-@media (max-width: 991.98px) {
-  header .navbar .nav-link {
-    padding: .5rem .5rem;
-  }
-}
-
-header .navbar .nav-link:hover {
-  color: #fff !important;
-}
-
-header .navbar .nav-link.active {
-  color: #fff !important;
-}
-
-@media (max-width: 1199.98px) {
-  header .navbar {
-    display: none;
-  }
-}
-
-header .navbar.navbar-light .nav-link {
-  color: #fff;
-}
-
-header .navbar.navbar-light .nav-link.active {
-  color: #fff;
 }
 
 .box {
