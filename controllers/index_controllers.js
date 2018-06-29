@@ -34,6 +34,7 @@ router.post("/login", passport.authenticate("local", {
     // successRedirect: "/events",
     // failureRedirect: "/login"
 }), function(req, res) {
+    // redirect to /events?user_id=1
     console.log('This is req.body+++++++++++++++++    '+JSON.stringify(req.user));
 });
 
