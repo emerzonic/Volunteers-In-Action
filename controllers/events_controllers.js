@@ -47,7 +47,8 @@ router.post('/events', function (req, res) {
         description: req.body.description,
         organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
         contact: req.body.email,
-        volunteers_needed: req.body.volunteers
+        volunteers_needed: req.body.volunteers,
+        UserId: req.user.dataValues.id
     }).then(function () {
         res.redirect('/events');
     });
@@ -65,7 +66,6 @@ router.get("/events/:id", function (req, res) {
         },
         include: [db.Volunteer],
     }).then(function (event) {
-        console.log(event.Volunteers);
         res.render("events/show", {
             event: event
         });
@@ -102,7 +102,6 @@ router.put('/events/:id', function (req, res) {
         res.redirect("/events/" + req.params.id);
     });
 });
-
 
 
 //==============================================

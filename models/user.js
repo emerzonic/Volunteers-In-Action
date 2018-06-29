@@ -49,7 +49,6 @@ module.exports = (sequelize, DataTypes) => {
     bcrypt.compare(password, passwd,(err, isMatch) => {
       if (err) console.log(err);
       if (isMatch) {
-        console.log(user);
         return done(null, user);
       } else {
         return done(null, false);
