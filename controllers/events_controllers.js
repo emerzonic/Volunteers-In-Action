@@ -63,7 +63,6 @@ router.get("/events/:id", function (req, res) {
         },
         include: [db.Volunteer],
     }).then(function (event) {
-        console.log(event.Volunteers);
         res.render("events/show", {
             event: event
         });
