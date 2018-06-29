@@ -3,53 +3,48 @@ var bcrypt = require('bcrypt-nodejs');
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
-      first_name: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: true
-        }
-      },
-      last_name: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: true
-        }
-      },
-      email: {
-        type: DataTypes.STRING,
-        unique: true,
-        validate: {
-          notEmpty: true
-        }
-      },
-      username: {
-        type: DataTypes.STRING,
-        unique: true,
-        validate: {
-          notEmpty: true
-        }
-      },
-      password: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: true
-        }
-      }
-    }, {
-      hooks: {
-        afterValidate: function (user) {
-          user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(12), null);
-          return user;
-        },
-
+    first_name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
       }
     },
-
-    {
-      dialect: 'mysql'
+    last_name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      validate: {
+        notEmpty: true
+      }
+    },
+    username: {
+      type: DataTypes.STRING,
+      unique: true,
+      validate: {
+        notEmpty: true
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
     }
-  );
-
+  }, {
+    hooks: {
+      afterValidate: function (user) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(12), null);
+        return user;
+      },
+    }
+  }, {
+    dialect: 'mysql'
+  });
   User.validPassword = function (password, passwd, done, user) {
     bcrypt.compare(password, passwd, function (err, isMatch) {
       if (err) console.log(err);
@@ -62,12 +57,9 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   };
-
   User.associate = function (models) {
     User.hasMany(models.Event);
   };
-
-
   return User;
 };
 

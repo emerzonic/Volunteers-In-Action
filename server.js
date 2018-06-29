@@ -8,15 +8,12 @@ var volunteers = require("./controllers/volunteers_controllers");
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var passportConfig = require('./config/passportConfig');
-var middleware = require('./middleware/index');
 var db = require("./models");
-// var user = require('./models/user');
 
 var app = express();
 
 
-SALT_WORK_FACTOR = 12;
+// SALT_WORK_FACTOR = 12;
 //SETUP APP TO USE PACKAGES
 app.use(bodyParser.urlencoded({
   extended: true
@@ -27,21 +24,17 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
 //PASSPORT CONFIG
-// app.use(require('connect-multiparty')());
 app.use(cookieParser());
 app.use(session({
   secret: 'super-secret',
   resave: true,
   saveUninitialized: true
 }));
-// app.use(middleware);
-// app.use(passportConfig);
 app.use(passport.initialize());
 app.use(passport.session());
 
 // passport.use(new LocalStrategy(db.User.authenticate()));
 // passport.use(db.User.createStrategy());
-
 // passport.serializeUser(db.User.serializeUser());
 // passport.deserializeUser(db.User.deserializeUser());
 

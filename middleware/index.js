@@ -1,5 +1,4 @@
-// var events =require("../controllers/events_controllers");
-// var volunteers =require("../controllers/volunteers_controllers");
+
 var db = require('../models');
 //All middleware goes here
 var middleware = {};
@@ -13,27 +12,25 @@ middleware.IsAuthenticated = function(req, res, next){
     }
 };
 
-
 middleware.destroySession = function(req,res, next){
     req.logOut();
     req.session.destroy();
     res.redirect('/index');
 };
 
-
 //check user own the event
 middleware.checkEventOwnership = function (req, res, next) {
     if (req.isAuthenticated()) {
      db.Event.findById(req.params.id, function(err, event) {
          if (err) {
-            //  req.flash("error","Campground not found.");
+            //  req.flash("error","event not found.");
              res.redirect("back");
          } else {
-             //does the user own the campground?
+             //does the user own the event?
              if (event.userId.equals(req.user.id)) {
                  next();
              } else {
-                //  req.flash("error","You do not have permission to this Campground.");
+                //  req.flash("error","You do not have permission to this event.");
                  res.redirect("back");
              }
          }
@@ -51,7 +48,6 @@ middleware.checkEventOwnership = function (req, res, next) {
 middleware.isLoggedIn = function (req, res, next) {
     if (req.isAuthenticated()) {
     return next();
-
 }
 // req.flash("error","You need to be logged in to do that");
 res.redirect("/login");
