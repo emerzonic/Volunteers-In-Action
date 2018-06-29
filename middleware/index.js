@@ -3,14 +3,6 @@ var db = require('../models');
 var middleware = {};
 
 
-middleware.IsAuthenticated = function (req, res, next) {
-    if (req.isAuthenticated()) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-};
-
 middleware.destroySession = function (req, res, next) {
     req.logOut();
     req.session.destroy();
@@ -22,7 +14,7 @@ middleware.checkEventOwnership = function (req, res, next) {
     if (req.isAuthenticated()) {
         db.Event.findById(req.params.id).then((event) => {
             //does the user own the event?
-            if (event.UserId===req.user.dataValues.id) {
+            if (event.UserId === req.user.dataValues.id) {
                 next();
             } else {
                 //  req.flash("error","You do not have permission to this event.");
@@ -31,7 +23,7 @@ middleware.checkEventOwnership = function (req, res, next) {
         });
     } else {
         //  req.flash("error","You need to be logged in to that.");
-        res.redirect("/events");
+        res.redirect("back");
     }
 };
 

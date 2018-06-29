@@ -1,22 +1,12 @@
-var methodOverride = require('method-override');
 var express = require('express');
 var db = require('../models');
 var router = express.Router();
-var bodyParser = require('body-parser');
-var sequelize = require('sequelize');
 var middleware = require("../middleware");
 
 
-//config
-// router.use(methodOverride("_method"));
-// router.use(bodyParser.urlencoded({
-//     extended: true
-// }));
-// router.use(bodyParser.json());
-
-
-
-//events page route
+//==============================================
+//Route to get all events
+//==============================================
 router.get('/events', function (req, res) {
     db.Event.findAll({
         order: sequelize.col('date') //ordering events by the closest date
@@ -28,15 +18,16 @@ router.get('/events', function (req, res) {
 });
 
 //==============================================
-//Create new event routes
+//Route to get a new event form
 //==============================================
-// create form route
-router.get('/events/new', middleware.IsAuthenticated, function (req, res) {
+router.get('/events/new', middleware.isLoggedIn, function (req, res) {
     res.render("events/new");
 });
 
 
-//post route to create new event
+//==============================================
+//Route to create a new event
+//==============================================
 router.post('/events', function (req, res) {
     db.Event.create({
         event_name: req.body.eventName,
@@ -55,9 +46,8 @@ router.post('/events', function (req, res) {
 });
 
 //==============================================
-//Show event details routes
+//Route to show an event details form
 //==============================================
-//Show an event detail
 router.get("/events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findOne({
@@ -72,7 +62,9 @@ router.get("/events/:id", function (req, res) {
     });
 });
 
-//event edit form route
+//==============================================
+//Route to show an event editable details form 
+//==============================================
 router.get('/events/:id/edit', middleware.checkEventOwnership, function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
@@ -103,17 +95,32 @@ router.put('/events/:id', function (req, res) {
     });
 });
 
-
+//===================================================================================
+// PASSED EVENTS ROUTES WILL GO HERE
+//===================================================================================
 //==============================================
 //Passed events routes
 //==============================================
-//get route to passed events
-router.get('/passed-events', function (req, res) {
-    res.send('passed events will be displayed here');
+router.get('/events', function (req, res) {
+    var todayDate = new Date();
+    var same = d1.getTime() === d2.getTime();
+    var notSame = d1.getTime() !== d2.getTime();
+    db.Event.findAll({
+        where: {
+            date:{
+            [Op.lte]: todayDate,
+            order: sequelize.col('date') //ordering events by the closest date
+            }
+        }
+    }).then(function (events) {
+        res.render("events/passed-events", {
+            events: events
+        });
+    });
 });
 
 
-//show detail for one passed event
+
 router.get("/passed-events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {

@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+    <h1>This will be the passed events details page</h1>
+    <div class="container">
+        <h1>Events Details page</h1>
+    <div style="background:lightgray;">
+        <h3>
+           Event:  <%= event.event_name %>
+        </h3>
+        <h3>
+           Location: <%= event.location %>
+        </h3>
+        <h3>
+            Date: <%= event.date %>
+        </h3>
+        <h3>
+            Start Time: <%= event.start_time %>
+        </h3>
+        <h3>
+            End Time: <%= event.end_time %>
+        </h3>
+        <h3>
+            Organziner: <%= event.organizer %>
+        </h3>
+        <h3>
+            Contact Info: <%= event.contact%>
+        </h3>
+        <h3>
+            Description: <%= event.description %>
+        </h3>
+        <h3>
+            Number of Volunteers: <%= event.Volunteers.length %>
+        </h3>
+    </div>
+
+    <div>
+        <h3>List of volunteers</h3>
+        <% event.Volunteers.forEach(function(volunteer){ %>
+                <h6><span><%=volunteer.first_name %> </span>  <span><%=volunteer.last_name %></span></h6>
+        <% }) %>
+    </div>  
+</div>
+
+
+    <% include ../partials/footer %>
