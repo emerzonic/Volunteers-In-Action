@@ -52,7 +52,6 @@ module.exports = (sequelize, DataTypes) => {
         console.log(user);
         return done(null, user);
       } else {
-        // return console.log('not matched');
         return done(null, false);
       }
     });

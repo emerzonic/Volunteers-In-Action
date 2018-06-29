@@ -24,22 +24,24 @@ router.get('/index', function (req, res) {
 
 //login route
 router.get('/login', function (req, res) {
+   
     res.render("users/login");
 });
 
 
 //Post route to login
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/events",
-    failureRedirect: "/login"
-}), function(req, res) {});
+    // successRedirect: "/events",
+    // failureRedirect: "/login"
+}), function(req, res) {
+    console.log('This is req.body+++++++++++++++++    '+JSON.stringify(req.user));
+});
 
 
 //Log out route
 router.get("/logout", function(req, res) {
-    res.send('you are logout!!!');
-    // req.logout();
-    // res.redirect("/index");
+    req.logout();
+    res.redirect("/index");
 });
 
 module.exports = router;

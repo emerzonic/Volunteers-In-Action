@@ -8,7 +8,7 @@ middleware.IsAuthenticated = function(req, res, next){
     if(req.isAuthenticated()){
         next();
     }else{
-        res.render('users/login');
+        res.redirect('/login');
     }
 };
 
@@ -35,13 +35,11 @@ middleware.checkEventOwnership = function (req, res, next) {
              }
          }
      });
-     
  } else {
     //  req.flash("error","You need to be logged in to that.");
      res.redirect("back"); 
  }
 };
-
 
 
 //middleware

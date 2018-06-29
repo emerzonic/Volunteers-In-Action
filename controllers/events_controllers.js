@@ -4,13 +4,15 @@ var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var sequelize = require('sequelize');
+var middleware = require("../middleware");
+
 
 //config
-router.use(methodOverride("_method"));
-router.use(bodyParser.urlencoded({
-    extended: true
-}));
-router.use(bodyParser.json());
+// router.use(methodOverride("_method"));
+// router.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+// router.use(bodyParser.json());
 
 
 
@@ -29,7 +31,7 @@ router.get('/events', function (req, res) {
 //Create new event routes
 //==============================================
 // create form route
-router.get('/events/new', function (req, res) {
+router.get('/events/new', middleware.IsAuthenticated, function (req, res) {
     res.render("events/new");
 });
 
@@ -71,7 +73,7 @@ router.get("/events/:id", function (req, res) {
 });
 
 //event edit form route
-router.get('/events/:id/edit', function (req, res) {
+router.get('/events/:id/edit', middleware.checkEventOwnership, function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
         res.render("events/edit", {
