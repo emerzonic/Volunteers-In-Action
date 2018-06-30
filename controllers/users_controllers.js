@@ -1,12 +1,10 @@
-var methodOverride = require('method-override');
 var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var sequelize = require('sequelize');
+var passport = require("passport");
 
 //config
-router.use(methodOverride("_method"));
 router.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -18,23 +16,35 @@ router.get('/signup', function (req, res) {
     res.render("users/signup");
 });
 
-//Post route to create users
-router.post('/signup', function (req, res) {
-    db.User.create(req.body).then(function (user) {
-        res.redirect('/login');
-    });
+
+
+// Post route to signup new users
+router.post('/signup', function (req, res, next) {
+    passport.authenticate('local-signup', function (err, user, info) {
+        if (user) {
+            req.logIn(user, function (err) {
+                console.log('This is the new user '+ req.user);
+                if (err) {
+                    return next(err);
+                } else {
+                    res.redirect('/events');
+                }
+            });
+        }
+        if (!user) {
+            res.redirect('/signup');
+        }
+        if (err) {
+            res.send({
+                success: false,
+                response: 'Authentication failed'
+            });
+        }
+    })(req, res, next);
 });
 
 
 
 
-
-
-
-
-
-
-
-
-
 module.exports = router;
+
