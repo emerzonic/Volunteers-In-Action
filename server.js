@@ -52,7 +52,7 @@ app.use(volunteers);
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8088;
 // Application server.
-db.sequelize.sync({force:true}).then(function () {
+db.sequelize.sync({}).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
