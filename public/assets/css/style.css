@@ -117,6 +117,8 @@ header .navbar-brand, footer .footer-about {
 
 .card {
   display: inline-block;
+  opacity: 0.9;
+  color: #fff;
 }
 
 .card-img-top {
