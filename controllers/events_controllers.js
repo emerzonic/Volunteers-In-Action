@@ -2,6 +2,8 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var middleware = require("../middleware");
+var sequelize = require('sequelize');
+var op = sequelize.Op;
 
 
 //==============================================
@@ -101,30 +103,32 @@ router.put('/events/:id', function (req, res) {
 //==============================================
 //Passed events routes
 //==============================================
-router.get('/events', function (req, res) {
-    var todayDate = new Date();
-    var same = d1.getTime() === d2.getTime();
-    var notSame = d1.getTime() !== d2.getTime();
+router.get('/events/passed-events', function (req, res) {
     db.Event.findAll({
+        order: sequelize.col('date'), //ordering events by the closest date
         where: {
-            date:{
-            [Op.lte]: todayDate,
-            order: sequelize.col('date') //ordering events by the closest date
-            }
+            date: {
+                [op.lt]: new Date(),
+            },
         }
-    }).then(function (events) {
-        res.render("events/passed-events", {
-            events: events
-        });
+    }).then(events => {
+        // if(events){
+        console.log(events);
+        // res.render("events/passed-events", {
+        //     events: events
+        // });
+    // }else{
+        // res.redcirect('/index');
+    // }
     });
 });
 
 
 
-router.get("/passed-events/:id", function (req, res) {
+router.get("/events/passed-events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
-        res.render("passed-events/show", {
+        res.render("events/passed-events-show", {
             event: event
         });
     });
