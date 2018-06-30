@@ -17,19 +17,25 @@ router.get('/', function (req, res) {
     res.redirect('/index');
 });
 
-//home page route
+//==============================================
+//Route to home page
+//==============================================
 router.get('/index', function (req, res) {
     res.render('index');
 });
 
-//login route
-router.get('/login', function (req, res) {
 
+//==============================================
+//Route to login to page
+//==============================================
+router.get('/login', function (req, res) {
     res.render("users/login");
 });
 
 
-//Post route to login
+//==============================================
+//Route to login user
+//==============================================
 router.post("/login", passport.authenticate("local-login", {
     successRedirect: "/events",
     failureRedirect: "/login"
@@ -37,8 +43,9 @@ router.post("/login", passport.authenticate("local-login", {
     console.log(req.user);
 });
 
-
-//Log out route
+//==============================================
+//Logout route
+//==============================================
 router.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/index");
