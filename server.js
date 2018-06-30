@@ -14,8 +14,6 @@ var db = require("./models");
 
 var app = express();
 
-
-SALT_WORK_FACTOR = 12;
 //SETUP APP TO USE PACKAGES
 app.use(bodyParser.urlencoded({
   extended: true
@@ -36,8 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Track the current user
-app.use(function(req,res,next){
-  res.locals.currentUser =req.user;
+app.use(function (req, res, next) {
+  res.locals.currentUser = JSON.stringify(req.user);
   next();
 });
 
@@ -56,6 +54,6 @@ db.sequelize.sync({}).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
-}).catch(function(err){
+}).catch(function (err) {
   console.log(err);
 });

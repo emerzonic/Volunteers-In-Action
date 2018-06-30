@@ -40,7 +40,7 @@ router.post("/login", passport.authenticate("local-login", {
     successRedirect: "/events",
     failureRedirect: "/login"
 }), function (req, res) {
-    console.log(req.user);
+    console.log("New login user\n\n"+req.user);
 });
 
 //==============================================
