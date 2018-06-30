@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     status_passed: {
       type: DataTypes.BOOLEAN,
       validate: {
-        notEmpty: true
+        defaulValue: false
       }
     },
   }, {});
