@@ -35,7 +35,7 @@ app.use(passport.session());
 
 //Track the current user
 app.use(function (req, res, next) {
-  res.locals.currentUser = JSON.stringify(req.user);
+  res.locals.currentUser = req.user;
   next();
 });
 

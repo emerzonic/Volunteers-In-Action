@@ -22,20 +22,30 @@
                                 <a class="nav-link" href="/events">View Events</a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/events/new">Create Event</a>
-                            </li>
+                            <%if(!currentUser){%>
+                                <!-- Added a logic to show login and sign up when a user is not logged in  -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">Login</a>
+                                </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/login">Login</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/signup">Sign Up</a>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/signup">Sign Up</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout">Logout</a>
-                            </li>
+                                    <% }else{%>
+                                        <!-- logic to show create event, logout and username when a user is logged in  -->
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/events/new">Create Event</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Welcome
+                                                <%=currentUser.username%>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/logout">Logout</a>
+                                        </li>
+                                        <%}%>
                         </ul>
                     </div>
                 </div>
