@@ -23,7 +23,7 @@ router.post('/signup', function (req, res, next) {
     passport.authenticate('local-signup', function (err, user, info) {
         if (user) {
             req.logIn(user, function (err) {
-                console.log('This is the new user '+ req.user.dataValues.username);
+                console.log('This is the new user '+ req.user);
                 if (err) {
                     return next(err);
                 } else {

@@ -43,6 +43,12 @@ app.use(passport.session());
 // passport.serializeUser(db.User.serializeUser());
 // passport.deserializeUser(db.User.deserializeUser());
 
+//Track the current user
+app.use(function(req,res,next){
+  res.locals.currentUser =req.user;
+  next();
+});
+
 //SET UP APP TO USE CONTROLLERS/ROUTES
 app.use(index);
 app.use(users);

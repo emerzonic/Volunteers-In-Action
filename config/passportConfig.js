@@ -24,18 +24,17 @@ passport.deserializeUser(function (user, done) {
 
 
 //For authentication purposes
-passport.use('local-signup', new LocalStrategy(
-    {
+passport.use('local-signup', new LocalStrategy({
         passReqToCallback: true
-    }, 
+    },
     function (req, username, password, done) {
         db.User.findOne({
             where: {
                 username: username
             }
         }).then((user, err) => {
-            console.log('I entered: '+user);
-            console.log('I entered: '+err);
+            console.log('I entered: ' + user);
+            console.log('error: ' + err);
             if (err) {
                 console.log(err);
                 return done(null, false);
@@ -51,9 +50,9 @@ passport.use('local-signup', new LocalStrategy(
                     username: req.body.username,
                     password: req.body.password
                 }).then(function (user) {
-                    return done(null, user);
+                    return done(null, user.get());
                 }).catch(function (err) {
-                        console.log(err, req.body);
+                    console.log(err, req.body);
                     return done(null, err);
                 });
             }
