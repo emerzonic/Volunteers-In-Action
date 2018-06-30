@@ -44,7 +44,7 @@
     <% if (currentUser && currentUser.id === event.UserId){%>
         <a href='/events/<%= event.id %>/edit'>Edit Event</a>
     <br>
-    <%}
+    <%}%>
 
     <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
     <% if (event.Volunteers.length >= event.volunteers_needed){%>
