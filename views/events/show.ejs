@@ -34,13 +34,19 @@
 
     <div>
         <h3>List of volunteers</h3>
+<!-- loop through the volunteers arrays and display all -->
         <% event.Volunteers.forEach(function(volunteer){ %>
                 <h6><span><%=volunteer.first_name %> </span>  <span><%=volunteer.last_name %></span></h6>
         <% }) %>
     </div>
 
-    <a href='/events/<%= event.id %>/edit'>Edit Event</a>
+<!-- We want to hide edit buttion if the event does not belong to the current signed in user -->
+    <% if (currentUser && currentUser.id === event.UserId){%>
+        <a href='/events/<%= event.id %>/edit'>Edit Event</a>
     <br>
+    <%}
+
+    <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
     <% if (event.Volunteers.length >= event.volunteers_needed){%>
         <p>Event is Full</p>
     <%}else {%>
