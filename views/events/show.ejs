@@ -1,7 +1,7 @@
+<% include ../partials/head %>
 <% include ../partials/header %>
-    <h1>This will be the event details page</h1>
     <div class="container">
-        <h1>Events Details page</h1>
+        <h1>Events Details page</h1>    
     <div style="background:lightgray;">
         <h3>
             <%= event.event_name %>
@@ -41,7 +41,12 @@
 
     <a href='/events/<%= event.id %>/edit'>Edit Event</a>
     <br>
-    <a href='/events/<%= event.id %>/volunteers/new'>Sign up for Event</a>
+    <% if (event.Volunteers.length >= event.volunteers_needed){%>
+        <p>Event is Full</p>
+    <%}else {%>
+        <a href='/events/<%= event.id %>/volunteers/new'>Sign up for Event</a>
+   <% }%>
+    
 </div>
 
 

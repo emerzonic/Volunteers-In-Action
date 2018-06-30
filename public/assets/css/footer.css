@@ -1,0 +1,31 @@
+.site-footer {
+  background-image: url("../images/big_image_3.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-bottom: 0px;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.site-footer a:hover {
+  opacity: .5;
+}
+
+.site-footer h3 {
+  color: #fff !important;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+}
+
+.row-footer {
+  margin: 4em;
+}
+
+footer .list-unstyled {
+  text-align: right;
+  width: 100%;
+}

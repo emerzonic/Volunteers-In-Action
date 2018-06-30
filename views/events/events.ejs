@@ -1,50 +1,60 @@
-<% include ../partials/header %>
+<% include ../partials/head %>
+    <% include ../partials/header %>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Volunteer Opportunities Around You</h1>
+                <p class="lead">Check out available Events around you!</p>
+            </div>
 
-    <div class="container">
-        <div class="jumbotron mt-5">
-            <h1>Volunteer Opportunities Around You</h1>
-            <p class="lead">Check out available Events around you!</p>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <%events.forEach(function(event){%>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="card" >
-                                <img class="card-img-top" src="..." alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <%= event.event_name %>
-                                    </h5>
-                                    <p class="location">
-                                        Location: <%= event.location %>
-                                    </p>
-                                    <p class="date">
-                                        Date: <%= event.date %>
-                                    </p>
-                                    <p class="time">
-                                        Time: <%= event.start_time %>
-                                    </p>
-                                    <p class="time">
-                                        Time: <%= event.end_time %>
-                                    </p>
-                                    <p class="organizer">
-                                        Orazanizer: <%= event.organizer %>
-                                    </p>
-                                    <p class="organizer">
-                                           Contact: <%= event.contact%>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <%events.forEach(function(event){%>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <div class="card">
+                                    <img class="card-img-top" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= event.event_name %>
+                                        </h5>
+                                        <p class="location">
+                                            Location:
+                                            <%= event.location %>
                                         </p>
-                                    <p class="volunteers">
-                                        Volunteers Needed: <%= event.volunteers_needed %>
-                                    </p>
-                                    <p class="details">
-                                        Info: <%= event.description %>
-                                    </p>
-                                    <a href="/events/<%=event.id %>">See Details</a>
+                                        <p class="date">
+                                            Date:
+                                            <%= event.date %>
+                                        </p>
+                                        <p class="time">
+                                            Time:
+                                            <%= event.start_time %>
+                                        </p>
+                                        <p class="time">
+                                            Time:
+                                            <%= event.end_time %>
+                                        </p>
+                                        <p class="organizer">
+                                            Orazanizer:
+                                            <%= event.organizer %>
+                                        </p>
+                                        <p class="organizer">
+                                            Contact:
+                                            <%= event.contact%>
+                                        </p>
+                                        <p class="volunteers">
+                                            Volunteers Needed:
+                                            <%= event.volunteers_needed %>
+                                        </p>
+                                        <p class="details">
+                                            Info:
+                                            <%= event.description %>
+                                        </p>
+                                        <a href="/events/<%=event.id %>">See Details</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <%})%>
+                            <%})%>
+                    </div>
                 </div>
             </div>
         </div>
