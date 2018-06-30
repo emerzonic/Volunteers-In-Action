@@ -7,23 +7,23 @@ High school students in Minnesota must perform 30 hours of community service bet
 How to use:
 Once the page is loaded, the student is able to 'create' an event or 'find' and event within their community. Once the event has been completed, students can view these previous events and upload comments or pictures.
 
-Technologies implemented:
-HTML
-CSS
-Bootstrap
-Javascript
-Node and Express Web Server
-npm 
-EJS for Server Side Templating
-My SQL Database with Sequalize ORM
-Heroku Deployment
-APIs used (Volunteer Match)
+## Technologies implemented:
+* HTML
+* CSS
+* Bootstrap
+* Javascript
+* Node and Express Web Server
+* npm 
+* EJS for Server Side Templating
+* My SQL Database with Sequalize ORM
+* Heroku Deployment
+* APIs used (Volunteer Match)
 
-Team Members
-Eric Baltutis
-Emerson Doyah
-Reetu Syal
-University of Minnesota Coding Bootcamp, Spring 2018
+# Team Members
+* Eric Baltutis
+* Emerson Doyah
+* Reetu Syal
+## University of Minnesota Coding Bootcamp, Spring 2018
 
-We are Online:
+### We are Online:
 See the project running on Heroku.

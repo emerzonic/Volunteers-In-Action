@@ -10,7 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     organizer: DataTypes.STRING,
     contact: DataTypes.STRING,
     volunteers_needed: DataTypes.INTEGER,
-    status_passed: DataTypes.BOOLEAN
+    status_passed: {
+      type: DataTypes.BOOLEAN,
+      validate: {
+        defaulValue: false
+      }
+    },
   }, {});
   Event.associate = function(models) {
     Event.hasMany(models.Volunteer);

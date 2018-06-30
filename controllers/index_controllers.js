@@ -1,12 +1,10 @@
-var methodOverride = require('method-override');
 var express = require('express');
-var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var sequelize = require('sequelize');
+var middleware = require("../middleware");
+var passport = require("passport");
 
 //config
-router.use(methodOverride("_method"));
 router.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -19,21 +17,38 @@ router.get('/', function (req, res) {
     res.redirect('/index');
 });
 
-//home page route
+//==============================================
+//Route to home page
+//==============================================
 router.get('/index', function (req, res) {
     res.render('index');
 });
 
-//login route
+
+//==============================================
+//Route to login to page
+//==============================================
 router.get('/login', function (req, res) {
     res.render("users/login");
 });
 
 
-//Post route to login
-router.post('/login', function (req, res) {
-    res.redirect("/events");
+//==============================================
+//Route to login user
+//==============================================
+router.post("/login", passport.authenticate("local-login", {
+    successRedirect: "/events",
+    failureRedirect: "/login"
+}), function (req, res) {
+    console.log("New login user\n\n"+req.user);
 });
 
+//==============================================
+//Logout route
+//==============================================
+router.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/index");
+});
 
 module.exports = router;

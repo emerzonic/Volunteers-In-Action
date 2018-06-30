@@ -1,925 +1,587 @@
+var faker = require('faker');
+
+
+
+
+
 'use strict';
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkInsert('Events', [{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },
-      {
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },{
-        event_name: 'Cleaning Central Park',
-        location: 'Minneapolis',
-        date: '2018-',
-        start_time: '12:00:00',
-        end_time: '14:00:00',
-        description: `Lorem Ipsum is simply dummy text of the 
-        printing and typesetting industry. Lorem Ipsum has been 
-        the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled 
-        on purpose (injected humour and the like.`,
-        organizer: 'Lauran Brown',
-        contact: 'lauran@via.com',
-        volunteers_needed: 10,
-        createdAt:new Date(),
-        updatedAt:new Date()
-      },
-      
-    
-    ]);
+    return queryInterface.bulkInsert('Events', [{
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: faker.address.city(),
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status_passed: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }]);
   },
 
   down: (queryInterface, Sequelize) => {

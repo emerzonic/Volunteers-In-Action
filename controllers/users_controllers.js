@@ -1,40 +1,44 @@
-var methodOverride = require('method-override');
 var express = require('express');
-var db = require('../models');
 var router = express.Router();
-var bodyParser = require('body-parser');
-var sequelize = require('sequelize');
-
-//config
-router.use(methodOverride("_method"));
-router.use(bodyParser.urlencoded({
-    extended: true
-}));
-router.use(bodyParser.json());
+var passport = require("passport");
 
 
-//signup route
+//==============================================
+//Route to signup page
+//==============================================
 router.get('/signup', function (req, res) {
     res.render("users/signup");
 });
 
-//Post route to create users
-router.post('/signup', function (req, res) {
-    db.User.create(req.body).then(function (user) {
-        res.redirect('/login');
-    });
+//==============================================
+//Route to signup user
+//==============================================
+router.post('/signup', function (req, res, next) {
+    passport.authenticate('local-signup', function (err, user, info) {
+        if (user) {
+            req.logIn(user, function (err) {
+                console.log('This is the new user\n\n'+ req.user.username);
+                if (err) {
+                    return next(err);
+                } else {
+                    res.redirect('/events');
+                }
+            });
+        }
+        if (!user) {
+            res.redirect('/signup');
+        }
+        if (err) {
+            res.send({
+                success: false,
+                response: 'Authentication failed'
+            });
+        }
+    })(req, res, next);
 });
-
-
-
-
-
-
-
-
-
 
 
 
 
 module.exports = router;
+
