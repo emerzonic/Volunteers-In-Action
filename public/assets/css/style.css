@@ -8,20 +8,42 @@ body {
 }
 
 #main {
-  min-height: 500px;
+  min-height: 100%;
   padding: 50px 0;
 }
 
 .homeImg {
-  max-width: 100%;
-  margin-top: 0px;
+  margin-top: -3em;
   z-index: -20 !important;
 }
 
 .container-hero {
-  margin-bottom: -50px;
+  background-image: url("/assets/images/teenage_volunteers.jpg");
+  background-size: cover;
+  height: 550px;
   display: flex;
   align-items: center;
+}
+
+.container-volunteer {
+  background-image: url("/assets/images/teenage_volunteers.jpg");
+  background-size: cover;
+  height: 550px;
+  display: flex;
+  align-items: center;
+}
+
+.container-events {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#card-event {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  opacity: 0.9;
 }
 
 .jumbotron-home {
