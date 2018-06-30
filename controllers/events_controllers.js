@@ -113,7 +113,7 @@ router.get('/events/passed-events', function (req, res) {
         }
     }).then(events => {
         // if(events){
-        console.log(events);
+        console.log(JSON.stringify(events));
         // res.render("events/passed-events", {
         //     events: events
         // });

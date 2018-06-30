@@ -11,7 +11,6 @@ var session = require('express-session');
 var passportConfig = require('./config/passportConfig');
 var middleware = require('./middleware/index');
 var db = require("./models");
-// var user = require('./models/user');
 
 var app = express();
 
@@ -27,7 +26,6 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
 //PASSPORT CONFIG
-// app.use(require('connect-multiparty')());
 app.use(cookieParser());
 app.use(session({
   secret: 'super-secret',
@@ -36,12 +34,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-// passport.use(new LocalStrategy(db.User.authenticate()));
-// passport.use(db.User.createStrategy());
-
-// passport.serializeUser(db.User.serializeUser());
-// passport.deserializeUser(db.User.deserializeUser());
 
 //Track the current user
 app.use(function(req,res,next){
