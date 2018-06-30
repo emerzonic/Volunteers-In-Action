@@ -1,18 +1,19 @@
 <% include ../partials/head %>
     <% include ../partials/header %>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>Volunteer Opportunities Around You</h1>
-                <p class="lead">Check out available Events around you!</p>
+        <div class="container-volunteer">
+            <div class="jumbotron jumbotron-home bg-dark col-12">
+                <h1>Volunteer Opportunities</h1>
+                <p class="lead">Check out available events around you!</p>
             </div>
-
-            <div class="row">
+        </div>
+        <div class="container-events">
+            <div class="row-12">
                 <div class="col-lg-12">
-                    <div class="row">
+                    <div class="row row-eventCard">
                         <%events.forEach(function(event){%>
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <div class="card">
-                                    <img class="card-img-top" src="..." alt="Card image cap">
+                                <div class="card" id="card-event">
+                                    <img class="card-img-top" src="" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <%= event.event_name %>
@@ -49,7 +50,7 @@
                                             Info:
                                             <%= event.description %>
                                         </p>
-                                        <a href="/events/<%=event.id %>">See Details</a>
+                                        <a href="/events/<%=event.id %>" class="btn btn-primary">See Details</a>
                                     </div>
                                 </div>
                             </div>
