@@ -76,3 +76,4 @@ $(".previous").click(function(){
 		easing: 'easeInOutBack'
 	});
 });
+

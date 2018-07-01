@@ -36,7 +36,7 @@ router.post('/events/:id/volunteers', function (req, res) {
             contact: req.body.contact,
             EventId: req.params.id
         }).then(function (data) {
-            res.redirect('/events/'+ req.params.id);
+            res.redirect('/events/');
         });
 });
 
