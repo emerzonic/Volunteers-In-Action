@@ -30,6 +30,14 @@ body {
   align-items: center;
 }
 
+.container-signUp {
+  background-image: url("/assets/images/signUpPage.jpg");
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .container-volunteer {
   background-image: url("/assets/images/teenage_volunteers.jpg");
   background-size: cover;
