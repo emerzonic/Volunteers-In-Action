@@ -120,7 +120,7 @@ header .navbar-brand, footer .footer-about {
   opacity: 0.9;
 }
 
-.card h4 {
+.card h4, h5 {
   color: #000 !important;
 }
 
