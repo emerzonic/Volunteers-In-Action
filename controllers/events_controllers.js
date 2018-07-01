@@ -11,7 +11,8 @@ var op = sequelize.Op;
 //==============================================
 router.get('/events', function (req, res) {
     db.Event.findAll({
-        order: sequelize.col('date') //ordering events by the closest date
+        order: sequelize.col('date'), //ordering events by the closest date
+        include: [db.Volunteer],
     }).then(function (events) {
         res.render("events/events", {
             events: events
@@ -36,7 +37,7 @@ router.post('/events', function (req, res) {
         location: req.body.location,
         date: req.body.date,
         start_time: req.body.start_time,
-        end_time: req.body.ens_time,
+        end_time: req.body.end_time,
         description: req.body.description,
         organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
         contact: req.body.email,
@@ -51,18 +52,17 @@ router.post('/events', function (req, res) {
 //Route to show an event details form
 //==============================================
 router.get("/events/:id", function (req, res) {
-    res.send("hello")
-    // var eventId = req.params.id;
-    // db.Event.findOne({
-    //     where: {
-    //         id: eventId
-    //     },
-    //     include: [db.Volunteer],
-    // }).then(function (event) {
-    //     res.render("events/events", {
-    //         event: event
-    //     });
-    // });
+    var eventId = req.params.id;
+    db.Event.findOne({
+        where: {
+            id: eventId
+        },
+        include: [db.Volunteer],
+    }).then(function (eventOne) {
+        res.render("events/events", {
+            event: eventOne
+        });
+    });
 });
 
 //==============================================
@@ -94,7 +94,7 @@ router.put('/events/:id', function (req, res) {
             id: req.params.id
         }
     }).then(function (updateEevent) {
-        res.redirect("/events/" + req.params.id);
+        res.redirect("/events/");
     });
 });
 
