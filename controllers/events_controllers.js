@@ -51,17 +51,18 @@ router.post('/events', function (req, res) {
 //Route to show an event details form
 //==============================================
 router.get("/events/:id", function (req, res) {
-    var eventId = req.params.id;
-    db.Event.findOne({
-        where: {
-            id: eventId
-        },
-        include: [db.Volunteer],
-    }).then(function (event) {
-        res.render("events/show", {
-            event: event
-        });
-    });
+    res.send("hello")
+    // var eventId = req.params.id;
+    // db.Event.findOne({
+    //     where: {
+    //         id: eventId
+    //     },
+    //     include: [db.Volunteer],
+    // }).then(function (event) {
+    //     res.render("events/events", {
+    //         event: event
+    //     });
+    // });
 });
 
 //==============================================

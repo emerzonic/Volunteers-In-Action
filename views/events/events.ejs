@@ -13,7 +13,6 @@
                         <%events.forEach(function(event){%>
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="card" id="card-event">
-                                    <img class="card-img-top" src="" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <%= event.event_name %>
@@ -50,7 +49,11 @@
                                             Info:
                                             <%= event.description %>
                                         </p>
-                                        <a href="/events/<%=event.id %>" class="btn btn-primary">See Details</a>
+                                        <!-- Button trigger modal -->
+                                        <a class="eventBtn">
+                                            <button href="/events/<%=event.id %>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">More Info</button>
+                                        </a>
+                                        <button type="button" class="btn btn-primary">Sign Up!</button>
                                     </div>
                                 </div>
                             </div>

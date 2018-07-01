@@ -12,6 +12,11 @@ body {
   padding: 50px 0;
 }
 
+#navbar {
+  opacity: 0.9;
+  z-index: 10;
+}
+
 .homeImg {
   margin-top: -3em;
   z-index: -20 !important;
@@ -120,7 +125,7 @@ header .navbar-brand, footer .footer-about {
   opacity: 0.9;
 }
 
-.card h4 {
+.card h4, h5 {
   color: #000 !important;
 }
 
@@ -149,6 +154,11 @@ header .navbar-brand, footer .footer-about {
 	padding: 10px 5px;
 	margin: 10px 5px;
 }
+
+.eventBtn {
+  margin: 0 auto;
+}
+
 .btn:hover, .btn:focus {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60 !important;
 }
