@@ -34,6 +34,11 @@
                                             <%}else {%>
                                                 <a href='/events/<%= event.id %>/volunteers/new' type="button" class="btn btn-primary">Sign Up!</a>
                                                 <% }%>
+
+                                                    <% if (currentUser && currentUser.id === event.UserId){%>
+                                                        <a type="button" class="btn btn-primary" href='/events/<%= event.id %>/edit'>Edit Event</a>
+                                                        <br>
+                                                        <%}%>
                                     </div>
                                 </div>
                             </div>
@@ -98,13 +103,6 @@
                                                     </h6>
                                                     <% }) %>
                                             </div>
-                                            <div>
-                                                <!-- We want to hide edit buttion if the event does not belong to the current signed in user -->
-                                                <% if (currentUser && currentUser.id === event.UserId){%>
-                                                    <a href='/events/<%= event.id %>/edit'>Edit Event</a>
-                                                    <br>
-                                                    <%}%>
-                                            </div>
 
                                         </div>
                                         <div class="modal-footer">
@@ -115,6 +113,11 @@
                                                 <%}else {%>
                                                     <a href='/events/<%= event.id %>/volunteers/new' type="button" class="btn btn-primary">Sign Up!</a>
                                                     <% }%>
+                                                        <!-- We want to hide edit buttion if the event does not belong to the current signed in user -->
+                                                        <% if (currentUser && currentUser.id === event.UserId){%>
+                                                            <a type="button" class="btn btn-primary" href='/events/<%= event.id %>/edit'>Edit Event</a>
+                                                            <br>
+                                                            <%}%>
                                         </div>
                                     </div>
                                 </div>
