@@ -11,7 +11,7 @@ module.exports = {
 
     return queryInterface.bulkInsert('Events', [{
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '6502 Merrimac Ln N Osseo, Minnesota(MN), 55311',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -19,7 +19,46 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: '7139 Peony Ln N Osseo, Minnesota(MN), 55311',
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: '2649 12th Ave S, Minneapolis, MN 55407',
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status: false,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      event_name: faker.lorem.sentence(),
+      location: '89 Century Ave N, St Paul, MN 55119',
+      date: faker.date.future(),
+      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
+      description: faker.lorem.sentences(),
+      organizer: faker.name.findName(),
+      contact: faker.internet.email(),
+      volunteers_needed: Math.floor((Math.random() * 20) + 1),
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -32,7 +71,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -45,7 +84,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -58,7 +97,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -71,7 +110,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -84,7 +123,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -97,7 +136,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -110,7 +149,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -123,7 +162,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -136,7 +175,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -149,7 +188,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -162,7 +201,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -175,7 +214,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -188,7 +227,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -201,7 +240,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -214,7 +253,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -227,7 +266,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -240,7 +279,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -253,7 +292,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -266,7 +305,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -279,7 +318,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -292,7 +331,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -305,7 +344,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -318,7 +357,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -331,7 +370,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -344,7 +383,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -357,7 +396,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -370,7 +409,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -383,7 +422,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -396,7 +435,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -409,7 +448,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -422,7 +461,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -435,7 +474,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -448,7 +487,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -461,7 +500,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -474,7 +513,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -487,7 +526,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -500,7 +539,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -513,7 +552,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -526,7 +565,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -539,46 +578,7 @@ module.exports = {
       organizer: faker.name.findName(),
       contact: faker.internet.email(),
       volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
-      date: faker.date.future(),
-      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
-      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
-      description: faker.lorem.sentences(),
-      organizer: faker.name.findName(),
-      contact: faker.internet.email(),
-      volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
-      date: faker.date.future(),
-      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
-      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
-      description: faker.lorem.sentences(),
-      organizer: faker.name.findName(),
-      contact: faker.internet.email(),
-      volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
-      date: faker.date.future(),
-      start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
-      end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
-      description: faker.lorem.sentences(),
-      organizer: faker.name.findName(),
-      contact: faker.internet.email(),
-      volunteers_needed: Math.floor((Math.random() * 20) + 1),
-      status_passed: false,
+      status: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
