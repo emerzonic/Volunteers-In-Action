@@ -77,6 +77,9 @@ $(".previous").click(function(){
 	});
 });
 
+<<<<<<< HEAD
 // $(".submit").click(function(){
 // 	return false;
 // })
+=======
+>>>>>>> f851e852ff24a26acd682649283dd9b8b7c6e6aa

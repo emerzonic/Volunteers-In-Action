@@ -1,0 +1,24 @@
+<% include ../partials/head %>
+<% include ../partials/header %>
+   <div class="container">
+       <br><br><br>
+       <h1>Edit page</h1>
+       <br>
+       <form action="/events/<%=event.id %>?_method=PUT" method="POST">
+            <input type="text" name="eventName" value="<%= event.event_name %>"><br><br>
+            <input type="text" name="location" value="<%= event.location %>"><br><br>
+            <input type="Date" name="date"class="form-control" value="<%= event.date %>">
+            <input type="Time" name="start_time"class="form-control"  value="<%= event.start_time %>">
+            <input type="Time" name="end_time"class="form-control"  value="<%= event.end_time %>">
+            <input type="number" name="volunteers" value="<%= event.volunteers_needed %>"><br><br>
+
+            <textarea type="Description" name="description"class="form-control"><%= event.description %></textarea>
+
+            <input type="text" name="fname" value="<%= event.organizer %>" disabled><br><br>
+            <!-- <input type="text" name="lname" placeholder="Last Name" ><br><br> -->
+            <!-- <input type="text" name="phone" value="<%= event.description %>"><br><br> --> 
+            <input type="email" name="email" value="<%= event.contact %>"><br><br>
+            <button type="submit">Submit</button>
+    </form>
+</div>
+    <% include ../partials/footer %>

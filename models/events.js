@@ -1,14 +1,22 @@
-module.exports = function(sequelize, DataTypes) {
-  var Events = sequelize.define("Event", {
-  event_name: DataTypes.STRING,
-  location: DataTypes.STRING,
-  date: DataTypes.STRING,
-  start_time: DataTypes.STRING,
-  end_time: DataTypes.STRING,
-  description: DataTypes.STRING,
-  organizer: DataTypes.STRING,
-  contact: DataTypes.STRING,
-  volunteers_needed: DataTypes.INTEGER
-    });
-    return Events;
+'use strict';
+module.exports = (sequelize, Sequelize) => {
+  var Event = sequelize.define('Event', {
+    event_name: Sequelize.STRING,
+    location: Sequelize.STRING,
+    lat:Sequelize.DECIMAL(10, 2) ,
+    lng:Sequelize.DECIMAL(10, 2), 
+    date: Sequelize.DATE,
+    start_time: Sequelize.STRING,
+    end_time: Sequelize.STRING,
+    description: Sequelize.STRING,
+    organizer: Sequelize.STRING,
+    contact: Sequelize.STRING,
+    volunteers_needed: Sequelize.INTEGER,
+    status: Sequelize.BOOLEAN,
+  }, {});
+  Event.associate = function(models) {
+    Event.hasMany(models.Volunteer);
+    Event.belongsTo(models.User);
   };
+  return Event;
+};

@@ -1,0 +1,17 @@
+<% include ../partials/head %>
+    <% include ../partials/header %>
+        <div class="container-hero">
+
+            <form id="msform" action="/login" method="POST">
+                <br>
+                <!-- fieldsets -->
+                <fieldset>
+                    <h1 class="signUpHeader">Log In</h1>
+                    <hr>
+                    <input type="text" name="username" placeholder="username">
+                    <input type="password" name="password" placeholder="password">
+                    <input type="submit" name="login" class="next action-button" value="Login" />
+                </fieldset>
+            </form>
+        </div>
+        <% include ../partials/footer %>

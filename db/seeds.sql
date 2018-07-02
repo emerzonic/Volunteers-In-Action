@@ -6,3 +6,13 @@ VALUES ("garage", "Bloomington", "February 23 1998", "20000", "170000" , "Clean 
 
 INSERT INTO events (event_name, location, date, start_time, end_time, description, organizer, contact)
 VALUES ("walk dogs", "SLP", "July 4 2003", "170000", "190000", "Walk dogs", "Cindy", "cindy@msn.com");
+
+INSERT INTO Persons (LastName, FirstName , Age, contact)
+VALUES ("Johnson", "Tom", "15", "cindy@msn.com");
+
+INSERT INTO Persons (LastName, FirstName , Age, contact)
+VALUES ("Grass", "Ranaldo", "18", "ranoldo@msn.com");
+
+INSERT INTO users (LastName, FirstName , username, password)
+VALUES ("Phone", "Kammy", "kamphone", "abcd");
+

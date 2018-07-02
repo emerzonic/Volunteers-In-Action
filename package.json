@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "npm run css-compile && nodemon server.js",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/custom.scss public/assets/css/lib/bootstrap.css"
   },
   "repository": {
     "type": "git",
@@ -18,12 +19,25 @@
   },
   "homepage": "https://github.com/emerzonic/Volunteers-In-Action#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
+    "bootstrap": "4.0.0",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "faker": "^4.1.0",
+    "method-override": "^2.3.10",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
+    "node-sass": "^4.9.0",
+    "npm": "^6.1.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "popper.js": "^1.14.3",
     "require": "^2.4.20",
-    "sequelize": "^4.38.0"
+    "sequelize": "^4.38.0",
+    "sessions": "0.0.2-7"
   }
 }
