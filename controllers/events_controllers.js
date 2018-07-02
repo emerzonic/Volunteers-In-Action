@@ -192,7 +192,6 @@ router.get('/events/map', function (req, res) {
         res.render("events/map", {
             events: events
         });
-        // console.log('This is event: \n'+event);
     });
 });
 
