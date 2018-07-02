@@ -105,7 +105,7 @@
                                             <div>
 
                                                 <!-- loop through the volunteers arrays and display all -->
-                                                <%if(event.Volunteers){%>
+                                                <%if(event.Volunteers.length > 0){%>
                                                     <h3>List of volunteers</h3>
                                                     <% event.Volunteers.forEach(function(volunteer){ %>
                                                         <h6>
