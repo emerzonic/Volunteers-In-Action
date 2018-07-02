@@ -80,10 +80,6 @@ header .navbar .dropdown-menu:before {
   border-color: #fff !important;
 }
 
-.navbar-toggler-icon {
-  color: #fff !important;
-}
-
 @media (max-width: 1199.98px) {
   header .navbar .dropdown-menu:before {
     display: none;

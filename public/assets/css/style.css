@@ -1,5 +1,5 @@
 body {
-  background: #fff;
+  background: rgb(230, 230, 230);
   height: 100%;
   font-family: "Source Sans Pro", arial, sans-serif;
   font-weight: 400;
@@ -17,29 +17,52 @@ body {
   z-index: 10;
 }
 
-.homeImg {
+/* .homeImg {
   margin-top: -3em;
   z-index: -20 !important;
-}
+} */
 
 .container-hero {
   background-image: url("/assets/images/teenage_volunteers.jpg");
   background-size: cover;
-  height: 550px;
+  background-repeat: repeat;
   display: flex;
-  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  height: 100%;
+  margin-top: -5px
+}
+
+.container-home {
+  background-color: rgb(22, 22, 22);
+  display: flex;
+  align-items: center !important;
+  margin: 0 auto;
+  text-align: center !important;
+}
+
+.container-signUp {
+  background-image: url("/assets/images/signUpPage.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  height: 100%
 }
 
 .container-volunteer {
   background-image: url("/assets/images/teenage_volunteers.jpg");
   background-size: cover;
-  height: 550px;
+  background-repeat: repeat;
   display: flex;
-  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  height: 100%
 }
 
 .container-events {
-  background-color: #000;
+  background-color: rgb(22, 22, 22);
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -51,13 +74,27 @@ body {
   opacity: 0.9;
 }
 
+.row-jumbotron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .jumbotron-home {
+  background-color: rgb(22, 22, 22) !important;
+  opacity: 0.9;
+  position: relative;
+  text-align: center;
+  margin-top: 90px;
+}
+
+.jumbotron-events {
   background-color: rgb(22, 22, 22) !important;
   opacity: 0.9;
   position: relative;
   z-index: 20 !important;
   text-align: center;
-  margin: 0 auto;
+  margin-top: 25px;
 }
 
 a {
@@ -98,6 +135,10 @@ header .navbar-brand, footer .footer-about {
 .box {
   padding: 30px;
   background: #fff;
+}
+
+.modal-body {
+  z-index: 999 !important;
 }
 
 .site-hero-innerpage, .site-hero-innerpage .site-hero-inner {
