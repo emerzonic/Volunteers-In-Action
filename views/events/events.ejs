@@ -1,9 +1,11 @@
 <% include ../partials/head %>
     <% include ../partials/header %>
-        <div class="container-volunteer">
-            <div class="jumbotron jumbotron-home bg-dark col-12">
-                <h1>Volunteer Opportunities</h1>
-                <p class="lead">Check out available events around you!</p>
+        <div class="container">
+            <div class="row row-jumbotron">
+                <div class="jumbotron jumbotron-events bg-dark col-12">
+                    <h1>Volunteer Opportunities</h1>
+                    <p class="lead">Check out available events around you!</p>
+                </div>
             </div>
         </div>
         <div class="container-events">
@@ -32,13 +34,15 @@
                                         <% if (event.Volunteers.length >= event.volunteers_needed){%>
                                             <button type="button" class="btn btn-primary">Event is Full!</button>
                                             <%}else {%>
-                                                <a href='/events/<%= event.id %>/volunteers/new' type="button" class="btn btn-primary">Sign Up!</a>
+                                                <a href='/events/<%= event.id %>/volunteers/new'>
+                                                    <button type="button" class="btn btn-primary">Sign Up!</button>
+                                                </a>
                                                 <% }%>
 
                                                     <% if (currentUser && currentUser.id === event.UserId){%>
                                                         <a type="button" class="btn btn-primary" href='/events/<%= event.id %>/edit'>Edit Event</a>
-                                                
-                                                <%}%>
+
+                                                        <%}%>
                                     </div>
                                 </div>
                             </div>
@@ -60,6 +64,14 @@
                                                     Location:
                                                     <%= event.location %>
                                                 </p>
+
+                                                <!-- Google maps location btn -->
+                                                <div class="modal-body">
+                                                    <h5>Popover in a modal</h5>
+                                                    <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
+                                                    <hr>
+                                                </div>
+
                                                 <p class="date">
                                                     Date:
                                                     <%= event.date %>
