@@ -32,10 +32,9 @@
             <fieldset>
                 <h2 class="fs-title">Contact Details</h2>
                 <h3 class="fs-subtitle">We will never give it away</h3>
-                <input type="text" name="fname" placeholder="First Name" />
-                <input type="text" name="lname" placeholder="Last Name" />
-                <input type="text" name="phone" placeholder="Phone" />
-                <input type="email" name="email" placeholder="Email"></input>
+                <input type="text" name="fname" value="<%=currentUser.first_name%>" />
+                <input type="text" name="lname" value="<%=currentUser.last_name%>"/>
+                <input type="email" name="email" value="<%=currentUser.email%>"></input>
                 <input type="button" name="previous" class="previous action-button" value="Previous" />
                 <input type="submit" name="submit" class="submit action-button" value="Submit" />
             </fieldset>
