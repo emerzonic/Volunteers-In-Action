@@ -13,9 +13,8 @@
                         },
                     });
                     var geocoder = new google.maps.Geocoder();
-                    // var events = ["17265 72nd Place North, Maple Grove, MN 55311",
-                    //     "5630 Winnetka Ave N, Minneapolis, MN 55428", "3849 Gallagher Dr, Edina, MN 55435"
-                    // ];
+                    //for testing
+                    // var events = ["3849 Gallagher Dr, Edina, MN 55435"];
                     <%events.forEach(function (address) {%>
                     console.log('<%=address.location%>');
                         geocodeAddress(geocoder, map, '<%=address.location%>');
@@ -23,7 +22,6 @@
                 }
 
                 function geocodeAddress(geocoder, resultsMap, address) {
-                    // var address = document.getElementById('address').value;
                     geocoder.geocode({
                         'address': address
                     }, function (results, status) {
