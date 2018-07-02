@@ -188,11 +188,11 @@ router.put('/events/:id', function (req, res) {
 //Route to get all events on map
 //==============================================
 router.get('/events/map', function (req, res) {
-    db.Event.findAll({}).then(function (event) {
+    db.Event.findAll({}).then(function (events) {
         res.render("events/map", {
-            // events: events
+            events: events
         });
-        console.log('This is event: \n'+event);
+        // console.log('This is event: \n'+event);
     });
 });
 
