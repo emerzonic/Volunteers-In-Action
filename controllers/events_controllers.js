@@ -4,6 +4,16 @@ var router = express.Router();
 var middleware = require("../middleware");
 var sequelize = require('sequelize');
 var op = sequelize.Op;
+var NodeGeocoder = require('node-geocoder');
+
+var options = {
+    provider: "google",
+    httpAdapter: 'https',
+    apiKey: process.env.GEOCODER_API_KEY,
+    formatter: null
+};
+
+var geocoder = NodeGeocoder(options);
 
 
 //==============================================
@@ -32,38 +42,51 @@ router.get('/events/new', middleware.isLoggedIn, function (req, res) {
 //Route to create a new event
 //==============================================
 router.post('/events', function (req, res) {
-    db.Event.create({
-        event_name: req.body.eventName,
-        location: req.body.location,
-        date: req.body.date,
-        start_time: req.body.start_time,
-        end_time: req.body.end_time,
-        description: req.body.description,
-        organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
-        contact: req.body.email,
-        volunteers_needed: req.body.volunteers,
-        UserId: req.user.dataValues.id
-    }).then(function () {
-        res.redirect('/events');
+    geocoder.geocode(req.body.location, function (err, data) {
+        if (err || !data.length) {
+            // req.flash() reserve for error message
+            return res.redirect('back');
+        }
+        console.log(data);
+        var lat = data[0].latitude;
+        var lng = data[0].longitude;
+        var location = data[0].formattedAddress;
+        db.Event.create({
+            event_name: req.body.eventName,
+            location: location,
+            date: req.body.date,
+            start_time: req.body.start_time,
+            end_time: req.body.end_time,
+            description: req.body.description,
+            organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
+            contact: req.body.email,
+            volunteers_needed: req.body.volunteers,
+            lat: lat,
+            lng: lng,
+            status: false,
+            UserId: req.user.dataValues.id
+        }).then(function () {
+            res.redirect('/events');
+        });
     });
 });
 
 //==============================================
 //Route to show an event details form
 //==============================================
-router.get("/events/:id", function (req, res) {
-    var eventId = req.params.id;
-    db.Event.findOne({
-        where: {
-            id: eventId
-        },
-        include: [db.Volunteer],
-    }).then(function (eventOne) {
-        res.render("events/events", {
-            event: eventOne
-        });
-    });
-});
+// router.get("/events/:id", function (req, res) {
+//     var eventId = req.params.id;
+//     db.Event.findOne({
+//         where: {
+//             id: eventId
+//         },
+//         include: [db.Volunteer],
+//     }).then(function (eventOne) {
+//         res.render("events/events", {
+//             event: eventOne
+//         });
+//     });
+// });
 
 //==============================================
 //Route to show an event editable details form 
@@ -118,9 +141,9 @@ router.get('/events/passed-events', function (req, res) {
         // res.render("events/passed-events", {
         //     events: events
         // });
-    // }else{
+        // }else{
         // res.redcirect('/index');
-    // }
+        // }
     });
 });
 
@@ -159,6 +182,19 @@ router.put('/events/:id', function (req, res) {
     });
 });
 
+
+
+//==============================================
+//Route to get all events on map
+//==============================================
+router.get('/events/map', function (req, res) {
+    db.Event.findAll({}).then(function (event) {
+        res.render("events/map", {
+            // events: events
+        });
+        console.log('This is event: \n'+event);
+    });
+});
 
 
 module.exports = router;
