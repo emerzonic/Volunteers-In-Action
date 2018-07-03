@@ -36,6 +36,7 @@ router.post('/events/:id/volunteers', function (req, res) {
             contact: req.body.contact,
             EventId: req.params.id
         }).then(function (data) {
+            req.flash("success","Congratulations! You are successfully signed up.");
             res.redirect('/events/');
         });
 });

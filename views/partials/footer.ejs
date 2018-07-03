@@ -18,9 +18,11 @@
                         <li>
                             <a class="nav-link" href="/events">View Events</a>
                         </li>
+                        <%if(!currentUser){%>
                         <li>
                             <a class="nav-link" href="/login">Log In</a>
                         </li>
+                        <%}%>
                         <li>
                             <a class="nav-link" href="/signup">Sign Up</a>
                         </li>

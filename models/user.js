@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       if (isMatch) {
         return done(null, user.get());
       } else {
-        return done(null, false);
+        done(null, false, { message: 'Incorrect username or password' });
       }
     });
   };

@@ -69,10 +69,11 @@ passport.use('local-login', new LocalStrategy(
         }).then((user, err) => {
             if (err) {
                 console.log(err);
-                return done(null, false);
+                return done(null, false, { message: 'Something went wrong. Please try again'});
             }
             if (!user) {
-                return done(null, false);
+                return done(null, false, { message: 'Incorrect username or password'});
+                
             }
             if (user) {
                 var passwd = user.password;

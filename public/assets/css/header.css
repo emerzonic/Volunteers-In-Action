@@ -114,3 +114,8 @@ header .navbar.navbar-light .nav-link {
 header .navbar.navbar-light .nav-link.active {
   color: #fff;
 }
+
+
+.alert{
+  font-weight: bolder;
+}

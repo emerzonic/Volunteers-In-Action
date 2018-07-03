@@ -44,7 +44,7 @@ router.get('/events/new', middleware.isLoggedIn, function (req, res) {
 router.post('/events', function (req, res) {
     geocoder.geocode(req.body.location, function (err, data) {
         if (err || !data.length) {
-            // req.flash() reserve for error message
+            req.flash("error","Something went wrong. Please try again.");
             return res.redirect('back');
         }
         console.log(data);
@@ -66,6 +66,7 @@ router.post('/events', function (req, res) {
             status: false,
             UserId: req.user.dataValues.id
         }).then(function () {
+            req.flash('success','Event was successfully created!');
             res.redirect('/events');
         });
     });
@@ -117,6 +118,7 @@ router.put('/events/:id', function (req, res) {
             id: req.params.id
         }
     }).then(function (updateEevent) {
+        req.flash("success","Event successfully updated.");
         res.redirect("/events/");
     });
 });
@@ -137,10 +139,10 @@ router.get('/events/passed-events', function (req, res) {
         }
     }).then(events => {
         // if(events){
-        console.log(JSON.stringify(events));
-        // res.render("events/passed-events", {
-        //     events: events
-        // });
+        // console.log(JSON.stringify(events));
+        res.render("events/events", {
+            events: events
+        });
         // }else{
         // res.redcirect('/index');
         // }

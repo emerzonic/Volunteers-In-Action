@@ -26,7 +26,7 @@
                                         </p>
                                         <p class="date">
                                             Date:
-                                            <%= event.date %>
+                                            <%= event.date.toDateString() %>
                                         </p>
                                         <!-- Button trigger modal -->
                                         <a class="eventBtn">
@@ -51,7 +51,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Events Details</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -75,7 +75,7 @@
 
                                                 <p class="date">
                                                     Date:
-                                                    <%= event.date %>
+                                                    <%= event.date.toDateString()%>
                                                 </p>
                                                 <p class="time">
                                                     Time:
@@ -105,7 +105,7 @@
                                             <div>
 
                                                 <!-- loop through the volunteers arrays and display all -->
-                                                <%if(event.Volunteers.length > 0){%>
+                                                <%if(event.Volunteers && event.Volunteers.length > 0){%>
                                                     <h3>List of volunteers</h3>
                                                     <% event.Volunteers.forEach(function(volunteer){ %>
                                                         <h6>

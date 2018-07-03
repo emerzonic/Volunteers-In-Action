@@ -16,7 +16,7 @@
                     //for testing
                     // var events = ["3849 Gallagher Dr, Edina, MN 55435"];
                     <%events.forEach(function (address) {%>
-                    console.log('<%=address.location%>');
+                    // console.log('<%=address.location%>');
                         geocodeAddress(geocoder, map, '<%=address.location%>');
                    <%})%>
                 }
