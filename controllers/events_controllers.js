@@ -4,6 +4,16 @@ var router = express.Router();
 var middleware = require("../middleware");
 var sequelize = require('sequelize');
 var op = sequelize.Op;
+var NodeGeocoder = require('node-geocoder');
+
+var options = {
+    provider: "google",
+    httpAdapter: 'https',
+    apiKey: process.env.GEOCODER_API_KEY,
+    formatter: null
+};
+
+var geocoder = NodeGeocoder(options);
 
 
 //==============================================
@@ -11,7 +21,8 @@ var op = sequelize.Op;
 //==============================================
 router.get('/events', function (req, res) {
     db.Event.findAll({
-        order: sequelize.col('date') //ordering events by the closest date
+        order: sequelize.col('date'), //ordering events by the closest date
+        include: [db.Volunteer],
     }).then(function (events) {
         res.render("events/events", {
             events: events
@@ -31,38 +42,52 @@ router.get('/events/new', middleware.isLoggedIn, function (req, res) {
 //Route to create a new event
 //==============================================
 router.post('/events', function (req, res) {
-    db.Event.create({
-        event_name: req.body.eventName,
-        location: req.body.location,
-        date: req.body.date,
-        start_time: req.body.start_time,
-        end_time: req.body.ens_time,
-        description: req.body.description,
-        organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
-        contact: req.body.email,
-        volunteers_needed: req.body.volunteers,
-        UserId: req.user.dataValues.id
-    }).then(function () {
-        res.redirect('/events');
+    geocoder.geocode(req.body.location, function (err, data) {
+        if (err || !data.length) {
+            req.flash("error","Something went wrong. Please try again.");
+            return res.redirect('back');
+        }
+        console.log(data);
+        var lat = data[0].latitude;
+        var lng = data[0].longitude;
+        var location = data[0].formattedAddress;
+        db.Event.create({
+            event_name: req.body.eventName,
+            location: location,
+            date: req.body.date,
+            start_time: req.body.start_time,
+            end_time: req.body.end_time,
+            description: req.body.description,
+            organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
+            contact: req.body.email,
+            volunteers_needed: req.body.volunteers,
+            lat: lat,
+            lng: lng,
+            status: false,
+            UserId: req.user.dataValues.id
+        }).then(function () {
+            req.flash('success','Event was successfully created!');
+            res.redirect('/events');
+        });
     });
 });
 
 //==============================================
 //Route to show an event details form
 //==============================================
-router.get("/events/:id", function (req, res) {
-    var eventId = req.params.id;
-    db.Event.findOne({
-        where: {
-            id: eventId
-        },
-        include: [db.Volunteer],
-    }).then(function (event) {
-        res.render("events/show", {
-            event: event
-        });
-    });
-});
+// router.get("/events/:id", function (req, res) {
+//     var eventId = req.params.id;
+//     db.Event.findOne({
+//         where: {
+//             id: eventId
+//         },
+//         include: [db.Volunteer],
+//     }).then(function (eventOne) {
+//         res.render("events/events", {
+//             event: eventOne
+//         });
+//     });
+// });
 
 //==============================================
 //Route to show an event editable details form 
@@ -93,7 +118,8 @@ router.put('/events/:id', function (req, res) {
             id: req.params.id
         }
     }).then(function (updateEevent) {
-        res.redirect("/events/" + req.params.id);
+        req.flash("success","Event successfully updated.");
+        res.redirect("/events/");
     });
 });
 
@@ -113,13 +139,13 @@ router.get('/events/passed-events', function (req, res) {
         }
     }).then(events => {
         // if(events){
-        console.log(JSON.stringify(events));
-        // res.render("events/passed-events", {
-        //     events: events
-        // });
-    // }else{
+        // console.log(JSON.stringify(events));
+        res.render("events/events", {
+            events: events
+        });
+        // }else{
         // res.redcirect('/index');
-    // }
+        // }
     });
 });
 
@@ -158,6 +184,18 @@ router.put('/events/:id', function (req, res) {
     });
 });
 
+
+
+//==============================================
+//Route to get all events on map
+//==============================================
+router.get('/events/map', function (req, res) {
+    db.Event.findAll({}).then(function (events) {
+        res.render("events/map", {
+            events: events
+        });
+    });
+});
 
 
 module.exports = router;

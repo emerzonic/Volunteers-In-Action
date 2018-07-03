@@ -6,5 +6,5 @@ exports.instagram = {
 };
 
 exports.googleMaps = {
-  secret: process.env.Google_API
+  secret: process.env.GEOCODER_API_KEY
 };

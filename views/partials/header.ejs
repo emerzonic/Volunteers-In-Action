@@ -4,15 +4,15 @@
 <body>
     <div>
         <header role="banner">
-            <nav class="navbar navbar-expand-md bg-dark">
-                <div class="container">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark">
                     <a class="navbar-brand absolute" href="/index">Volunteers in Action</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05"
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse navbar-light">
+                    <div class="collapse navbar-collapse navbar-light" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto absolute-right">
                             <li class="nav-item">
                                 <a class="nav-link active" href="/index">Home</a>
@@ -21,26 +21,54 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/events">View Events</a>
                             </li>
-
                             <li class="nav-item">
-                                <a class="nav-link" href="/events/new">Create Event</a>
+                                <a class="nav-link" href="/events/map">View Events Map</a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/login">Login</a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/signup">Sign Up</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout">Logout</a>
-                            </li>
+
+                            <%if(!currentUser){%>
+                                <!-- Added a logic to show login and sign up when a user is not logged in  -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">Login</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/signup">Sign Up</a>
+
+                                    <% }else{%>
+                                        <!-- logic to show create event, logout and username when a user is logged in  -->
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/events/new">Create Event</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Welcome
+                                                <%=currentUser.first_name%>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/logout">Logout</a>
+                                        </li>
+                                        <%}%>
                         </ul>
                     </div>
-                </div>
+            </div>
             </nav>
+            <div class="container">
+                    <% if (error && error.length > 0){%>
+                         <div class="alert alert-danger" role="alert"><%= error %></div>
+                     <% }; %>
+                     <% if (success && success.length > 0){%>
+                         <div class="alert alert-success" role="alert"><%= success %></div>
+                     <% }; %>
+                     <% if (info && info.length > 0){%>
+                        <div class="alert alert-success" role="alert"><%= info %></div>
+                    <% }; %>
+                 </div>
         </header>
+
     </div>
     <!-- END header -->
+
     <div id="main">
