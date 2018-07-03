@@ -41,9 +41,9 @@ app.use(passport.session());
 //Track the current user
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
-  res.locals.message = req.flash('error');
-  res.locals.message = req.flash('success');
-  res.locals.message = req.flash('info');
+  res.locals.error = req.flash('error');
+  res.locals.success = req.flash('success');
+  res.locals.info = req.flash('info');
   next();
 });
 
