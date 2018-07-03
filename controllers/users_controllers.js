@@ -14,30 +14,29 @@ router.get('/signup', function (req, res) {
 //Route to signup user
 //==============================================
 router.post('/signup', function (req, res, next) {
-    passport.authenticate('local-signup', function (err, user, info) {
+    passport.authenticate('local-signup', function (error, user, info) {
         if (user) {
             req.logIn(user, function (err) {
                 console.log('This is the new user\n\n'+ req.user.username);
                 if (err) {
-                    return next(err);
+                     req.flash("error", error.message);
+                    return res.redirect('/signup');
                 } else {
+                    req.flash("success", "Welcome to Volunteers In Actions, " + user.first_name);
                     res.redirect('/events');
                 }
             });
         }
         if (!user) {
+            req.flash("error", "A user with that email or username already exist.");
             res.redirect('/signup');
         }
-        if (err) {
-            res.send({
-                success: false,
-                response: 'Authentication failed'
-            });
+        if (error) {
+            req.flash("error", error.message);
+            res.redirect('/signup');
         }
     })(req, res, next);
 });
-
-
 
 
 module.exports = router;
