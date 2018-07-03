@@ -115,7 +115,7 @@ header .navbar.navbar-light .nav-link.active {
   color: #fff;
 }
 
-
+/* Error/success messages in the header */
 .alert{
   font-weight: bolder;
 }
