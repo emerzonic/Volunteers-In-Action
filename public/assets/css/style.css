@@ -12,6 +12,28 @@ body {
   padding: 50px 0;
 }
 
+.nameContent .btn{
+  font-size: 3.5rem;
+  background: transparent;
+  color: #000 !important;
+  margin-top: 0.5rem;
+  transition: all 0.7s ease;
+  font-weight: bolder;
+  -webkit-animation: mymove 0.5s infinite; /* Chrome, Safari, Opera */
+  animation: mymove 1.0s infinite;
+}
+
+@-webkit-keyframes mymove {
+  from {margin-top: 0px;}
+  to {margin-top: 50px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+  from {margin-top: 0px;}
+  to {margin-top: 50px;}
+}
+
 .container-hero {
   background-image: url("/assets/images/teenage_volunteers.jpg");
   background-size: cover;
@@ -19,7 +41,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  height: 100%;
+  height: fit-content;
   margin-top: -5px
 }
 
@@ -38,7 +60,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  height: 100%
+  height: fit-content;
 }
 
 .container-volunteer {
@@ -48,7 +70,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  height: 100%
+  height: fit-content;
 }
 
 .container-events {
@@ -212,7 +234,7 @@ header .navbar-brand, footer .footer-about {
   margin: 0 auto;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover:not(.downPointing), .btn:focus:not(.downPointing) {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(9, 219, 9);
 }
 
