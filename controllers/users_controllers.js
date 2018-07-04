@@ -17,7 +17,6 @@ router.post('/signup', function (req, res, next) {
     passport.authenticate('local-signup', function (error, user, info) {
         if (user) {
             req.logIn(user, function (err) {
-                console.log('This is the new user\n\n'+ req.user.username);
                 if (err) {
                      req.flash("error", error.message);
                     return res.redirect('/signup');
@@ -28,7 +27,7 @@ router.post('/signup', function (req, res, next) {
             });
         }
         if (!user) {
-            req.flash("error", "A user with that email or username already exist.");
+            req.flash("error", "Missing info or a user with that email or username already exist.");
             res.redirect('/signup');
         }
         if (error) {
