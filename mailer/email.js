@@ -7,41 +7,29 @@ var output = `<h1>Success!</h1>`;
     // create reusable transporter object using the default SMTP transport
 // function sendEmail(){
 
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
-    // port: 587,
-    // secure: false, // true for 465, false for other ports
-    
-    
-    // service: 'gmail',
-    // smtp.gmail.com,
-    // Requires SSL: 'Yes',
+// var transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     host: 'smtp.gmail.com',
+//     auth: {
+//         xoauth2: xoauth2.createXOAuth2Generator({
+//             user:'volunteersinaction@gmail.com',
+//             clientId:'497364046096-7lqdd1l5rq9jhqq7g0n5d04h2g1740mp.apps.googleusercontent.com',
+//             clientSecret:'P5sGw2iUeIlM9koXVwIDezTB',
+//             refreshToken:'1/c5Xa1n1hmHcvLYL-T-BNT0l3DGbtU4EPVNqBbTk3R-k'
+//         })
+//     }
+// });
 
-// Requires TLS: Yes (if available)
-
-// Requires Authentication: Yes
-
-// Port for SSL: 465
-
-// Port for TLS/STARTTLS: 587
-
-    // port: 587,
-    // secure: false, // true for 465, false for other ports
+var transporter = nodemailer.createTransport({      
+    host: "smtp.gmail.com",
     auth: {
-        xoauth2: xoauth2.createXOAuth2Generator({
-            user:'volunteersinaction@gmail.com',
-            clientId:'497364046096-7lqdd1l5rq9jhqq7g0n5d04h2g1740mp.apps.googleusercontent.com',
-            clientSecret:'P5sGw2iUeIlM9koXVwIDezTB',
-            refreshToken:'1/c5Xa1n1hmHcvLYL-T-BNT0l3DGbtU4EPVNqBbTk3R-k',
-        })
-    //     user: "volunteersinaction@gmail.com", // generated ethereal user
-    //     pass: "volunteer@2018" // generated ethereal password
-    // },
-    // // tls:{
-    //     rejectUnauthorized: false
+      type: "OAuth2",
+      user: 'volunteersinaction@gmail.com',
+      clientId:'497364046096-7lqdd1l5rq9jhqq7g0n5d04h2g1740mp.apps.googleusercontent.com',
+      clientSecret: "P5sGw2iUeIlM9koXVwIDezTB",
+      refreshToken: "1/c5Xa1n1hmHcvLYL-T-BNT0l3DGbtU4EPVNqBbTk3R-k"                              
     }
-});
+  });
 
 // setup email data with unicode symbols
 var mailOptions = {
