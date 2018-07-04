@@ -17,11 +17,6 @@ body {
   z-index: 10;
 }
 
-/* .homeImg {
-  margin-top: -3em;
-  z-index: -20 !important;
-} */
-
 .container-hero {
   background-image: url("/assets/images/teenage_volunteers.jpg");
   background-size: cover;
@@ -51,16 +46,6 @@ body {
   height: 100%
 }
 
-/* .container-volunteerSignUp {
-  background-image: url("/assets/images/teenage_volunteers.jpg");
-  background-size: cover;
-  background-repeat: repeat;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  height: 100%
-} */
-
 .container-volunteer {
   background-image: url("/assets/images/teenage_volunteers.jpg");
   background-size: cover;
@@ -72,7 +57,6 @@ body {
 }
 
 .container-events {
-  background: rgb(75, 75, 75);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -173,7 +157,10 @@ header .navbar-brand, footer .footer-about {
 
 .card {
   display: inline-block;
-  opacity: 0.9;
+  background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 }
 
 .card h4, h5 {
@@ -203,7 +190,7 @@ header .navbar-brand, footer .footer-about {
 	border-radius: 5px;
 	cursor: pointer;
 	padding: 10px 5px;
-	margin: 10px 5px;
+  margin: 10px 5px;
 }
 
 .eventBtn {
