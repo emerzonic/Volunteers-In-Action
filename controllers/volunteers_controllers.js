@@ -35,7 +35,7 @@ router.post('/events/:id/volunteers', function (req, res) {
             contact: req.body.contact,
             EventId: req.params.id
         }).then(function (data) {
-            mailer.transporter,
+            // mailer.transporter,
             
             // var volunteer = JSON.stringify(data);
             // console.log(volunteer);
