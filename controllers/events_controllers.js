@@ -127,13 +127,11 @@ router.put('/events/:id', function (req, res) {
 //Route to show an event delete 
 //==============================================
 router.delete('/events/:id', middleware.checkEventOwnership, function (req, res) {
-    res.send("does it delete?");
-    // var eventId = req.params.id;
-    // db.Event.findById(eventId).then(function (event) {
-    //     res.render("events/edit", {
-    //         event: event
-    //     });
-    // });
+    var eventId = req.params.id;
+       
+    db.Event.destroy({where: {id: eventId}}).then(function (event) {
+        res.redirect("/events");
+    });
 });
 //===================================================================================
 // PAST EVENTS ROUTES WILL GO HERE

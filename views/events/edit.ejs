@@ -7,7 +7,7 @@
        <form action="/events/<%=event.id %>?_method=PUT" method="POST">
             <input type="text" name="eventName" value="<%= event.event_name %>"><br><br>
             <input type="text" name="location" value="<%= event.location %>"><br><br>
-            <input type="Date" name="date"class="form-control" value="<%= event.date %>">
+            <!-- <input type="Date" name="date"class="form-control" value="<%= event.date %>"> -->
             <input type="Time" name="start_time"class="form-control"  value="<%= event.start_time %>">
             <input type="Time" name="end_time"class="form-control"  value="<%= event.end_time %>">
             <input type="number" name="volunteers" value="<%= event.volunteers_needed %>"><br><br>
@@ -21,7 +21,7 @@
             <button type="submit">Submit</button>
               </form>
               <form action="/events/<%=event.id %>?_method=DELETE" method="POST">
-                <a type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                 </form>
 </div>
     <% include ../partials/footer %>
