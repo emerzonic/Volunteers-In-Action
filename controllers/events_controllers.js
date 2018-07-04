@@ -123,11 +123,21 @@ router.put('/events/:id', function (req, res) {
     });
 });
 
+//==============================================
+//Route to show an event delete 
+//==============================================
+router.delete('/events/:id', middleware.checkEventOwnership, function (req, res) {
+    var eventId = req.params.id;
+       
+    db.Event.destroy({where: {id: eventId}}).then(function (event) {
+        res.redirect("/events");
+    });
+});
 //===================================================================================
-// PASSED EVENTS ROUTES WILL GO HERE
+// PAST EVENTS ROUTES WILL GO HERE
 //===================================================================================
 //==============================================
-//Passed events routes
+//Past events routes
 //==============================================
 router.get('/events/passed-events', function (req, res) {
     db.Event.findAll({

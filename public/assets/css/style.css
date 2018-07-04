@@ -12,15 +12,27 @@ body {
   padding: 50px 0;
 }
 
-#navbar {
-  opacity: 0.9;
-  z-index: 10;
+.nameContent .btn{
+  font-size: 3.5rem;
+  background: transparent;
+  color: #000 !important;
+  margin-top: 0.5rem;
+  transition: all 0.7s ease;
+  font-weight: bolder;
+  -webkit-animation: mymove 0.5s infinite; /* Chrome, Safari, Opera */
+  animation: mymove 1.0s infinite;
 }
 
-/* .homeImg {
-  margin-top: -3em;
-  z-index: -20 !important;
-} */
+@-webkit-keyframes mymove {
+  from {margin-top: 0px;}
+  to {margin-top: 50px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+  from {margin-top: 0px;}
+  to {margin-top: 50px;}
+}
 
 .container-hero {
   background-image: url("/assets/images/teenage_volunteers.jpg");
@@ -29,7 +41,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  height: 100%;
+  height: fit-content;
   margin-top: -5px
 }
 
@@ -48,7 +60,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  height: 100%
+  height: fit-content;
 }
 
 .container-volunteer {
@@ -58,11 +70,10 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  height: 100%
+  height: fit-content;
 }
 
 .container-events {
-  background: rgb(75, 75, 75);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -92,7 +103,6 @@ body {
   background-color: rgb(22, 22, 22) !important;
   opacity: 0.9;
   position: relative;
-  z-index: 20 !important;
   text-align: center;
   margin-top: 25px;
 }
@@ -122,7 +132,15 @@ p {
 header, footer {
   position: absolute;
   width: 100%;
-  z-index: 5;
+}
+
+.navbar-toggler {
+  opacity: 0.9;
+}
+
+.navbar {
+  z-index: 1;
+  opacity: 0.9;
 }
 
 header .navbar-brand, footer .footer-about {
@@ -132,13 +150,20 @@ header .navbar-brand, footer .footer-about {
   color: rgb(221, 221, 221) !important;
 }
 
+.nav-item {
+  text-align: right;
+}
+
+@media (max-width: 465.00px) {
+  .nav-item {
+    text-align: center;
+    z-index: 20;
+  }
+}
+
 .box {
   padding: 30px;
   background: #fff;
-}
-
-.modal-body {
-  z-index: 999 !important;
 }
 
 .site-hero-innerpage, .site-hero-innerpage .site-hero-inner {
@@ -163,7 +188,16 @@ header .navbar-brand, footer .footer-about {
 
 .card {
   display: inline-block;
-  opacity: 0.9;
+  background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 720px) {
+  .card {
+    min-width: 100%;
+  }
 }
 
 .card h4, h5 {
@@ -193,14 +227,14 @@ header .navbar-brand, footer .footer-about {
 	border-radius: 5px;
 	cursor: pointer;
 	padding: 10px 5px;
-	margin: 10px 5px;
+  margin: 10px 5px;
 }
 
 .eventBtn {
   margin: 0 auto;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover:not(.downPointing), .btn:focus:not(.downPointing) {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(9, 219, 9);
 }
 

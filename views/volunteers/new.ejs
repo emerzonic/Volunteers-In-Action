@@ -5,22 +5,25 @@
         <br>
         <br>
         <div class=container>
-            <h1>Volunteer Sign up page</h1>
-            <h3>Sign up to volunteer at
-                <strong>
-                    <%= event.event_name%>
-                </strong>
-            </h3>
-        <form action="/events/<%=event.id%>/volunteers" id="msform" method="POST">
-            <!-- fieldsets -->
-            <fieldset>
-                <h1 class="signUpHeader"> Volunteer Sign Up</h1>
-                <hr>
-                <input type="text" name="first_name" placeholder="First Name">
-                <input type="text" name="last_name" placeholder="Last Name">
-                <input type="number" name="age" placeholder="Age">
-                <input type="email" name="contact" placeholder="Contact">
-                <input type="submit" name="submit" class="next action-button" value="Submit" />
-            </fieldset>
-        </form>
+            <div class="jumbotron jumbotron-home">
+                <h1>Volunteer Sign up page</h1>
+                <h3>Sign up to volunteer at
+                    <strong>
+                        <%= event.event_name%>
+                    </strong>
+                </h3>
+            </div>
+
+            <form action="/events/<%=event.id%>/volunteers" id="msform" method="POST">
+                <!-- fieldsets -->
+                <fieldset>
+                    <hr>
+                    <input type="text" name="first_name" placeholder="First Name">
+                    <input type="text" name="last_name" placeholder="Last Name">
+                    <input type="number" name="age" placeholder="Age">
+                    <input type="email" name="contact" placeholder="Contact">
+                    <input type="submit" name="submit" class="next action-button" value="Submit" />
+                </fieldset>
+            </form>
+        </div>
         <% include ../partials/footer %>
