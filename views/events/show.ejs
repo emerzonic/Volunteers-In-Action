@@ -1,74 +1,196 @@
 <% include ../partials/head %>
     <% include ../partials/header %>
+
         <div class="container">
-            <h1>Events Details page</h1>
-            <div style="background:lightgray;">
-                <h3>
-                    <%= event.event_name %>
-                </h3>
-                <h3>
-                    <%= event.location %>
-                </h3>
-                <h3>
-                    <%= event.date %>
-                </h3>
-                <h3>
-                    <%= event.start_time %>
-                </h3>
-                <h3>
-                    <%= event.end_time %>
-                </h3>
-                <h3>
-                    <%= event.organizer %>
-                </h3>
-                <h3>
-                    <%= event.contact%>
-                </h3>
-                <h3>
-                    <%= event.description %>
-                </h3>
-                <h3>
-                    <%= event.volunteers_needed %>
-                </h3>
-            </div>
-            <div id="floating-panel">
-
-                <!-- <input id="submit" type="button" value="Get Map"> -->
-                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Get Map</button>
-            </div>
-
-
             <div>
-                <h3>List of volunteers</h3>
-                <!-- loop through the volunteers arrays and display all -->
-                <% event.Volunteers.forEach(function(volunteer){ %>
+                <% if (error && error.length > 0){%>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                    <% }; %>
+                        <% if (success && success.length > 0){%>
+                            <div class="alert alert-success" role="alert">
+                                <%= success %>
+                            </div>
+                            <% }; %>
+                                <% if (info && info.length > 0){%>
+                                    <div class="alert alert-success" role="alert">
+                                        <%= info %>
+                                    </div>
+                                    <% }; %>
+            </div>
+            <!-- these can be replaced with margin or padding -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <div>
+                                <h1>Event Details</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="card-title">
+                            <%= event.event_name %>
+                        </h5>
+                        <p class="date">
+                            <span>
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </span>
+
+                            <%= event.date.toDateString()%>
+                        </p>
+                       
+                            <p class="time">
+                                Start Time:
+                                <%= event.start_time %>
+                            </p>
+                            <p class="time">
+                                End Time:
+                                <%= event.end_time %>
+                            </p>
+                            <p class="organizer">
+                                Orazanizer:
+                                <%= event.organizer %>
+                            </p>
+                            <p class="organizer">
+                                <span>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
+                                <span>
+                                    <a href="mailto:<%= event.contact%>">
+                                        Contact Organizer
+                                    </a>
+                                </span>
+
+                            </p>
+                            <p class="volunteers">
+                                Volunteers Needed:
+                                <%= event.volunteers_needed %>
+                            </p>
+                            <p class="details">
+                                Info:
+                                <%= event.description %>
+                            </p>
+                    </div>
+                    <div>
+
+                        <!-- loop through the volunteers arrays and display all -->
+                        <%if(event.Volunteers && event.Volunteers.length > 0){%>
+                            <h3>List of volunteers</h3>
+                            <% event.Volunteers.forEach(function(volunteer){ %>
+                                <h6>
+                                    <span>
+                                        <%=volunteer.first_name %>
+                                    </span>
+                                    <span>
+                                        <%=volunteer.last_name %>
+                                    </span>
+                                </h6>
+                                <% }) %>
+                                    <%}%>
+                    </div>
+
+                    <div>
+                        <!-- We want to hide edit buttion if the event does not belong to the current signed in user -->
+                        <a href='/events/<%= event.id %>/edit'>Edit Event</a>
+                        <br>
+                        <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
+                        <% if(event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
+                            <button type="button" class="btn btn-primary">Event is Full!</button>
+                            <%}else {%>
+                                <a href='/events/<%= event.id %>/volunteers/new' type="button" class="btn btn-primary">Sign Up!</a>
+                                <% }%>
+                    </div>
+                </div>
+                <div class="col-lg-6">
                     <h6>
                         <span>
-                            <%=volunteer.first_name %>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
                         </span>
-                        <span>
-                            <%=volunteer.last_name %>
-                        </span>
+                        <%= event.location %>
                     </h6>
-                    <% }) %>
+                    <div id="map"></div>
+                </div>
             </div>
-            <div>
-
-                <!-- We want to hide edit buttion if the event does not belong to the current signed in user -->
-                <% if (currentUser && currentUser.id === event.UserId){%>
-                    <a href='/events/<%= event.id %>/edit'>Edit Event</a>
-                    <br>
-                    <%}%>
-
-                        <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
-                        <% if (event.Volunteers.length >= event.volunteers_needed){%>
-                            <p>Event is Full</p>
-                            <%}else {%>
-                                <a href='/events/<%= event.id %>/volunteers/new'>Sign up for Event</a>
-                                <% }%>
-            </div>
-
         </div>
-
-
         <% include ../partials/footer %>
+            <script>
+                // var cafelatte = {
+                //     info: '<strong>Cafe Latte on Grand</strong><br>\
+                //             850 Grand Ave<br>  St Paul, MN, 55105<br>\
+                //     <a href="https://goo.gl/maps/M5rSdkiLYbM2">Get Directions</a>',
+                //     lat: 44.939651,
+                //     long: -93.136015
+                // };
+
+                function initMap() {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 14,
+                        center: {
+                            lat: parseInt('<%=event.lat%>'),
+                            lng: parseInt('<%=event.lng%>'),
+
+                        },
+                    });
+                    var geocoder = new google.maps.Geocoder();
+                    //for testing
+                    var address = "<%=event.location%>";
+
+                    geocodeAddress(geocoder, map, address);
+
+                }
+
+                function geocodeAddress(geocoder, resultsMap, address) {
+                    geocoder.geocode({
+                        'address': address
+                    }, function (results, status) {
+                        if (status === 'OK') {
+                            resultsMap.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: resultsMap,
+                                position: results[0].geometry.location
+                            });
+                        } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                        }
+                    });
+                }
+            </script>
+            <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIq_BW7gCEL8VfUNdil7OLZHGAWPUjtU&libraries=places"></script> -->
+
+
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIq_BW7gCEL8VfUNdil7OLZHGAWPUjtU&callback=initMap">
+            </script>
+            <!-- <script>
+                    // This example requires the Places library. Include the libraries=places
+                    // parameter when you first load the API. For example:
+              
+                    function initMap() {
+                      var map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: -33.866, lng: 151.196},
+                        zoom: 15
+                      });
+              
+                      var infowindow = new google.maps.InfoWindow();
+                      var service = new google.maps.places.PlacesService(map);
+              
+                      service.getDetails({
+                        placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+                      }, function(place, status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                          var marker = new google.maps.Marker({
+                            map: map,
+                            position: place.geometry.location
+                          });
+                          google.maps.event.addListener(marker, 'click', function() {
+                            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                              'Place ID: ' + place.place_id + '<br>' +
+                              place.formatted_address + '</div>');
+                            infowindow.open(map, this);
+                          });
+                        }
+                      });
+                    }
+                  </script> -->
