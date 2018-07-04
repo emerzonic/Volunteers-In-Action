@@ -13,8 +13,6 @@ router.use(bodyParser.urlencoded({
 router.use(bodyParser.json());
 
 
-
-
 //==============================================
 //Add new volunteer routes
 //==============================================
