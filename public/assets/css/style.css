@@ -51,6 +51,16 @@ body {
   height: 100%
 }
 
+/* .container-volunteerSignUp {
+  background-image: url("/assets/images/teenage_volunteers.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  height: 100%
+} */
+
 .container-volunteer {
   background-image: url("/assets/images/teenage_volunteers.jpg");
   background-size: cover;
