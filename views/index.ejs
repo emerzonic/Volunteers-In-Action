@@ -1,6 +1,23 @@
 <% include ./partials/head %>
     <% include ./partials/header %>
         <div class="container-hero">
+            <div class='container'>
+                <% if (error && error.length > 0){%>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                    <% }; %>
+                        <% if (success && success.length > 0){%>
+                            <div class="alert alert-success" role="alert">
+                                <%= success %>
+                            </div>
+                            <% }; %>
+                                <% if (info && info.length > 0){%>
+                                    <div class="alert alert-success" role="alert">
+                                        <%= info %>
+                                    </div>
+                                    <% }; %>
+            </div>
             <div class="nameContent text-center">
                 <a href="#welcome" class="downPointing align-middle text-center btn">
                     <i class="fa fa-angle-double-down" aria-hidden="true"></i>
@@ -29,7 +46,7 @@
                             <hr>
                             <p class="card-text">See past events that organizations and individuals have posted on our site. Admin can use this
                                 for event ideas as well.</p>
-                            <a href="/events/passed-events" class="btn btn-primary">See Events</a>
+                            <a href="/events" class="btn btn-primary">See Events</a>
                         </div>
                     </div>
                     <div class="card col-lg-4 col-md-4 col-sm-10">

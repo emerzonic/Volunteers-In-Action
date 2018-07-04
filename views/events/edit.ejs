@@ -1,27 +1,76 @@
 <% include ../partials/head %>
-<% include ../partials/header %>
-   <div class="container">
-       <br><br><br>
-       <h1>Edit page</h1>
-       <br>
-       <form action="/events/<%=event.id %>?_method=PUT" method="POST">
-            <input type="text" name="eventName" value="<%= event.event_name %>"><br><br>
-            <input type="text" name="location" value="<%= event.location %>"><br><br>
-            <!-- <input type="Date" name="date"class="form-control" value="<%= event.date %>"> -->
-            <input type="Time" name="start_time"class="form-control"  value="<%= event.start_time %>">
-            <input type="Time" name="end_time"class="form-control"  value="<%= event.end_time %>">
-            <input type="number" name="volunteers" value="<%= event.volunteers_needed %>"><br><br>
+  <% include ../partials/header %>
+    <div class="container">
+        <div class="container">
+            <% if (error && error.length > 0){%>
+                 <div class="alert alert-danger" role="alert"><%= error %></div>
+             <% }; %>
+             <% if (success && success.length > 0){%>
+                 <div class="alert alert-success" role="alert"><%= success %></div>
+             <% }; %>
+             <% if (info && info.length > 0){%>
+                <div class="alert alert-success" role="alert"><%= info %></div>
+            <% }; %>
+             </div>
+      <h1>Edit page</h1>
+      <br>
+      <form action="/events/<%=event.id %>?_method=PUT" method="POST">
+        <input type="text" name="eventName" value="<%= event.event_name %>">
+        <br>
+        <br>
+        <input type="text" name="location" value="<%= event.location %>">
+        <br>
+        <br>
+        <input type="Date" name="date" class="form-control" value="<%= event.date %>">
+        <input type="Time" name="start_time" class="form-control" value="<%= event.start_time %>">
+        <input type="Time" name="end_time" class="form-control" value="<%= event.end_time %>">
+        <input type="number" name="volunteers" value="<%= event.volunteers_needed %>">
+        <br>
+        <br>
 
-            <textarea type="Description" name="description"class="form-control"><%= event.description %></textarea>
+        <textarea type="Description" name="description" class="form-control">
+          <%= event.description %>
+        </textarea>
 
-            <input type="text" name="fname" value="<%= event.organizer %>" disabled><br><br>
-            <!-- <input type="text" name="lname" placeholder="Last Name" ><br><br> -->
-            <!-- <input type="text" name="phone" value="<%= event.description %>"><br><br> --> 
-            <input type="email" name="email" value="<%= event.contact %>"><br><br>
-            <button type="submit">Submit</button>
-              </form>
-              <form action="/events/<%=event.id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                </form>
-</div>
+        <input type="text" name="fname" value="<%= event.organizer %>" disabled>
+        <br>
+        <br>
+        <!-- <input type="text" name="lname" placeholder="Last Name" ><br><br> -->
+        <!-- <input type="text" name="phone" value="<%= event.description %>"><br><br> -->
+        <input type="email" name="email" value="<%= event.contact %>">
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+      </form>
+      <!-- <form action="/events/<%=event.id %>?_method=DELETE" method="POST"> -->
+      <button type="submit" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+      <!-- </form> -->
+    </div>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete this event?</h5>
+          </div>
+          <form action="/events/<%=event.id %>?_method=DELETE" method="POST">
+              <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-danger delete-button">
+                        Delete
+                      </button>
+                </div>
+                <div class="col">
+                  <!-- I think the css styling is making this button to not show -->
+                    <button class="close btn btn-danger cancel-button" data-dismiss="modal" aria-label="Close">
+                        Cancel
+                      </button>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
     <% include ../partials/footer %>

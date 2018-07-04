@@ -3,6 +3,7 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var mailer = require('../mailer/email');
 
 //config
 router.use(methodOverride("_method"));
@@ -10,8 +11,6 @@ router.use(bodyParser.urlencoded({
     extended: true
 }));
 router.use(bodyParser.json());
-
-
 
 
 //==============================================
@@ -36,6 +35,10 @@ router.post('/events/:id/volunteers', function (req, res) {
             contact: req.body.contact,
             EventId: req.params.id
         }).then(function (data) {
+            // mailer.transporter,
+            
+            // var volunteer = JSON.stringify(data);
+            // console.log(volunteer);
             req.flash("success","Congratulations! You are successfully signed up.");
             res.redirect('/events/');
         });

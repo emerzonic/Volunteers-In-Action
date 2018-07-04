@@ -1,4 +1,4 @@
-<% include ../partials/head %>
+<!-- <% include ../partials/head %>
     <% include ../partials/header %>
         <div id="map"></div>
         <% include ../partials/footer %>
@@ -15,10 +15,10 @@
                     var geocoder = new google.maps.Geocoder();
                     //for testing
                     // var events = ["3849 Gallagher Dr, Edina, MN 55435"];
-                    <%events.forEach(function (address) {%>
+                    // <%events.forEach(function (address) {%>
                     // console.log('<%=address.location%>');
-                        geocodeAddress(geocoder, map, '<%=address.location%>');
-                   <%})%>
+                        // geocodeAddress(geocoder, map, '<%=address.location%>');
+                //    <%})%>
                 }
 
                 function geocodeAddress(geocoder, resultsMap, address) {
@@ -38,4 +38,4 @@
                 }
             </script>
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIq_BW7gCEL8VfUNdil7OLZHGAWPUjtU&callback=initMap">
-            </script>
+            </script> -->

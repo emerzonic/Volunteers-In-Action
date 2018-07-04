@@ -21,8 +21,7 @@ var geocoder = NodeGeocoder(options);
 //==============================================
 router.get('/events', function (req, res) {
     db.Event.findAll({
-        order: sequelize.col('date'), //ordering events by the closest date
-        include: [db.Volunteer],
+        order: sequelize.col('date') //ordering events by the closest date
     }).then(function (events) {
         res.render("events/events", {
             events: events
@@ -75,19 +74,19 @@ router.post('/events', function (req, res) {
 //==============================================
 //Route to show an event details form
 //==============================================
-// router.get("/events/:id", function (req, res) {
-//     var eventId = req.params.id;
-//     db.Event.findOne({
-//         where: {
-//             id: eventId
-//         },
-//         include: [db.Volunteer],
-//     }).then(function (eventOne) {
-//         res.render("events/events", {
-//             event: eventOne
-//         });
-//     });
-// });
+router.get("/events/:id", function (req, res) {
+    var eventId = req.params.id;
+    db.Event.findOne({
+        where: {
+            id: eventId,
+        },
+        include: [db.Volunteer],
+    }).then(function (event) {
+        res.render("events/show", {
+            event: event
+        });
+    });
+});
 
 //==============================================
 //Route to show an event editable details form 
@@ -124,11 +123,10 @@ router.put('/events/:id', function (req, res) {
 });
 
 //==============================================
-//Route to show an event delete 
+//Route to delete an event
 //==============================================
 router.delete('/events/:id', middleware.checkEventOwnership, function (req, res) {
     var eventId = req.params.id;
-       
     db.Event.destroy({where: {id: eventId}}).then(function (event) {
         res.redirect("/events");
     });
@@ -148,37 +146,37 @@ router.get('/events/passed-events', function (req, res) {
             },
         }
     }).then(events => {
-        // if(events){
-        // console.log(JSON.stringify(events));
+        if(events && events.length > 0){
+        console.log(JSON.stringify(events));
         res.render("events/events", {
             events: events
         });
-        // }else{
-        // res.redcirect('/index');
-        // }
+        }else{
+        req.flash("error","Something went wrong. Please try again.");
+        res.redcirect('/index');
+        }
     });
 });
-
 
 
 router.get("/events/passed-events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {
-        res.render("events/passed-events-show", {
+        res.render("events/show", {
             event: event
         });
     });
 });
 
 //show edit form route for one passed event
-router.get('/passed-events/:id/edit', function (req, res) {
-    var eventId = req.params.id;
-    db.Event.findById(eventId).then(function (event) {
-        res.render("passed-events/edit", {
-            event: event
-        });
-    });
-});
+// router.get('/passed-events/:id/edit', function (req, res) {
+//     var eventId = req.params.id;
+//     db.Event.findById(eventId).then(function (event) {
+//         res.render("passed-events/edit", {
+//             event: event
+//         });
+//     });
+// });
 
 
 //put route to add images to passed event
