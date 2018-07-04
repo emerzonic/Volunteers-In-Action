@@ -1,15 +1,14 @@
-
-
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
             <div id="map"></div>
+        </div>
     </div>
-  </div>
 </div>
 <!-- End main -->
 
-</div> <!-- End main -->
+</div>
+<!-- End main -->
 <footer class="site-footer bg-dark">
     <div class="container">
         <div class="row row-footer col-12">
@@ -28,27 +27,28 @@
                             <a class="nav-link" href="/events">View Events</a>
                         </li>
                         <%if(!currentUser){%>
-                        <li>
-                            <a class="nav-link" href="/login">Log In</a>
-                        </li>
-                        <%}%>
-                        <li>
-                            <a class="nav-link" href="/signup">Sign Up</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="contact.ejs">Contact Us</a>
-                        </li>
+                            <li>
+                                <a class="nav-link" href="/login">Log In</a>
+                            </li>
+                            <%}%>
+                                <li>
+                                    <a class="nav-link" href="/signup">Sign Up</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="contact.ejs">Contact Us</a>
+                                </li>
                     </ul>
                 </div>
-                <div class="row row-copyright">
-                    <p>
-                        Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved</p>
-                </div>
+            </div>
+            <div class="row row-copyright">
+                <p>
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved</p>
             </div>
         </div>
+    </div>
     </div>
 </footer>
 <!-- END footer -->
