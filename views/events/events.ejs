@@ -1,6 +1,17 @@
 <% include ../partials/head %>
     <% include ../partials/header %>
         <div class="container">
+                <div class="container">
+                        <% if (error && error.length > 0){%>
+                             <div class="alert alert-danger" role="alert"><%= error %></div>
+                         <% }; %>
+                         <% if (success && success.length > 0){%>
+                             <div class="alert alert-success" role="alert"><%= success %></div>
+                         <% }; %>
+                         <% if (info && info.length > 0){%>
+                            <div class="alert alert-success" role="alert"><%= info %></div>
+                        <% }; %>
+                     </div>
             <div class="row row-jumbotron">
                 <div class="jumbotron jumbotron-events bg-dark col-12">
                     <h1>Volunteer Opportunities</h1>
@@ -12,7 +23,6 @@
             <div class="row-12">
                 <div class="col-lg-12">
                     <div class="row row-eventCard">
-
                         <%events.forEach(function(event){%>
                             <div class="col-lg-3 col-md-4 col-sm-12">
                                 <div class="card" id="card-event">
@@ -29,8 +39,8 @@
                                             <%= event.date.toDateString() %>
                                         </p>
                                         <!-- Button trigger modal -->
-                                        <a class="eventBtn">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong<%=event.id %>">More Info</button>
+                                        <a class="eventBtn" href="/events/<%=event.id%>">
+                                            <button type="button" class="btn btn-primary">More Info</button>
                                         </a>
                                         <% if (event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
                                             <button type="button" class="btn btn-primary">Event is Full!</button>
@@ -47,148 +57,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade" id="exampleModalLong<%=event.id %>" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Events Details</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div>
-                                                        <h5 class="card-title">
-                                                            <%= event.event_name %>
-                                                        </h5>
-                                                        <p class="location">
-                                                            Location:
-                                                            <%= event.location %>
-                                                        </p>
 
-                                                        <!-- Google maps location btn -->
-                                                        <div class="modal-body">
-                                                            <h5>Popover in a modal</h5>
-                                                            <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
-                                                            <hr>
-                                                        </div>
-
-                                                        <p class="date">
-                                                            Date:
-                                                            <%= event.date.toDateString()%>
-                                                        </p>
-                                                        <p class="time">
-                                                            Time:
-                                                            <%= event.start_time %>
-                                                        </p>
-                                                        <p class="time">
-                                                            Time:
-                                                            <%= event.end_time %>
-                                                        </p>
-                                                        <p class="organizer">
-                                                            Orazanizer:
-                                                            <%= event.organizer %>
-                                                        </p>
-                                                        <p class="organizer">
-                                                            Contact:
-                                                            <%= event.contact%>
-                                                        </p>
-                                                        <p class="volunteers">
-                                                            Volunteers Needed:
-                                                            <%= event.volunteers_needed %>
-                                                        </p>
-                                                        <p class="details">
-                                                            Info:
-                                                            <%= event.description %>
-                                                        </p>
-                                                    </div>
-                                                    <div>
-
-                                                        <!-- loop through the volunteers arrays and display all -->
-                                                        <%if(event.Volunteers && event.Volunteers.length > 0){%>
-                                                            <h3>List of volunteers</h3>
-                                                            <% event.Volunteers.forEach(function(volunteer){ %>
-                                                                <h6>
-                                                                    <span>
-                                                                        <%=volunteer.first_name %>
-                                                                    </span>
-                                                                    <span>
-                                                                        <%=volunteer.last_name %>
-                                                                    </span>
-                                                                </h6>
-                                                                <% }) %>
-                                                                    <%}%>
-                                                    </div>
-
-                                                    <div>
-                                                        <!-- We want to hide edit buttion if the event does not belong to the current signed in user -->
-                                                        <% if (currentUser && currentUser.id === event.UserId){%>
-                                                            <a href='/events/<%= event.id %>/edit'>Edit Event</a>
-                                                            <br>
-                                                            <%}%>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                        <h6>Address here</h6>
-                                                        <div id="map"></div>
-                                                    </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
-                                            <% if (event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
-                                                <button type="button" class="btn btn-primary">Event is Full!</button>
-                                                <%}else {%>
-                                                    <a href='/events/<%= event.id %>/volunteers/new' type="button" class="btn btn-primary">Sign Up!</a>
-                                                    <% }%>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <%})%>
                     </div>
                 </div>
             </div>
         </div>
         <% include ../partials/footer %>
-            <script>
-                function initMap() {
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 8,
-                        center: {
-                            lat: 44.977753,
-                            lng: -93.089958
-                         
-                        },
-                    });
-                    var geocoder = new google.maps.Geocoder();
-                    //for testing
-                    var address = "3849 Gallagher Dr, Edina, MN 55435";
-                    // <%events.forEach(function (address) {%>
-                    // console.log('<%=address.location%>');
-                    geocodeAddress(geocoder, map, address);
-                    // <%})%>
-                }
-
-                function geocodeAddress(geocoder, resultsMap, address) {
-                    geocoder.geocode({
-                        'address': address
-                    }, function (results, status) {
-                        if (status === 'OK') {
-                            resultsMap.setCenter(results[0].geometry.location);
-                            var marker = new google.maps.Marker({
-                                map: resultsMap,
-                                position: results[0].geometry.location
-                            });
-                        } else {
-                            alert('Geocode was not successful for the following reason: ' + status);
-                        }
-                    });
-                }
-            </script>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIq_BW7gCEL8VfUNdil7OLZHGAWPUjtU&callback=initMap">
-            </script>
