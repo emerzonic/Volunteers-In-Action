@@ -18,38 +18,6 @@
                   </div>
                   <% }; %>
       </div>
-      <!-- <form action="/events/<%=event.id %>?_method=PUT" method="POST">
-        <input type="text" name="eventName" value="<%= event.event_name %>">
-        <br>
-        <br>
-        <input type="text" name="location" value="<%= event.location %>">
-        <br>
-        <br>
-        <input type="Date" name="date" class="form-control" value="<%= event.date %>">
-        <input type="Time" name="start_time" class="form-control" value="<%= event.start_time %>">
-        <input type="Time" name="end_time" class="form-control" value="<%= event.end_time %>">
-        <input type="number" name="volunteers" value="<%= event.volunteers_needed %>">
-        <br>
-        <br>
-
-        <textarea type="Description" name="description" class="form-control">
-          <%= event.description %>
-        </textarea>
-
-        <input type="text" name="fname" value="<%= event.organizer %>" disabled>
-        <br>
-        <br>
-        <!-- <input type="text" name="lname" value="Last Name" ><br><br> -->
-      <!-- <input type="text" name="phone" value="<%= event.description %>"><br><br> -->
-      <!-- <input type="email" name="email" value="<%= event.contact %>">
-        <br>
-        <br>
-        <a type="button" href="/events">Cancel</a>
-        <button type="submit">Submit</button>
-      </form>
-      <button type="submit" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm">
-        <i class="fas fa-trash-alt"></i>
-      </button>  -->
       <div class="editContainer">
           <h3>Edit Event</h3>
         <form action="/events/<%=event.id %>?_method=PUT" method="POST" class="needs-validation" novalidate>
@@ -165,8 +133,11 @@
           </div>
           <div class="form-row">
             <div class="col-md-6 col-sm-12 mb-3">
-              <a type="button" href="/events" class="btn btn-primary">Cancel</a>
-              <a class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm">
+              <a href="/events">
+              <button type="button" class="btn btn-primary">Cancel
+                </button>
+              </a>
+              <a class="btn btn-default" data-toggle="modal" data-target=".bd-example-modal-sm">
                 <i class="fas fa-trash-alt"></i>
               </a>
               <button class="btn btn-primary" type="submit">Submit</button>
@@ -186,13 +157,12 @@
           <form action="/events/<%=event.id %>?_method=DELETE" method="POST">
             <div class="row">
               <div class="col">
-                <button type="submit" class="btn btn-danger delete-button">
+                <button type="submit" class="btn btn-primary delete-button">
                   Delete
                 </button>
               </div>
               <div class="col">
-                <!-- I think the css styling is making this button to not show -->
-                <button class="close btn btn-danger cancel-button" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn btn-primary cancel-button" data-dismiss="modal" aria-label="Close">
                   Cancel
                 </button>
               </div>

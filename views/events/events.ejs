@@ -43,7 +43,7 @@
                                             <button type="button" class="btn btn-primary">More Info</button>
                                         </a>
                                         <% if (event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
-                                            <button type="button" class="btn btn-primary">Event is Full!</button>
+                                            <button type="button" class="btn btn-danger">Event is Full!</button>
                                             <%}else {%>
                                                 <a href='/events/<%= event.id %>/volunteers/new'>
                                                     <button type="button" class="btn btn-primary">Sign Up!</button>
@@ -51,7 +51,9 @@
                                                 <% }%>
 
                                                     <% if (currentUser && currentUser.id === event.UserId){%>
-                                                        <a type="button" class="btn btn-primary" href='/events/<%= event.id %>/edit'>Edit Event</a>
+                                                        <a href='/events/<%= event.id %>/edit'>
+                                                            <button type="button" class="btn btn-warning" class="btnEdit">Edit Event</button>
+                                                        </a>
 
                                                         <%}%>
                                     </div>
