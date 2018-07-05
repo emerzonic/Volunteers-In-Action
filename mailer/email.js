@@ -1,7 +1,7 @@
-const nodemailer = require('nodemailer');
-var xoauth2 = require('xoauth2');
+// const nodemailer = require('nodemailer');
+// var xoauth2 = require('xoauth2');
 
-var output = `<h1>Success!</h1>`;
+// var output = `<h1>Success!</h1>`;
 
 // nodemailer.createTestAccount((err, account) => {
     // create reusable transporter object using the default SMTP transport

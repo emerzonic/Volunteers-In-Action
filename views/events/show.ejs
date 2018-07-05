@@ -19,29 +19,31 @@
                                     </div>
                                     <% }; %>
             </div>
+            <br><br>
             <!-- these can be replaced with margin or padding -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-12">
-                            <div>
-                                <h1>Event Details</h1>
+            <div class="showContainer">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div>
+                                    <h3>Event Details</h3>
+                                </div>
+
                             </div>
-
                         </div>
-                    </div>
-                    <div>
-                        <h5 class="card-title">
-                            <%= event.event_name %>
-                        </h5>
-                        <p class="date">
-                            <span>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                            </span>
+                        <div>
+                            <h5 class="card-title">
+                                <%= event.event_name %>
+                            </h5>
+                            <p class="date">
+                                <span>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </span>
 
-                            <%= event.date.toDateString()%>
-                        </p>
-                       
+                                <%= event.date.toDateString()%>
+                            </p>
+
                             <p class="time">
                                 Start Time:
                                 <%= event.start_time %>
@@ -51,7 +53,7 @@
                                 <%= event.end_time %>
                             </p>
                             <p class="organizer">
-                                Orazanizer:
+                                Organizer:
                                 <%= event.organizer %>
                             </p>
                             <p class="organizer">
@@ -60,7 +62,7 @@
                                 </span>
                                 <span>
                                     <a href="mailto:<%= event.contact%>">
-                                        Contact Organizer
+                                        Email Organizer
                                     </a>
                                 </span>
 
@@ -73,45 +75,44 @@
                                 Info:
                                 <%= event.description %>
                             </p>
-                    </div>
-                    <div>
+                        </div>
+                        <div>
 
-                        <!-- loop through the volunteers arrays and display all -->
-                        <%if(event.Volunteers && event.Volunteers.length > 0){%>
-                            <h3>List of volunteers</h3>
-                            <% event.Volunteers.forEach(function(volunteer){ %>
-                                <h6>
-                                    <span>
-                                        <%=volunteer.first_name %>
-                                    </span>
-                                    <span>
-                                        <%=volunteer.last_name %>
-                                    </span>
-                                </h6>
-                                <% }) %>
-                                    <%}%>
-                    </div>
+                            <!-- loop through the volunteers arrays and display all -->
+                            <%if(event.Volunteers && event.Volunteers.length > 0){%>
+                                <h3>List of volunteers</h3>
+                                <% event.Volunteers.forEach(function(volunteer){ %>
+                                    <h6>
+                                        <span>
+                                            <%=volunteer.first_name %>
+                                        </span>
+                                        <span>
+                                            <%=volunteer.last_name %>
+                                        </span>
+                                    </h6>
+                                    <% }) %>
+                                        <%}%>
+                        </div>
 
-                    <div>
-                        <!-- We want to hide edit buttion if the event does not belong to the current signed in user -->
-                        <a href='/events/<%= event.id %>/edit'>Edit Event</a>
-                        <br>
-                        <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
-                        <% if(event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
-                            <button type="button" class="btn btn-primary">Event is Full!</button>
-                            <%}else {%>
-                                <a href='/events/<%= event.id %>/volunteers/new' type="button" class="btn btn-primary">Sign Up!</a>
-                                <% }%>
+                        <div>
+                            <a type="button" href='/events/<%= event.id %>/edit'>Edit Event</a>
+                            <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
+                            <% if(event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
+                                <button type="button" class="btn btn-primary">Event is Full!</button>
+                                <%}else {%>
+                                    <a href='/events/<%= event.id %>/volunteers/new' type="button" class="btn btn-primary">Sign Up!</a>
+                                    <% }%>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <h6>
-                        <span>
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        </span>
-                        <%= event.location %>
-                    </h6>
-                    <div id="map"></div>
+                    <div class="col-lg-6">
+                        <h6>
+                            <span>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </span>
+                            <%= event.fullAddress %>
+                        </h6>
+                        <div class="map" id="map"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -136,7 +137,7 @@
                     });
                     var geocoder = new google.maps.Geocoder();
                     //for testing
-                    var address = "<%=event.location%>";
+                    var address = "<%=event.fullAddress%>";
 
                     geocodeAddress(geocoder, map, address);
 
