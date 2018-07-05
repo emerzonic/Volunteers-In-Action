@@ -2,7 +2,11 @@
 module.exports = (sequelize, Sequelize) => {
   var Event = sequelize.define('Event', {
     event_name: Sequelize.STRING,
-    location: Sequelize.STRING,
+    address1: Sequelize.STRING,
+    city: Sequelize.STRING,
+    state: Sequelize.STRING,
+    zip: Sequelize.INTEGER,
+    fullAddress:Sequelize.STRING,
     lat:Sequelize.DECIMAL(10, 2) ,
     lng:Sequelize.DECIMAL(10, 2), 
     date: Sequelize.DATE,
