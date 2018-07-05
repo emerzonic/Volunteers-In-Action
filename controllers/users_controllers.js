@@ -38,5 +38,14 @@ router.post('/signup', function (req, res, next) {
 });
 
 
+
+//==============================================
+//Route to get user profile page
+//==============================================
+router.get('/user', function (req, res, next) {
+    res.send('this is the user page');
+});
+
+
 module.exports = router;
 
