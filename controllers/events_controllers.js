@@ -41,7 +41,8 @@ router.get('/events/new', middleware.isLoggedIn, function (req, res) {
 //Route to create a new event
 //==============================================
 router.post('/events', function (req, res) {
-    geocoder.geocode(req.body.location, function (err, data) {
+    var location = `${req.body.address1} ${req.body.city} ${req.body.state} ${req.body.zip}`;
+    geocoder.geocode(location, function (err, data) {
         if (err || !data.length) {
             req.flash("error","Something went wrong. Please try again.");
             return res.redirect('back');
@@ -49,15 +50,19 @@ router.post('/events', function (req, res) {
         console.log(data);
         var lat = data[0].latitude;
         var lng = data[0].longitude;
-        var location = data[0].formattedAddress;
+        var address = data[0].formattedAddress;
         db.Event.create({
-            event_name: req.body.eventName,
-            location: location,
+            event_name: req.body.event_name,
+            fullAddress: address,
+            address1: req.body.address1,
+            city: req.body.city,
+            state: req.body.state,
+            zip: req.body.zip,
             date: req.body.date,
             start_time: req.body.start_time,
             end_time: req.body.end_time,
             description: req.body.description,
-            organizer: req.body.fname + ' ' + req.body.lname, //Adding the first name and last name together
+            organizer: req.body.organizer, 
             contact: req.body.email,
             volunteers_needed: req.body.volunteers,
             lat: lat,
@@ -104,14 +109,18 @@ router.get('/events/:id/edit', middleware.checkEventOwnership, function (req, re
 //put route to update events
 router.put('/events/:id', function (req, res) {
     db.Event.update({
-        event_name: req.body.eventName,
-        location: req.body.location,
+        event_name: req.body.event_name,
+        address1: req.body.address1,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
         date: req.body.date,
         start_time: req.body.start_time,
-        end_time: req.body.ens_time,
+        end_time: req.body.end_time,
         description: req.body.description,
+        organizer: req.body.organizer, 
         contact: req.body.email,
-        volunteers_needed: req.body.volunteers
+        volunteers_needed: req.body.volunteers,
     }, {
         where: {
             id: req.params.id
