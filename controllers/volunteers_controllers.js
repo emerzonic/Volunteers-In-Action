@@ -28,6 +28,8 @@ router.get('/events/:id/volunteers/new', function (req, res) {
 
 //post route to sign up volunteers
 router.post('/events/:id/volunteers', function (req, res) {
+    var info = req.body;
+    if(info.first_name && info.last_name && info.age && info.contact){
     db.Volunteer.create({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
@@ -36,12 +38,14 @@ router.post('/events/:id/volunteers', function (req, res) {
             EventId: req.params.id
         }).then(function (data) {
             // mailer.transporter,
-            
             // var volunteer = JSON.stringify(data);
             // console.log(volunteer);
             req.flash("success","Congratulations! You are successfully signed up.");
             res.redirect('/events/');
         });
+    }
+    req.flash("error","You did not provide all info.");
+    res.redirect('/events/');
 });
 
 
