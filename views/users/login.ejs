@@ -1,24 +1,7 @@
 <% include ../partials/head %>
     <% include ../partials/header %>
+    
         <div class="container-hero">
-                <div class="container">
-                        <% if (error && error.length > 0){%>
-                            <div class="alert alert-danger" role="alert">
-                                <%= error %>
-                            </div>
-                            <% }; %>
-                                <% if (success && success.length > 0){%>
-                                    <div class="alert alert-success" role="alert">
-                                        <%= success %>
-                                    </div>
-                                    <% }; %>
-                                        <% if (info && info.length > 0){%>
-                                            <div class="alert alert-success" role="alert">
-                                                <%= info %>
-                                            </div>
-                                            <% }; %>
-                    </div>
-
             <form id="msform" action="/login" method="POST">
                 <br>
                 <!-- fieldsets -->

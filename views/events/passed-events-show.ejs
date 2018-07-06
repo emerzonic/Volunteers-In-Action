@@ -1,16 +1,4 @@
 <% include ../partials/header %>
-<div class="container">
-        <% if (error && error.length > 0){%>
-             <div class="alert alert-danger" role="alert"><%= error %></div>
-         <% }; %>
-         <% if (success && success.length > 0){%>
-             <div class="alert alert-success" role="alert"><%= success %></div>
-         <% }; %>
-         <% if (info && info.length > 0){%>
-            <div class="alert alert-success" role="alert"><%= info %></div>
-        <% }; %>
-     </div>
-
 
     <h1>This will be the passed events details page</h1>
     <div class="container">
@@ -52,6 +40,5 @@
         <% }) %>
     </div>  
 </div>
-
 
     <% include ../partials/footer %>

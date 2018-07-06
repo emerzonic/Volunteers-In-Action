@@ -1,27 +1,6 @@
 <% include ../partials/head %>
     <% include ../partials/header %>
 
-        <div class="container">
-            <div>
-                <% if (error && error.length > 0){%>
-                    <div class="alert alert-danger" role="alert">
-                        <%= error %>
-                    </div>
-                    <% }; %>
-                        <% if (success && success.length > 0){%>
-                            <div class="alert alert-success" role="alert">
-                                <%= success %>
-                            </div>
-                            <% }; %>
-                                <% if (info && info.length > 0){%>
-                                    <div class="alert alert-success" role="alert">
-                                        <%= info %>
-                                    </div>
-                                    <% }; %>
-            </div>
-            <br>
-            <br>
-            <!-- these can be replaced with margin or padding -->
             <div class="showContainer">
                 <div class="row">
                     <div class="col-lg-6">
@@ -166,39 +145,5 @@
                     });
                 }
             </script>
-            <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIq_BW7gCEL8VfUNdil7OLZHGAWPUjtU&libraries=places"></script> -->
-
-
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIq_BW7gCEL8VfUNdil7OLZHGAWPUjtU&callback=initMap">
             </script>
-            <!-- <script>
-                    // This example requires the Places library. Include the libraries=places
-                    // parameter when you first load the API. For example:
-              
-                    function initMap() {
-                      var map = new google.maps.Map(document.getElementById('map'), {
-                        center: {lat: -33.866, lng: 151.196},
-                        zoom: 15
-                      });
-              
-                      var infowindow = new google.maps.InfoWindow();
-                      var service = new google.maps.places.PlacesService(map);
-              
-                      service.getDetails({
-                        placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
-                      }, function(place, status) {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                          var marker = new google.maps.Marker({
-                            map: map,
-                            position: place.geometry.location
-                          });
-                          google.maps.event.addListener(marker, 'click', function() {
-                            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                              'Place ID: ' + place.place_id + '<br>' +
-                              place.formatted_address + '</div>');
-                            infowindow.open(map, this);
-                          });
-                        }
-                      });
-                    }
-                  </script> -->
