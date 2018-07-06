@@ -19,7 +19,8 @@
                                     </div>
                                     <% }; %>
             </div>
-            <br><br>
+            <br>
+            <br>
             <!-- these can be replaced with margin or padding -->
             <div class="showContainer">
                 <div class="row">
@@ -95,12 +96,18 @@
                         </div>
 
                         <div>
-                            <a type="button" href='/events/<%= event.id %>/edit'>Edit Event</a>
+                            <a href='/events/<%= event.id %>/edit'>
+                                <button type="button" class="btn btn-warning">Edit Event
+                                </button>
+                            </a>
                             <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
                             <% if(event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
                                 <button type="button" class="btn btn-primary">Event is Full!</button>
                                 <%}else {%>
-                                    <a href='/events/<%= event.id %>/volunteers/new' type="button" class="btn btn-primary">Sign Up!</a>
+                                    <a href='/events/<%= event.id %>/volunteers/new'>
+                                        <button type="button" class="btn btn-primary">Sign Up!
+                                        </button>
+                                    </a>
                                     <% }%>
                         </div>
                     </div>
