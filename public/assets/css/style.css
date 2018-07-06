@@ -80,6 +80,10 @@ body {
   margin-bottom: 0 auto;
 }
 
+.container-list {
+  display: flex;
+}
+
 #card-event {
   margin-top: 20px;
   margin-bottom: 20px;
