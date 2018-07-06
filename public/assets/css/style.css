@@ -218,10 +218,21 @@ header .navbar-brand, footer .footer-about {
 }
 
 /*buttons*/
-.btn {
+.btn-primary {
 	width: 100px;
 	background: rgb(9, 219, 9);
 	font-weight: bold;
+	color: white !important;
+	border: 0 none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+.btn-warning {
+  width: 100px;
+  font-weight: bold;
 	color: white !important;
 	border: 0 none;
 	border-radius: 5px;
