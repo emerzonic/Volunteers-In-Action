@@ -22,7 +22,7 @@ middleware.checkEventOwnership = function (req, res, next) {
             }
         });
     } else {
-        req.flash("error","Please login to perform that action!");
+        req.flash("info","Please login to perform that action");
         res.redirect("back");
     }
 };
@@ -33,7 +33,7 @@ middleware.isLoggedIn = function (req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    req.flash("error","Please login to perform that action!");
+    req.flash("info","Please login to perform that action");
     res.redirect("/login");
 };
 
