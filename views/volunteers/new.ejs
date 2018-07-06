@@ -16,11 +16,19 @@
                 <!-- fieldsets -->
                 <fieldset>
                     <hr>
-                    <input type="text" name="first_name" placeholder="First Name">
-                    <input type="text" name="last_name" placeholder="Last Name">
-                    <input type="number" name="age" placeholder="Age">
-                    <input type="email" name="contact" placeholder="Contact">
-                    <input type="submit" name="submit" class="next action-button" value="Submit" />
+                    <%if(currentUser){%>
+                        <input type="text" name="first_name" value="<%=currentUser.first_name%>">
+                        <input type="text" name="last_name" value="<%=currentUser.last_name%>">
+                        <input type="number" name="age" placeholder="Age">
+                        <input type="email" name="contact" value="<%=currentUser.email%>">
+                        <input type="submit" name="submit" class="next action-button" value="Submit" />
+                        <%}else {%>
+                            <input type="text" name="first_name" placeholder="First Name">
+                            <input type="text" name="last_name" placeholder="Last Name">
+                            <input type="number" name="age" placeholder="Age">
+                            <input type="email" name="contact" placeholder="Email">
+                            <input type="submit" name="submit" class="next action-button" value="Submit" />
+                            <%}%>
                 </fieldset>
             </form>
         </div>
