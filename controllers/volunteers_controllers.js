@@ -43,9 +43,10 @@ router.post('/events/:id/volunteers', function (req, res) {
             req.flash("success","Congratulations! You are successfully signed up.");
             res.redirect('/events/');
         });
-    }
+    }else{
     req.flash("error","You did not provide all info.");
     res.redirect('/events/');
+    }
 });
 
 
