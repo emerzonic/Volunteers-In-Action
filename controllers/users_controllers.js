@@ -4,21 +4,22 @@ var passport = require("passport");
 var db = require("../models");
 var sequelize = require("sequelize");
 var op = sequelize.Op;
+var middleware = require("../middleware");
 
 //==============================================
 //Route to signup page
 //==============================================
-router.get("/signup", function(req, res) {
+router.get("/signup", function (req, res) {
   res.render("users/signup");
 });
 
 //==============================================
 //Route to signup user
 //==============================================
-router.post("/signup", function(req, res, next) {
-  passport.authenticate("local-signup", function(error, user, info) {
+router.post("/signup", function (req, res, next) {
+  passport.authenticate("local-signup", function (error, user, info) {
     if (user) {
-      req.logIn(user, function(err) {
+      req.logIn(user, function (err) {
         if (err) {
           req.flash("error", error.message);
           return res.redirect("/signup");
@@ -45,33 +46,40 @@ router.post("/signup", function(req, res, next) {
   })(req, res, next);
 });
 
-//==============================================
-//Route to get user profile page
-//==============================================
-// router.get('/user', function (req, res) {
-//     res.render('users/user');
-// });
+
+
 
 //==============================================
-//Route to get user profile page
+//Route to get user events
 //==============================================
-router.get("/user/:id", function(req, res) {
+router.get("/user/:id", middleware.isLoggedIn, function (req, res) {
   db.Event.findAll({
     order: sequelize.col("date"), //ordering events by the closest date
     where: {
       UserId: req.params.id
     }
-  }).then(events => {
-    if (events && events.length > 0) {
-      // console.log(JSON.stringify(events));
-      res.render("users/user", {
-        events: events
+  }).then(createdEvents => {
+    db.Volunteer.findAll({
+      where: {
+        UserId: req.params.id
+      },
+      include: [db.Event]
+    }).then(vol => {
+      var signupEvents = [];
+      vol.forEach(ele => {
+        signupEvents.push(ele.dataValues.Event.dataValues);
       });
-    } else {
-      req.flash("info", "You do not have any events.");
-      // res.redirect('/user');
-    }
+      var data = {
+        signupEvents: signupEvents,
+        createdEvents: createdEvents
+      };
+      res.render("users/user", {
+        data: data
+      });
+    });
+
   });
 });
+
 
 module.exports = router;

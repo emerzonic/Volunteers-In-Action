@@ -85,7 +85,7 @@ router.get("/events/:id", function (req, res) {
         where: {
             id: eventId,
         },
-        include: [db.Volunteer],
+        include: [db.Volunteer]
     }).then(function (event) {
         res.render("events/show", {
             event: event
