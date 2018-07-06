@@ -45,9 +45,9 @@ router.post('/signup', function (req, res, next) {
 //==============================================
 //Route to get user profile page
 //==============================================
-router.get('/user', function (req, res) {
-    res.render('users/user');
-});
+// router.get('/user', function (req, res) {
+//     res.render('users/user');
+// });
 
 
 //==============================================
@@ -62,12 +62,12 @@ router.get('/user/:id', function (req, res) {
     }).then(events => {
         if(events && events.length > 0){
         // console.log(JSON.stringify(events));
-        res.render("events/", {
+        res.render("users/user", {
             events: events
         });
         }else{
         req.flash("info","You do not have any events.");
-        res.redcirect('/');
+        // res.redirect('/user');
         }
     });
 });
