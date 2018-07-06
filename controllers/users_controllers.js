@@ -67,7 +67,7 @@ router.get('/user/:id', function (req, res) {
         });
         }else{
         req.flash("info","You do not have any events.");
-        res.redcirect('/');
+        res.redirect('/');
         }
     });
 });
