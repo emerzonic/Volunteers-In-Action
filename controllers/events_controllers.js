@@ -21,7 +21,8 @@ var geocoder = NodeGeocoder(options);
 //==============================================
 router.get('/events', function (req, res) {
     db.Event.findAll({
-        order: sequelize.col('date') //ordering events by the closest date
+        order: sequelize.col('date'), //ordering events by the closest date
+        include: [db.Volunteer]
     }).then(function (events) {
         res.render("events/events", {
             events: events
@@ -44,10 +45,9 @@ router.post('/events', function (req, res) {
     var location = `${req.body.address1} ${req.body.city} ${req.body.state} ${req.body.zip}`;
     geocoder.geocode(location, function (err, data) {
         if (err || !data.length) {
-            req.flash("error","Something went wrong. Please try again.");
+            req.flash("error","Something went wrong. Please try again");
             return res.redirect('back');
         }
-        console.log(data);
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var address = data[0].formattedAddress;
@@ -70,7 +70,7 @@ router.post('/events', function (req, res) {
             status: false,
             UserId: req.user.dataValues.id
         }).then(function () {
-            req.flash('success','Event was successfully created!');
+            req.flash('success','Event was successfully created');
             res.redirect('/events');
         });
     });
@@ -120,13 +120,13 @@ router.put('/events/:id', function (req, res) {
         description: req.body.description,
         organizer: req.body.organizer, 
         contact: req.body.email,
-        volunteers_needed: req.body.volunteers,
+        volunteers_needed: req.body.volunteers_needed
     }, {
         where: {
             id: req.params.id
         }
     }).then(function (updateEevent) {
-        req.flash("success","Event successfully updated.");
+        req.flash("success","Event successfully updated");
         res.redirect("/events/");
     });
 });
@@ -161,7 +161,7 @@ router.get('/events/passed-events', function (req, res) {
             events: events
         });
         }else{
-        req.flash("error","Something went wrong. Please try again.");
+        req.flash("error","Something went wrong. Please try again");
         res.redcirect('/index');
         }
     });
