@@ -17,7 +17,7 @@ middleware.checkEventOwnership = function (req, res, next) {
             if (event.UserId === req.user.dataValues.id) {
                 next();
             } else {
-                 req.flash("error","You do not have permission to this event.");
+                 req.flash("error","You do not have permission to this event");
                 res.redirect("back");
             }
         });
