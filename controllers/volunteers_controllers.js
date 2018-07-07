@@ -61,35 +61,6 @@ router.get('/users/:id/volunteers/new', function (req, res) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// User.findAll({
-//     include: [{
-//       model: Tool,
-//       as: 'Instruments',
-//       include: [{
-//         model: Teacher,
-//         where: {
-//           school: "Woodstock Music School"
-//         },
-//         required: false
-//       }]
-//     }]
-//   }).then(users => {
-//     /* ... */
-//   })
-
-
 //event edit form route
 // router.get('/events/:id/volunteer/edit', function (req, res) {
 //     var eventId = req.params.id;
