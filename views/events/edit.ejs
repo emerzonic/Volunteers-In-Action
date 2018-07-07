@@ -1,24 +1,157 @@
 <% include ../partials/head %>
-<% include ../partials/header %>
-   <div class="container">
-       <br><br><br>
-       <h1>Edit page</h1>
-       <br>
-       <form action="/events/<%=event.id %>?_method=PUT" method="POST">
-            <input type="text" name="eventName" value="<%= event.event_name %>"><br><br>
-            <input type="text" name="location" value="<%= event.location %>"><br><br>
-            <input type="Date" name="date"class="form-control" value="<%= event.date %>">
-            <input type="Time" name="start_time"class="form-control"  value="<%= event.start_time %>">
-            <input type="Time" name="end_time"class="form-control"  value="<%= event.end_time %>">
-            <input type="number" name="volunteers" value="<%= event.volunteers_needed %>"><br><br>
+  <% include ../partials/header %>
 
-            <textarea type="Description" name="description"class="form-control"><%= event.description %></textarea>
+      <div class="editContainer">
+          <h3>Edit Event</h3>
+        <form action="/events/<%=event.id %>?_method=PUT" method="POST" class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label class="edit-label" for="validationCustom01">Event Name</label>
+              <input type="text" class="form-control" name="event_name" id="validationCustom01" value="<%= event.event_name %>" value="Mark" required>
+              <div class="valid-feedback">
+                Event name is required!
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-2 mb-3">
+              <label class="edit-label" for="validationCustomUsername">Address 1</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="address1" id="validationCustomUsername" value="<%= event.address1%>"  aria-describedby="inputGroupPrepend"
+                  required>
+                <div class="invalid-feedback">
+                  Address is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label class="edit-label" for="validationCustom03">City</label>
+              <input type="text" class="form-control" name="city" id="validationCustom03" value="<%= event.city%>"  required>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label class="edit-label" for="validationCustom04">State</label>
+              <input type="text" class="form-control" name="state" id="validationCustom04" value="<%= event.state%>" required>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label class="edit-label" for="validationCustom05">Zip</label>
+              <input type="text" class="form-control" name="zip" id="validationCustom05" value="<%= event.zip%>" required>
+              <div class="invalid-feedback">
+                Please provide a valid zip.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-2 mb-3">
+              <label class="edit-label" for="validationCustomUsername">Date</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="date" id="validationCustomUsername" value="<%= event.date.toDateString()%>" aria-describedby="inputGroupPrepend"
+                  required>
+                <div class="invalid-feedback">
+                  Date is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label class="edit-label" for="validationCustom03">Start Time</label>
+              <input type="text" class="form-control" name="start_time" id="validationCustom03" value="<%= event.start_time%>" required>
+              <div class="invalid-feedback">
+                Please provide start time.
+              </div>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label class="edit-label" for="validationCustom04">End Time</label>
+              <input type="text" class="form-control" name="end_time" id="validationCustom04" value="<%= event.end_time %>" required>
+              <div class="invalid-feedback">
+                Please provide end time.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+              <div class="col-md-2 mb-3">
+                  <label class="edit-label" for="validationCustomUsername"># of volunteers</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="volunteers_needed" id="validationCustomUsername" value="<%= event.volunteers_needed %>" aria-describedby="inputGroupPrepend"
+                      required>
+                    <div class="invalid-feedback">
+                      Number of volunteers is required.
+                    </div>
+                  </div>
+                </div>
+            <div class="col-md-3 mb-3">
+              <label class="edit-label" for="validationCustomUsername">Organizer</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="organizer" id="validationCustomUsername" value="<%= event.organizer %>" aria-describedby="inputGroupPrepend"
+                  required>
+                <div class="invalid-feedback">
+                  Organzer is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="edit-label" for="validationCustom03">Email</label>
+              <input type="text" class="form-control" name="email" id="validationCustom03" value="<%= event.contact %>" required>
+              <div class="invalid-feedback">
+                Please provide valid email.
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label class="edit-label" for="validationCustomUsername">Description</label>
+              <div class="input-group">
+                <textarea type="text" class="form-control" name="description" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required><%= event.description %></textarea>
+                 
+                
+                <div class="invalid-feedback">
+                  Description is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 col-sm-12 mb-3">
+              <a href="/events">
+              <button type="button" class="btn btn-primary">Cancel
+                </button>
+              </a>
+              <a class="btn btn-default" data-toggle="modal" data-target=".bd-example-modal-sm">
+                <i class="fas fa-trash-alt"></i>
+              </a>
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 
-            <input type="text" name="fname" value="<%= event.organizer %>" disabled><br><br>
-            <!-- <input type="text" name="lname" placeholder="Last Name" ><br><br> -->
-            <!-- <input type="text" name="phone" value="<%= event.description %>"><br><br> --> 
-            <input type="email" name="email" value="<%= event.contact %>"><br><br>
-            <button type="submit">Submit</button>
-    </form>
-</div>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete this event?</h5>
+          </div>
+          <form action="/events/<%=event.id %>?_method=DELETE" method="POST">
+            <div class="row">
+              <div class="col">
+                <button type="submit" class="btn btn-primary delete-button">
+                  Delete
+                </button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-primary cancel-button" data-dismiss="modal" aria-label="Close">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <% include ../partials/footer %>

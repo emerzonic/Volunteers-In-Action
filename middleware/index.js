@@ -17,12 +17,12 @@ middleware.checkEventOwnership = function (req, res, next) {
             if (event.UserId === req.user.dataValues.id) {
                 next();
             } else {
-                //  req.flash("error","You do not have permission to this event.");
+                 req.flash("error","You do not have permission to this event");
                 res.redirect("back");
             }
         });
     } else {
-        //  req.flash("error","You need to be logged in to that.");
+        req.flash("info","Please login to perform that action");
         res.redirect("back");
     }
 };
@@ -33,7 +33,7 @@ middleware.isLoggedIn = function (req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    // req.flash("error","You need to be logged in to do that");
+    req.flash("info","Please login to perform that action");
     res.redirect("/login");
 };
 

@@ -12,9 +12,11 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passportConfig = require('./config/passportConfig');
 var middleware = require('./middleware/index');
+var mailer = require('./mailer/email');
 var db = require("./models");
-
+var flash = require('connect-flash');
 var app = express();
+ 
 
 //SETUP APP TO USE PACKAGES
 app.use(bodyParser.urlencoded({
@@ -25,6 +27,8 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
+//flash messages config
+app.use(flash());
 //PASSPORT CONFIG
 app.use(cookieParser());
 app.use(session({
@@ -39,6 +43,9 @@ app.use(passport.session());
 //Track the current user
 app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash('error');
+  res.locals.success = req.flash('success');
+  res.locals.info = req.flash('info');
   next();
 });
 
@@ -48,9 +55,7 @@ app.use(users);
 app.use(events);
 app.use(volunteers);
 
-
 // App PORT setting
-// process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8088;
 // Application server.
 db.sequelize.sync({}).then(function () {

@@ -63,7 +63,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '2945 Hazelwood Street North, Maplewood, MN 55109',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -76,7 +76,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '990 Lone Oaks Road, Eagan, MN 55121',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -89,7 +89,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '850 Grand Avenue, Saint Paul, MN 55105',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -102,7 +102,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '237 7th Street East, Saint Paul, MN 55101',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -115,7 +115,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '2900 Rice Street, Little Canada, MN 55113',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -128,7 +128,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '8587 Edinburgh Center Drive, Brooklyn Park, MN 55445',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -141,7 +141,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '3540 Winnetka Ave North, New Hope, MN 55427',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -154,7 +154,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '1712 Randolph Avenue, St. Paul MN 55105',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -167,7 +167,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '1150 Goodrich Avenue, St. Paul MN 55105',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -180,7 +180,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '7280 E Point Douglas Rd South, Cottage Grove, Minnesota 55016',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -193,7 +193,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '1500 Central Park Commons Drive, Eagan, Minnesota 55121',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -206,7 +206,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '1920 Grant Street NW, Faribault, Minnesota 55021',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -219,7 +219,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '2015 South Broadway Street, New Ulm, Minnesota 56073',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -232,7 +232,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '410 South Riverfront Drive, Mankato, Minnesota 56001',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -245,7 +245,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '1451 Adams Street South, Shakopee, Minnesota 55379',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
@@ -258,7 +258,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       event_name: faker.lorem.sentence(),
-      location: faker.address.city(),
+      location: '1475 W Service Drive, Winona, Minnesota 55987',
       date: faker.date.future(),
       start_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),
       end_time: Math.floor((Math.random() * 19) + 6) + ":" + Math.floor((Math.random() * 60) + 0) + ":" + Math.floor((Math.random() * 59) + 0),

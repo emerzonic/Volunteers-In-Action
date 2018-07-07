@@ -36,18 +36,20 @@ router.get('/login', function (req, res) {
 //==============================================
 //Route to login user
 //==============================================
-router.post("/login", passport.authenticate("local-login", {
-    successRedirect: "/events",
-    failureRedirect: "/login"
-}), function (req, res) {
-    console.log("New login user\n\n"+req.user);
-});
+router.post('/login',
+    passport.authenticate('local-login', {
+        successRedirect: '/index',
+        failureRedirect: '/login',
+        failureFlash: true
+    })
+);
 
 //==============================================
 //Logout route
 //==============================================
 router.get("/logout", function (req, res) {
     req.logout();
+    req.flash("success", "You are logged out!");
     res.redirect("/index");
 });
 

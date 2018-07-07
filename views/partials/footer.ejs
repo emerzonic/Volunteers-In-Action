@@ -1,6 +1,14 @@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div id="map"></div>
+        </div>
+    </div>
 </div>
 <!-- End main -->
 
+</div>
+<!-- End main -->
 <footer class="site-footer bg-dark">
     <div class="container">
         <div class="row row-footer col-12">
@@ -8,6 +16,8 @@
                 <h3 class="footer-about">About</h3>
                 <p>We strive to help teens and young adults build their resumes and help their communities by finding volunteer
                     opportunities in their area.</p>
+                    <a href="https://www.facebook.com/Volunteers-In-Action-485794838501240/"><i class="fab fa-facebook fa-7x"></i></a>
+                    <a href="https://instagram.com/p/BkllHQchVXc/"><i class="fab fa-instagram fa-7x"></i></a>
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="row row-link">
@@ -18,30 +28,32 @@
                         <li>
                             <a class="nav-link" href="/events">View Events</a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="/login">Log In</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="/signup">Sign Up</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="contact.ejs">Contact Us</a>
-                        </li>
+                        <%if(!currentUser){%>
+                            <li>
+                                <a class="nav-link" href="/login">Log In</a>
+                            </li>
+                                <li>
+                                    <a class="nav-link" href="/signup">Create Account</a>
+                                </li>
+                                <%}%>
+                                <li>
+                                <a class="nav-link" href="mailto:<volunteersinaction@gmail.com>">Contact Us</a>
+                                </li>
                     </ul>
                 </div>
-                <div class="row row-copyright">
-                    <p>
-                        Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved</p>
-                </div>
+            </div>
+            <div class="row row-copyright">
+                <p>
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved</p>
             </div>
         </div>
     </div>
+    </div>
 </footer>
 <!-- END footer -->
-
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="/assets/js/newForm.js"></script>

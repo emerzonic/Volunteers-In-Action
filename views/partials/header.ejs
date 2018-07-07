@@ -6,7 +6,8 @@
         <header role="banner">
             <div class="container">
                 <nav class="navbar navbar-expand-md bg-dark">
-                    <a class="navbar-brand absolute" href="/index">Volunteers in Action</a>
+                    <a class="navbar-brand absolute" href="/index">
+                        <i class="fas fa-hands-helping"></i> Volunteers in Action</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -15,18 +16,13 @@
                     <div class="collapse navbar-collapse navbar-light" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto absolute-right">
                             <li class="nav-item">
-                                <a class="nav-link active" href="/index">Home</a>
+                                <a class="nav-link active" href="/index">
+                                    <i class="fas fa-home"></i> Home</a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/events">View Events</a>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link" href="/events/map">View Events Map</a>
-                                </li>
-
-                           
-
                             <%if(!currentUser){%>
                                 <!-- Added a logic to show login and sign up when a user is not logged in  -->
                                 <li class="nav-item">
@@ -34,17 +30,17 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/signup">Sign Up</a>
+                                    <a class="nav-link" href="/signup">Create Account</a>
 
                                     <% }else{%>
                                         <!-- logic to show create event, logout and username when a user is logged in  -->
-
                                         <li class="nav-item">
                                             <a class="nav-link" href="/events/new">Create Event</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Welcome
-                                                <%=currentUser.username%>
+                                            <a class="nav-link" href="/user/<%=currentUser.id%>">
+                                                <i class="fas fa-user"></i>
+                                                <%=currentUser.first_name%>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -53,11 +49,42 @@
                                         <%}%>
                         </ul>
                     </div>
-                </div>
-            </nav>
-        </header>
+                </nav>
 
+            </div>
+        </header>
     </div>
     <!-- END header -->
-
     <div id="main">
+        <div class="Container">
+            <div class="messageDiv">
+                <% if (error && error.length > 0){%>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>
+                            <%= error %>!</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <% }; %>
+                        <% if (success && success.length > 0){%>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>
+                                    <%= success %>!</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <% }; %>
+                                <% if (info && info.length > 0){%>
+                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                        <strong>
+                                            <%= info %>!</strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <% }; %>
+            </div>
+        </div>

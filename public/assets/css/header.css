@@ -1,3 +1,7 @@
+header {
+  background-color: rgb(22, 22, 22);
+}
+
 header .navbar-collapse {
   position: relative;
 }
@@ -19,6 +23,15 @@ header .navbar .container {
 header .navbar .navbar-nav.absolute-right {
   position: absolute;
   right: 0;
+}
+
+@media (max-width: 740.00) {
+  .navbar-brand {
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;   
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -78,6 +91,35 @@ header .navbar .dropdown-menu:before {
 
 .navbar-toggler {
   border-color: #fff !important;
+  opacity: 0.9;
+}
+
+header, footer {
+  position: absolute;
+  width: 100%;
+}
+
+.navbar {
+  z-index: 1;
+  opacity: 0.9;
+}
+
+header .navbar-brand, footer .footer-about {
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-weight: 400;
+  color: rgb(221, 221, 221) !important;
+}
+
+.nav-item {
+  text-align: right;
+}
+
+@media (max-width: 465.00px) {
+  .nav-item {
+    text-align: center;
+    z-index: 20;
+  }
 }
 
 @media (max-width: 1199.98px) {
@@ -113,4 +155,9 @@ header .navbar.navbar-light .nav-link {
 
 header .navbar.navbar-light .nav-link.active {
   color: #fff;
+}
+
+/* Error/success messages in the header */
+.alert{
+  font-weight: bolder;
 }
