@@ -222,6 +222,11 @@ header .navbar-brand, footer .footer-about {
   margin: auto;
 }
 
+.abcRioButton {
+  margin-bottom: 15px;
+  width: initial !important;
+}
+
 /*buttons*/
 .btn-primary {
 	width: 100px;
