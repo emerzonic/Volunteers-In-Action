@@ -43,5 +43,8 @@
     "sequelize": "^4.38.0",
     "sessions": "0.0.2-7",
     "xoauth2": "^1.2.0"
+  },
+  "engines": {
+    "node":"v9.3.0"
   }
 }
