@@ -179,7 +179,7 @@ router.get('/events/passed/events', function (req, res) {
             });
         } else {
             req.flash("info", "There are no past events");
-            res.redcirect('/index');
+            res.redirect('/index');
         }
     });
 });
