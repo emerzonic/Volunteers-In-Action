@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "css-compile && server.js",
+    "start": "node css-compile && nodemon server.js",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/custom.scss public/assets/css/lib/bootstrap.css"
   },
   "repository": {
