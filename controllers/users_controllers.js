@@ -26,7 +26,7 @@ router.post("/signup", function (req, res, next) {
         } else {
           req.flash(
             "success",
-            "Welcome to Volunteers In Actions, " + user.first_name
+            "Welcome to Volunteers In Action, " + user.first_name
           );
           res.redirect("/events");
         }
