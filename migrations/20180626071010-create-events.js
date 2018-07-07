@@ -11,7 +11,7 @@ module.exports = {
       event_name: {
         type: Sequelize.STRING
       },
-      location: {
+      fullAddress: {
         type: Sequelize.STRING
       },
       date: {
