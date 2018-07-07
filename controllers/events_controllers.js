@@ -53,9 +53,18 @@ router.post('/events', function (req, res) {
             req.flash("error", "Something went wrong. Please try again");
             return res.redirect('back');
         }
+        if (req.body.start_time >= req.body.end_time) {
+            req.flash("error", "Event end time can not be less than the start time");
+            return res.redirect('back');
+        }
+        if (new Date(req.body.date) < new Date()) {
+            req.flash("error", "Event date can not be a past date");
+            return res.redirect('back');
+        }
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var address = data[0].formattedAddress;
+        console.log()
         db.Event.create({
             event_name: req.body.event_name,
             fullAddress: address,
@@ -152,7 +161,7 @@ router.delete('/events/:id', middleware.checkEventOwnership, function (req, res)
     });
 });
 //===================================================================================
-// PAST EVENTS ROUTES WILL GO HERE
+// PAST EVENTS ROUTES 
 //===================================================================================
 router.get('/events/passed/events', function (req, res) {
     // res.send('passed');
@@ -165,7 +174,7 @@ router.get('/events/passed/events', function (req, res) {
         }
     }).then(events => {
         if (events && events.length > 0) {
-            res.render("events/events", {
+            res.render("events/passed-events", {
                 events: events
             });
         } else {
@@ -184,31 +193,6 @@ router.get("/events/passed-events/:id", function (req, res) {
         });
     });
 });
-
-//show edit form route for one passed event
-// router.get('/passed-events/:id/edit', function (req, res) {
-//     var eventId = req.params.id;
-//     db.Event.findById(eventId).then(function (event) {
-//         res.render("passed-events/edit", {
-//             event: event
-//         });
-//     });
-// });
-
-
-//put route to add images to passed event
-router.put('/events/:id', function (req, res) {
-    db.Event.update({
-        images
-    }, {
-        where: {
-            id: req.params.id
-        }
-    }).then(function (updateEevent) {
-        res.redirect("/passed-events/" + req.params.id);
-    });
-});
-
 
 
 module.exports = router;
