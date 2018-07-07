@@ -27,6 +27,7 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
+//flash messages config
 app.use(flash());
 //PASSPORT CONFIG
 app.use(cookieParser());
@@ -53,12 +54,8 @@ app.use(index);
 app.use(users);
 app.use(events);
 app.use(volunteers);
-// app.use(mailer);
-
-
 
 // App PORT setting
-// process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8088;
 // Application server.
 db.sequelize.sync({}).then(function () {

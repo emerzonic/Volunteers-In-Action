@@ -21,7 +21,8 @@ var geocoder = NodeGeocoder(options);
 //==============================================
 router.get('/events', function (req, res) {
     db.Event.findAll({
-        order: sequelize.col('date') //ordering events by the closest date
+        order: sequelize.col('date'), //ordering events by the closest date
+        include: [db.Volunteer]
     }).then(function (events) {
         res.render("events/events", {
             events: events
@@ -44,10 +45,9 @@ router.post('/events', function (req, res) {
     var location = `${req.body.address1} ${req.body.city} ${req.body.state} ${req.body.zip}`;
     geocoder.geocode(location, function (err, data) {
         if (err || !data.length) {
-            req.flash("error","Something went wrong. Please try again.");
+            req.flash("error","Something went wrong. Please try again");
             return res.redirect('back');
         }
-        console.log(data);
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var address = data[0].formattedAddress;
@@ -70,15 +70,15 @@ router.post('/events', function (req, res) {
             status: false,
             UserId: req.user.dataValues.id
         }).then(function () {
-            req.flash('success','Event was successfully created!');
+            req.flash('success','Event was successfully created');
             res.redirect('/events');
         });
     });
 });
 
-//==============================================
-//Route to show an event details form
-//==============================================
+// ==============================================
+// Route to show an event details form
+// ==============================================
 router.get("/events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findOne({
@@ -106,7 +106,9 @@ router.get('/events/:id/edit', middleware.checkEventOwnership, function (req, re
 });
 
 
-//put route to update events
+//==============================================
+//Route to edit events
+//==============================================
 router.put('/events/:id', function (req, res) {
     db.Event.update({
         event_name: req.body.event_name,
@@ -120,14 +122,14 @@ router.put('/events/:id', function (req, res) {
         description: req.body.description,
         organizer: req.body.organizer, 
         contact: req.body.email,
-        volunteers_needed: req.body.volunteers,
+        volunteers_needed: req.body.volunteers_needed
     }, {
         where: {
             id: req.params.id
         }
     }).then(function (updateEevent) {
-        req.flash("success","Event successfully updated.");
-        res.redirect("/events/");
+        req.flash("success","Event successfully updated");
+        res.redirect("/events/"+req.params.id);
     });
 });
 
@@ -143,25 +145,22 @@ router.delete('/events/:id', middleware.checkEventOwnership, function (req, res)
 //===================================================================================
 // PAST EVENTS ROUTES WILL GO HERE
 //===================================================================================
-//==============================================
-//Past events routes
-//==============================================
-router.get('/events/passed-events', function (req, res) {
+router.get('/events/passed/events', function (req, res) {
+    // res.send('passed');
     db.Event.findAll({
         order: sequelize.col('date'), //ordering events by the closest date
         where: {
             date: {
-                [op.lt]: new Date(),
+                [op.lt]: new Date()
             },
         }
     }).then(events => {
         if(events && events.length > 0){
-        console.log(JSON.stringify(events));
         res.render("events/events", {
             events: events
         });
         }else{
-        req.flash("error","Something went wrong. Please try again.");
+        req.flash("info","There are no past events");
         res.redcirect('/index');
         }
     });
@@ -201,18 +200,6 @@ router.put('/events/:id', function (req, res) {
     });
 });
 
-
-
-//==============================================
-//Route to get all events on map
-//==============================================
-router.get('/events/map', function (req, res) {
-    db.Event.findAll({}).then(function (events) {
-        res.render("events/map", {
-            events: events
-        });
-    });
-});
 
 
 module.exports = router;
