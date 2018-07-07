@@ -22,6 +22,11 @@ var geocoder = NodeGeocoder(options);
 router.get('/events', function (req, res) {
     db.Event.findAll({
         order: sequelize.col('date'), //ordering events by the closest date
+        where: {
+            date: {
+                [op.gte]: new Date()
+            },
+        },
         include: [db.Volunteer]
     }).then(function (events) {
         res.render("events/events", {
@@ -45,7 +50,7 @@ router.post('/events', function (req, res) {
     var location = `${req.body.address1} ${req.body.city} ${req.body.state} ${req.body.zip}`;
     geocoder.geocode(location, function (err, data) {
         if (err || !data.length) {
-            req.flash("error","Something went wrong. Please try again");
+            req.flash("error", "Something went wrong. Please try again");
             return res.redirect('back');
         }
         var lat = data[0].latitude;
@@ -62,7 +67,7 @@ router.post('/events', function (req, res) {
             start_time: req.body.start_time,
             end_time: req.body.end_time,
             description: req.body.description,
-            organizer: req.body.organizer, 
+            organizer: req.body.organizer,
             contact: req.body.email,
             volunteers_needed: req.body.volunteers,
             lat: lat,
@@ -70,7 +75,7 @@ router.post('/events', function (req, res) {
             status: false,
             UserId: req.user.dataValues.id
         }).then(function () {
-            req.flash('success','Event was successfully created');
+            req.flash('success', 'Event was successfully created');
             res.redirect('/events');
         });
     });
@@ -120,7 +125,7 @@ router.put('/events/:id', function (req, res) {
         start_time: req.body.start_time,
         end_time: req.body.end_time,
         description: req.body.description,
-        organizer: req.body.organizer, 
+        organizer: req.body.organizer,
         contact: req.body.email,
         volunteers_needed: req.body.volunteers_needed
     }, {
@@ -128,8 +133,8 @@ router.put('/events/:id', function (req, res) {
             id: req.params.id
         }
     }).then(function (updateEevent) {
-        req.flash("success","Event successfully updated");
-        res.redirect("/events/"+req.params.id);
+        req.flash("success", "Event successfully updated");
+        res.redirect("/events/" + req.params.id);
     });
 });
 
@@ -138,7 +143,11 @@ router.put('/events/:id', function (req, res) {
 //==============================================
 router.delete('/events/:id', middleware.checkEventOwnership, function (req, res) {
     var eventId = req.params.id;
-    db.Event.destroy({where: {id: eventId}}).then(function (event) {
+    db.Event.destroy({
+        where: {
+            id: eventId
+        }
+    }).then(function (event) {
         res.redirect("/events");
     });
 });
@@ -155,13 +164,13 @@ router.get('/events/passed/events', function (req, res) {
             },
         }
     }).then(events => {
-        if(events && events.length > 0){
-        res.render("events/events", {
-            events: events
-        });
-        }else{
-        req.flash("info","There are no past events");
-        res.redcirect('/index');
+        if (events && events.length > 0) {
+            res.render("events/events", {
+                events: events
+            });
+        } else {
+            req.flash("info", "There are no past events");
+            res.redcirect('/index');
         }
     });
 });
