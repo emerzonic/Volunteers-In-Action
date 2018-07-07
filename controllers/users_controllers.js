@@ -63,7 +63,14 @@ router.get("/user/:id", middleware.isLoggedIn, function (req, res) {
       where: {
         UserId: req.params.id
       },
-      include: [db.Event]
+      include: [{
+        model: db.Event,
+        where: {
+          date: {
+            [op.gte]: new Date()
+          },
+        },
+      }]
     }).then(vol => {
       var signupEvents = [];
       vol.forEach(ele => {
@@ -77,7 +84,6 @@ router.get("/user/:id", middleware.isLoggedIn, function (req, res) {
         data: data
       });
     });
-
   });
 });
 
