@@ -1,27 +1,6 @@
 <% include ../partials/head %>
     <% include ../partials/header %>
 
-        <div class="container">
-            <div>
-                <% if (error && error.length > 0){%>
-                    <div class="alert alert-danger" role="alert">
-                        <%= error %>
-                    </div>
-                    <% }; %>
-                        <% if (success && success.length > 0){%>
-                            <div class="alert alert-success" role="alert">
-                                <%= success %>
-                            </div>
-                            <% }; %>
-                                <% if (info && info.length > 0){%>
-                                    <div class="alert alert-success" role="alert">
-                                        <%= info %>
-                                    </div>
-                                    <% }; %>
-            </div>
-            <br>
-            <br>
-            <!-- these can be replaced with margin or padding -->
             <div class="showContainer">
                 <div class="row">
                     <div class="col-lg-6">
@@ -96,18 +75,24 @@
                         </div>
 
                         <div>
-                            <a href='/events/<%= event.id %>/edit'>
-                                <button type="button" class="btn btn-warning">Edit Event
-                                </button>
-                            </a>
-                            <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
-                            <% if(event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
-                                <button type="button" class="btn btn-primary">Event is Full!</button>
-                                <%}else {%>
-                                    <a href='/events/<%= event.id %>/volunteers/new'>
-                                        <button type="button" class="btn btn-primary">Sign Up!
+                                <%if(new Date(event.date) >= new Date()){%>
+                                    <!-- only show edit for future events -->
+                                    <a href='/events/<%= event.id %>/edit'>
+                                        <button type="button" class="btn btn-warning">Edit Event
                                         </button>
                                     </a>
+                                    <%}%>
+                            <!-- We want to complete the numbers of signup up volunteers to the number of spaces -->
+                            <% if(event.Volunteers && event.Volunteers.length >= event.volunteers_needed){%>
+                                <h4>This Event is Full!</h>
+                                <%}else {%>
+                                    <%if(new Date(event.date) >= new Date()){%>
+                                        <!-- only show sign up for future events -->
+                                        <a href='/events/<%= event.id %>/volunteers/new'>
+                                            <button type="button" class="btn btn-primary">Sign Up!
+                                            </button>
+                                        </a>
+                                        <%}%>
                                     <% }%>
                         </div>
                     </div>
@@ -166,39 +151,5 @@
                     });
                 }
             </script>
-            <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIq_BW7gCEL8VfUNdil7OLZHGAWPUjtU&libraries=places"></script> -->
-
-
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIq_BW7gCEL8VfUNdil7OLZHGAWPUjtU&callback=initMap">
             </script>
-            <!-- <script>
-                    // This example requires the Places library. Include the libraries=places
-                    // parameter when you first load the API. For example:
-              
-                    function initMap() {
-                      var map = new google.maps.Map(document.getElementById('map'), {
-                        center: {lat: -33.866, lng: 151.196},
-                        zoom: 15
-                      });
-              
-                      var infowindow = new google.maps.InfoWindow();
-                      var service = new google.maps.places.PlacesService(map);
-              
-                      service.getDetails({
-                        placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
-                      }, function(place, status) {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                          var marker = new google.maps.Marker({
-                            map: map,
-                            position: place.geometry.location
-                          });
-                          google.maps.event.addListener(marker, 'click', function() {
-                            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                              'Place ID: ' + place.place_id + '<br>' +
-                              place.formatted_address + '</div>');
-                            infowindow.open(map, this);
-                          });
-                        }
-                      });
-                    }
-                  </script> -->

@@ -1,68 +1,44 @@
-<% include ../partials/header %>
-<%=events%>
-    <div class="container">
-            <div class="container">
-                    <% if (error && error.length > 0){%>
-                         <div class="alert alert-danger" role="alert"><%= error %></div>
-                     <% }; %>
-                     <% if (success && success.length > 0){%>
-                         <div class="alert alert-success" role="alert"><%= success %></div>
-                     <% }; %>
-                     <% if (info && info.length > 0){%>
-                        <div class="alert alert-success" role="alert"><%= info %></div>
-                    <% }; %>
-                 </div>
-        <div class="jumbotron mt-5">
-            <h1>Volunteer Opportunities Around You</h1>
-            <p class="lead">Check out available Events around you!</p>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <%events.forEach(function(event){%>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                            <div class="card">
-                                <img class="card-img-top" src="..." alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        Event:
-                                        <%= event.event_name %>
-                                    </h5>
-                                    <p class="location">
-                                        Location:
-                                        <%= event.location %>
-                                    </p>
-                                    <p class="date">
-                                        Date:
-                                        <%= event.date %>
-                                    </p>
-                                    <p class="time">
-                                        Time:
-                                        <%= event.start_time %>
-                                    </p>
-                                    <p class="time">
-                                        Time:
-                                        <%= event.end_time %>
-                                    </p>
-                                    <p class="organizer">
-                                        Orazanizer:
-                                        <%= event.organizer %>
-                                    </p>
-                                    <p class="organizer">
-                                        Contact:
-                                        <%= event.contact%>
-                                    </p>
-                                    <p class="details">
-                                        Info:
-                                        <%= event.description %>
-                                    </p>
-                                    <a href="/events/<%=event.id %>">See Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <%})%>
+<% include ../partials/head %>
+    <% include ../partials/header %>
+
+        <div class="container">
+            <div class="row row-jumbotron">
+                <div class="jumbotron jumbotron-events bg-dark col-12">
+                    <h1>Volunteer Opportunities</h1>
+                    <p class="lead">Check out available events around you!</p>
                 </div>
             </div>
         </div>
+        <div class="container-events">
+            <div class="row-12">
+                <div class="col-lg-12">
+                    <div class="row row-eventCard">
+                        <%events.forEach(function(event){%>
+                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                <div class="card" id="card-event">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= event.event_name %>
+                                        </h5>
+                                        <p class="location">
+                                            <i class="fas fa-address-card"></i>
+                                            <%= event.fullAddress %>
+                                        </p>
+                                        <p class="date">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <%= event.date.toDateString() %>
+                                        </p>
+                                        <!-- Button trigger modal -->
+                                        <a class="eventBtn" href="/events/<%=event.id%>">
+                                            <button type="button" class="btn btn-primary">More Info</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <%})%>
+                    </div>
+                </div>
+            </div>
+        </div>
         <% include ../partials/footer %>
