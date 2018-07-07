@@ -26,5 +26,5 @@ Once the page is loaded, the student is able to 'create' an event or 'find' an e
 ## University of Minnesota Coding Bootcamp, Spring 2018
 
 ### We are Online:
-See the project running on Heroku.
-[Volunteers In Action](https://secure-garden-12181.herokuapp.com/index/)
+See the project running on Heroku
+[www.volunteersinaction.com](https://secure-garden-12181.herokuapp.com/index/)
