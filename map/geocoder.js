@@ -24,6 +24,10 @@ var geocodeAddress = function (req, res, cb) {
             req.flash("error", "Event date can not be a past date");
             return res.redirect('back');
         }
+        if (req.body.volunteers_needed < 1 ){
+            req.flash("error", "Volunteer needed can not be zero");
+            return res.redirect('back');
+        }
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var address = data[0].formattedAddress;
