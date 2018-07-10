@@ -3,17 +3,8 @@ var db = require('../models');
 var router = express.Router();
 var middleware = require("../middleware");
 var sequelize = require('sequelize');
-var op = sequelize.Op;
-var NodeGeocoder = require('node-geocoder');
-
-var options = {
-    provider: "google",
-    httpAdapter: 'https',
-    apiKey: process.env.GEOCODER_API_KEY,
-    formatter: null
-};
-
-var geocoder = NodeGeocoder(options);
+var Op = sequelize.Op;
+var geocodeAddress = require('../map/geocoder');
 
 
 //==============================================
@@ -24,7 +15,7 @@ router.get('/events', function (req, res) {
         order: sequelize.col('date'), //ordering events by the closest date
         where: {
             date: {
-                [op.gte]: new Date()
+                [Op.gte]: new Date()
             },
         },
         include: [db.Volunteer]
@@ -47,27 +38,10 @@ router.get('/events/new', middleware.isLoggedIn, function (req, res) {
 //Route to create a new event
 //==============================================
 router.post('/events', function (req, res) {
-    var location = `${req.body.address1} ${req.body.city} ${req.body.state} ${req.body.zip}`;
-    geocoder.geocode(location, function (err, data) {
-        if (err || !data.length) {
-            req.flash("error", "Something went wrong. Please try again");
-            return res.redirect('back');
-        }
-        if (req.body.start_time >= req.body.end_time) {
-            req.flash("error", "Event end time can not be less than the start time");
-            return res.redirect('back');
-        }
-        if (new Date(req.body.date) < new Date()) {
-            req.flash("error", "Event date can not be a past date");
-            return res.redirect('back');
-        }
-        var lat = data[0].latitude;
-        var lng = data[0].longitude;
-        var address = data[0].formattedAddress;
-        console.log()
+    geocodeAddress(req, res, function (data) {
         db.Event.create({
             event_name: req.body.event_name,
-            fullAddress: address,
+            fullAddress: data.address,
             address1: req.body.address1,
             city: req.body.city,
             state: req.body.state,
@@ -78,9 +52,9 @@ router.post('/events', function (req, res) {
             description: req.body.description,
             organizer: req.body.organizer,
             contact: req.body.email,
-            volunteers_needed: req.body.volunteers,
-            lat: lat,
-            lng: lng,
+            volunteers_needed: req.body.volunteers_needed,
+            lat: data.lat,
+            lng: data.lng,
             status: false,
             UserId: req.user.dataValues.id
         }).then(function () {
@@ -124,26 +98,31 @@ router.get('/events/:id/edit', middleware.checkEventOwnership, function (req, re
 //Route to edit events
 //==============================================
 router.put('/events/:id', function (req, res) {
-    db.Event.update({
-        event_name: req.body.event_name,
-        address1: req.body.address1,
-        city: req.body.city,
-        state: req.body.state,
-        zip: req.body.zip,
-        date: req.body.date,
-        start_time: req.body.start_time,
-        end_time: req.body.end_time,
-        description: req.body.description,
-        organizer: req.body.organizer,
-        contact: req.body.email,
-        volunteers_needed: req.body.volunteers_needed
-    }, {
-        where: {
-            id: req.params.id
-        }
-    }).then(function (updateEevent) {
-        req.flash("success", "Event successfully updated");
-        res.redirect("/events/" + req.params.id);
+    geocodeAddress(req, res, function (data) {
+        db.Event.update({
+            event_name: req.body.event_name,
+            fullAddress: data.address,
+            address1: req.body.address1,
+            city: req.body.city,
+            state: req.body.state,
+            zip: req.body.zip,
+            date: req.body.date,
+            start_time: req.body.start_time,
+            end_time: req.body.end_time,
+            description: req.body.description,
+            organizer: req.body.organizer,
+            contact: req.body.email,
+            volunteers_needed: req.body.volunteers_needed,
+            lat: data.lat,
+            lng: data.lng,
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function (updateEevent) {
+            req.flash("success", "Event successfully updated");
+            res.redirect("/events/" + req.params.id);
+        });
     });
 });
 
@@ -160,16 +139,16 @@ router.delete('/events/:id', middleware.checkEventOwnership, function (req, res)
         res.redirect("/events");
     });
 });
+
 //===================================================================================
-// PAST EVENTS ROUTES 
+//Route to get passed events
 //===================================================================================
 router.get('/events/passed/events', function (req, res) {
-    // res.send('passed');
     db.Event.findAll({
         order: sequelize.col('date'), //ordering events by the closest date
         where: {
             date: {
-                [op.lt]: new Date()
+                [Op.lt]: new Date()
             },
         }
     }).then(events => {
@@ -179,12 +158,15 @@ router.get('/events/passed/events', function (req, res) {
             });
         } else {
             req.flash("info", "There are no past events");
-            res.redcirect('/index');
+            res.redirect('/index');
         }
     });
 });
 
 
+//===================================================================================
+//Route to get detail for a passed event
+//===================================================================================
 router.get("/events/passed-events/:id", function (req, res) {
     var eventId = req.params.id;
     db.Event.findById(eventId).then(function (event) {

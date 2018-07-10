@@ -1,18 +1,21 @@
 <% include ../partials/head %>
     <% include ../partials/header %>
 
-            <form id="msform" action="/signup" method="POST">
-                <!-- fieldsets -->
-                <fieldset>
-                    <h1 class="signUpHeader">Sign Up</h1>
-                    <hr>
-                    <input type="text" name="first_name" placeholder="First Name">
-                    <input type="text" name="last_name" placeholder="Last Name">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="password" name="password" placeholder="Password">
-                    <input type="submit" name="submit" class="next action-button" value="Submit" />
-                </fieldset>
-            </form>
+        <form id="msform" action="/signup" method="POST">
+            <!-- fieldsets -->
+            <fieldset>
+                <h1 class="signUpHeader">Sign Up</h1>
+                <hr>
 
-            <% include ../partials/footer %>
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+                <input type="text" name="first_name" placeholder="First Name">
+                <input type="text" name="last_name" placeholder="Last Name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" name="submit" class="next action-button" value="Submit" />
+            </fieldset>
+        </form>
+
+        <% include ../partials/footer %>

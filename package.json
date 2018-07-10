@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run css-compile && nodemon server.js",
+    "start": "npm run css-compile & node server.js",
+    "eric": "npm run css-compile & NODE_ENV=docker node server.js",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/custom.scss public/assets/css/lib/bootstrap.css"
   },
   "repository": {
@@ -35,6 +36,7 @@
     "node-geocoder": "^3.22.0",
     "node-sass": "^4.9.0",
     "nodemailer": "^4.6.7",
+    "nodemon": "^1.17.5",
     "npm": "^6.1.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
@@ -43,5 +45,8 @@
     "sequelize": "^4.38.0",
     "sessions": "0.0.2-7",
     "xoauth2": "^1.2.0"
+  },
+  "engines": {
+    "node":"9.3.0"
   }
 }
