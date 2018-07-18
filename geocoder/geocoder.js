@@ -1,5 +1,5 @@
 var NodeGeocoder = require('node-geocoder');
-
+// google map configuration
 var options = {
     provider: "google",
     httpAdapter: 'https',
