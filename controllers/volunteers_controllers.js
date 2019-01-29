@@ -3,7 +3,6 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var mailer = require('../mailer/email');
 var middleware = require("../middleware");
 
 //config
