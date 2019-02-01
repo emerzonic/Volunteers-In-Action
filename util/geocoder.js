@@ -1,4 +1,6 @@
 var NodeGeocoder = require('node-geocoder');
+var validateUserInput = require('./validator');
+
 // google map configuration dependency
 var options = {
     provider: "google",
@@ -8,12 +10,23 @@ var options = {
 };
 
 var geocoder = NodeGeocoder(options);
-
 var geocodeAddress = function (req, res, cb) {
     var location = `${req.body.address1} ${req.body.city} ${req.body.state} ${req.body.zip}`;
     geocoder.geocode(location, function (err, data) {
         if (err || !data.length) {
             req.flash("error", "Something went wrong. Please try again");
+            return res.redirect('back');
+        }
+        if (req.body.start_time >= req.body.end_time) {
+            req.flash("error", "Event end time can not be less than the start time");
+            return res.redirect('back');
+        }
+        if (new Date(req.body.date) < new Date()) {
+            req.flash("error", "Event date can not be a past date");
+            return res.redirect('back');
+        }
+        if (req.body.volunteers_needed < 1 ){
+            req.flash("error", "Volunteer needed can not be zero");
             return res.redirect('back');
         }
         var lat = data[0].latitude;

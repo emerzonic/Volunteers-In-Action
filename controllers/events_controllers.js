@@ -39,7 +39,6 @@ router.get('/events/new', middleware.isLoggedIn, function (req, res) {
 //Route to create a new event
 //==============================================
 router.post('/events', function (req, res) {
-    validateUserInput(req, res);
     geocodeAddress(req, res, function (data) {
         db.Event.create({
             event_name: req.body.event_name,
