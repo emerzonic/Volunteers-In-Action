@@ -1,5 +1,4 @@
 var NodeGeocoder = require('node-geocoder');
-var validateUserInput = require('./validator');
 
 // google map configuration dependency
 var options = {
@@ -19,16 +18,20 @@ var geocodeAddress = function (req, res, cb) {
         }
         if (req.body.start_time >= req.body.end_time) {
             req.flash("error", "Event end time can not be less than the start time");
-            return res.redirect('back');
+            res.redirect('back');
+            return;
         }
         if (new Date(req.body.date) < new Date()) {
             req.flash("error", "Event date can not be a past date");
-            return res.redirect('back');
+            res.redirect('back');
+            return;
         }
-        if (req.body.volunteers_needed < 1 ){
+        if (req.body.volunteers_needed < 1) {
             req.flash("error", "Volunteer needed can not be zero");
-            return res.redirect('back');
+            res.redirect('back');
+            return;
         }
+        
         var lat = data[0].latitude;
         var lng = data[0].longitude;
         var address = data[0].formattedAddress;

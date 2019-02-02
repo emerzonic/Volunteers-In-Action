@@ -5,7 +5,6 @@ var middleware = require("../middleware");
 var sequelize = require('sequelize');
 var Op = sequelize.Op;
 var geocodeAddress = require('../util/geocoder');
-var validateUserInput = require('../util/validator');
 
 
 //==============================================
