@@ -28,38 +28,35 @@ passport.use('local-signup', new LocalStrategy({
         passReqToCallback: true
     },
     function (req, username, password, done) {
-        console.log(req.body.email),
-            db.User.findOne({
-                where: {
-                    [Op.or]: [{
-                        email: req.body.email
-                    }, {
-                        username: username
-                    }]
-                }
-            }).then((user, err) => {
-                if (err) {
-                    console.log(err);
-                    return done(null, false);
-                }
-                if (user) {
-                    return done(null, false);
-                }
-                if (!user) {
-                    db.User.create({
-                        first_name: req.body.first_name,
-                        last_name: req.body.last_name,
-                        email: req.body.email,
-                        username: req.body.username,
-                        password: req.body.password
-                    }).then(function (user) {
-                        return done(null, user.get());
-                    }).catch(function (err) {
-                        console.log(err, req.body);
-                        return done(null, err);
-                    });
-                }
-            });
+        db.User.findOne({
+            where: {
+                [Op.or]: [{
+                    email: req.body.email
+                }, {
+                    username: username
+                }]
+            }
+        }).then((user, err) => {
+            if (err) {
+                return done(null, false);
+            }
+            if (user) {
+                return done(null, false);
+            }
+            if (!user) {
+                db.User.create({
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    email: req.body.email,
+                    username: req.body.username,
+                    password: req.body.password
+                }).then(function (user) {
+                    return done(null, user.get());
+                }).catch(function (err) {
+                    return done(null, err);
+                });
+            }
+        });
     }));
 
 
@@ -71,7 +68,6 @@ passport.use('local-login', new LocalStrategy(
             }
         }).then((user, err) => {
             if (err) {
-                console.log(err);
                 return done(null, false, {
                     message: 'Something went wrong. Please try again.'
                 });
