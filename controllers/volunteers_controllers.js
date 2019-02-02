@@ -3,7 +3,6 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var mailer = require('../mailer/email');
 var middleware = require("../middleware");
 
 //config
@@ -29,7 +28,6 @@ router.get('/events/:id/volunteers/new', middleware.isLoggedIn, function (req, r
 
 //post route to sign up volunteers
 router.post('/events/:id/volunteers', function (req, res) {
-
     var info = req.body;
     if(info.first_name && info.last_name && info.age && info.contact){
     db.Volunteer.create({
@@ -40,7 +38,6 @@ router.post('/events/:id/volunteers', function (req, res) {
             EventId: req.params.id,
             UserId: req.user.dataValues.id
         }).then(function (data) {
-            // mailer.transporter,
             req.flash("success","Congratulations! You are successfully signed up.");
             res.redirect('/events/');
         });
@@ -58,35 +55,6 @@ router.get('/users/:id/volunteers/new', function (req, res) {
         });
     });
 });
-
-
-
-//event edit form route
-// router.get('/events/:id/volunteer/edit', function (req, res) {
-//     var eventId = req.params.id;
-//     db.Event.findById(eventId).then(function (event) {
-//         res.render("events/edit", {
-//             event: event
-//         });
-//     });
-// });
-
-
-// //put route to update volunteer info
-// router.put('/events/:id/volunteers', function (req, res) {
-//     db.Volunteer.update({
-        
-//     }, {
-//         where: {
-//             id: req.params.id
-//         }
-//     }).then(function (updateVolunteer) {
-//         res.redirect("/events/" + req.params.id);
-//     });
-// });
-
-
-
 
 
 module.exports = router;

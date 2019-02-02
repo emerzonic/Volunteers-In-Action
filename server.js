@@ -12,7 +12,6 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passportConfig = require('./config/passportConfig');
 var middleware = require('./middleware/index');
-var mailer = require('./mailer/email');
 var db = require("./models");
 var flash = require('connect-flash');
 var app = express();

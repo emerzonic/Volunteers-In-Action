@@ -4,7 +4,7 @@ var router = express.Router();
 var middleware = require("../middleware");
 var sequelize = require('sequelize');
 var Op = sequelize.Op;
-var geocodeAddress = require('../geocoder/geocoder');
+var geocodeAddress = require('../util/geocoder');
 
 
 //==============================================
